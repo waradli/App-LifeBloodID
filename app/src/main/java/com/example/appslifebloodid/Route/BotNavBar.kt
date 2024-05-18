@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -68,10 +69,12 @@ fun BottomBar(
     val currentDestination = navBackStackEntry?.destination
     Row(
         modifier = Modifier
-            .padding(horizontal = 16.dp, vertical = 8.dp)
+            .padding(horizontal = 10.dp, vertical = 30.dp,)
             .background(Color(0xFFE35A5A), shape = RoundedCornerShape(50))
-            .height(55.dp)
+            .height(58.dp)
             .fillMaxWidth(),
+
+
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -96,14 +99,14 @@ fun RowScope.AddItem(
     val contentColor = if (selected) Color(0xFFb20909) else Color(
         0xffFFF6F6
     )
-    val backgorund = if (selected) Color(
+    val background = if (selected) Color(
         0xffFFF6F6
     ).copy(alpha = 1f) else Color.Transparent
     Box(
         modifier = Modifier
             .height(45.dp)
-            .padding(horizontal = 10.dp)
-            .background(backgorund, shape = RoundedCornerShape(50))
+            .padding(horizontal = 8.dp)
+            .background(background, shape = RoundedCornerShape(50))
             .clickable(onClick = {
                 navController.navigate(Screens.route) {
                     popUpTo(navController.graph.findStartDestination().id)
@@ -127,7 +130,7 @@ fun RowScope.AddItem(
                 Text(
                     text = Screens.title, style = TextStyle(
                         fontSize = 12.sp,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.SemiBold
                     ), color = contentColor
                 )
             }

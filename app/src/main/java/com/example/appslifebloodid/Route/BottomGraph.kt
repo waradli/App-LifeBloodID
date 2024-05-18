@@ -5,10 +5,10 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.cobaa.projectmassive.Screen.AboutScreen
-import com.cobaa.projectmassive.Screen.EventScreen
-import com.cobaa.projectmassive.Screen.HomeScreen
-import com.cobaa.projectmassive.Screen.RiwayatScreen
+import com.example.appslifebloodid.Page.AboutScreen
+import com.example.appslifebloodid.Page.EventScreen
+import com.example.appslifebloodid.Page.HomeScreen
+import com.example.appslifebloodid.Page.RiwayatScreen
 
 @Composable
 fun BottomGraph(

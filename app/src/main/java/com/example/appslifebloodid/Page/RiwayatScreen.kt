@@ -1,4 +1,4 @@
-package com.cobaa.projectmassive.Screen
+package com.example.appslifebloodid.Page
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize

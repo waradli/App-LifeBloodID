@@ -1,4 +1,4 @@
-package com.example.appslifebloodid
+package com.example.appslifebloodid.Screen
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
@@ -16,6 +16,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.example.appslifebloodid.R
 
 @Composable
 fun SplashScreen(modifier: Modifier = Modifier) {

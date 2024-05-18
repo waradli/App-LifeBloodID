@@ -11,32 +11,32 @@ sealed class RouteBotNav(
 ) {
     // Route Home
     object Home : RouteBotNav(
-        route = "home",
-        title = "home",
+        route = "Home",
+        title = "Home",
         icon = R.drawable.baseline_home_24,
         focused = R.drawable.baseline_home_focus24
     )
 
     // Route Riwayat
     object Riwayat : RouteBotNav(
-        route = "riwayat",
-        title = "riwayat",
+        route = "Riwayat",
+        title = "Riwayat",
         icon = R.drawable.baseline_history_edu_24,
         focused = R.drawable.baseline_history_edu_focus24
     )
 
     // Route Event
     object Event : RouteBotNav(
-        route = "event",
-        title = "event",
+        route = "Event",
+        title = "Event",
         icon = R.drawable.baseline_event_available_24,
         focused = R.drawable.baseline_event_available_focus24
     )
 
     // Route About
     object About : RouteBotNav(
-        route = "about",
-        title = "about",
+        route = "About",
+        title = "About",
         icon = R.drawable.baseline_info_outline_24,
         focused = R.drawable.baseline_info_outline_focus24
     )
