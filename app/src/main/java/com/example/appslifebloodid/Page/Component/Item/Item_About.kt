@@ -1,16 +1,14 @@
 package com.example.appslifebloodid.Page.Component.Item
 
-import android.graphics.drawable.Icon
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowRight
@@ -19,7 +17,6 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -32,14 +29,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
-import com.example.appslifebloodid.Page.Component.NavigateScreen.TentangAplikasi
 
 
 @Composable
 fun Item_About(
+
     modifier: Modifier = Modifier,
-
-
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -69,9 +64,10 @@ fun Item_About(
                         modifier = Modifier.padding(start = 15.dp, top = 10.dp)
                     )
                     IconButton(
-                        onClick = { },
+                        onClick = {
 
-                        ) {
+                        },
+                    ) {
                         Icon(
                             imageVector = Icons.Default.KeyboardArrowRight,
                             contentDescription = "Icon Arrow"

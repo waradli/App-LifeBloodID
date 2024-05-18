@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.appslifebloodid.Page.AboutScreen
+import com.example.appslifebloodid.Page.Component.NavigateScreen.TentangAplikasi
 import com.example.appslifebloodid.Page.EventScreen
 import com.example.appslifebloodid.Page.HomeScreen
 import com.example.appslifebloodid.Page.RiwayatScreen
@@ -27,6 +28,11 @@ fun BottomGraph(
         }
         composable(route = RouteBotNav.About.route) {
             AboutScreen()
+        }
+
+        // New Screen About
+        composable(route = "Tentang Aplikasi"){
+            TentangAplikasi()
         }
     }
 }

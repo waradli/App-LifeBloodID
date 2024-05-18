@@ -17,12 +17,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.example.appslifebloodid.Page.Component.Item.Item_About
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AboutScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Scaffold(
         modifier = Modifier.fillMaxWidth(),
@@ -55,9 +57,12 @@ fun AboutScreen(
                 .fillMaxSize()
                 .padding(PaddingValues)
         ) {
-            items(1) { index ->
+            item {
                 Item_About()
             }
         }
     }
 }
+
+
+
