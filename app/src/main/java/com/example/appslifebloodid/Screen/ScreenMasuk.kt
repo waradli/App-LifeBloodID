@@ -30,13 +30,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.appslifebloodid.R
 
 @Composable
-fun ScreenMasuk(
-    modifier: Modifier = Modifier,
-
-) {
+fun ScreenMasuk(navController: NavController, modifier: Modifier = Modifier) {
     Box (
         modifier = Modifier
             .fillMaxSize()
@@ -82,7 +80,7 @@ fun ScreenMasuk(
             }
             Spacer(modifier = Modifier.height(15.dp))
 
-            Button(onClick = { /*TODO*/ },
+            Button(onClick = { navController.navigate("home") },
                 modifier = Modifier
                     .width(330.dp)
                     .height(50.dp),

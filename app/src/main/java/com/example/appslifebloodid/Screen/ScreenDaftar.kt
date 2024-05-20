@@ -31,10 +31,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.appslifebloodid.R
 
 @Composable
-fun ScreenDaftar(modifier: Modifier = Modifier) {
+fun ScreenDaftar(navController: NavController, modifier: Modifier = Modifier) {
     Box (
         modifier = Modifier
             .fillMaxSize()
@@ -89,7 +90,7 @@ fun ScreenDaftar(modifier: Modifier = Modifier) {
                 Text(text = "Dengan mendaftar, kamu telah menyetujui Ketentuan Pemakaian dan Pengaturan Privasi yang ada di LifeBloodID ", fontSize = 13.sp)
             }
             Spacer(modifier = Modifier.height(15.dp))
-            Button(onClick = { /*TODO*/ },
+            Button(onClick = { navController.navigate("masuk") },
                 modifier = Modifier
                     .width(330.dp)
                     .height(50.dp),

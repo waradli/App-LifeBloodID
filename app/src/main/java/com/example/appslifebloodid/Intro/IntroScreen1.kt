@@ -29,7 +29,7 @@ fun IntroScreen1(modifier: Modifier = Modifier) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
-                painter = painterResource(id = R.drawable.imgint1),
+                painter = painterResource(id = R.drawable.intro1),
                 contentDescription = "jpg intro1",
                 modifier = Modifier
                     .width(200.dp)

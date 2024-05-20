@@ -1,5 +1,11 @@
 package com.example.appslifebloodid.Screen
 
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.content.res.Configuration
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
@@ -15,11 +21,35 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.appslifebloodid.MainActivity
 import com.example.appslifebloodid.R
+import com.example.appslifebloodid.ui.theme.AppsLifeBloodIDTheme
+
+@SuppressLint("CustomSplashScreen")
+class SplashScreen : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            AppsLifeBloodIDTheme {
+                SplashScreenContent()
+            }
+        }
+        navigateToMainActivityAfterDelay()
+    }
+
+    private fun navigateToMainActivityAfterDelay() {
+        val delayMillis = 2000L
+        window.decorView.postDelayed({
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }, delayMillis)
+    }
+}
 
 @Composable
-fun SplashScreen(modifier: Modifier = Modifier) {
+fun SplashScreenContent() {
     val gerak = remember {
         Animatable(0f)
     }
@@ -30,7 +60,7 @@ fun SplashScreen(modifier: Modifier = Modifier) {
         )
     }
     Box(
-        modifier = Modifier.fillMaxSize().background(Color(0xFFF6F6)),
+        modifier = Modifier.fillMaxSize().background(Color(0xFFFFF6F6)),
         contentAlignment = Alignment.Center
     ) {
         Box(
@@ -39,11 +69,20 @@ fun SplashScreen(modifier: Modifier = Modifier) {
                 .background(Color.White)
         )
         Image(
-            modifier = Modifier.alpha(gerak.value)
+            modifier = Modifier
+                .alpha(gerak.value)
                 .size(350.dp),
             painter = painterResource(id = R.drawable.logo),
             contentDescription = null
         )
     }
+}
 
+@Preview(showBackground = true)
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
+@Composable
+fun PreviewSplashScreen() {
+   AppsLifeBloodIDTheme {
+        SplashScreenContent()
+    }
 }

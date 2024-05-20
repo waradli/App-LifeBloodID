@@ -1,4 +1,4 @@
-package com.example.appslifebloodid
+package com.example.appslifebloodid.Intro
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -17,15 +17,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.fontResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import com.example.appslifebloodid.R
 
 @Composable
-fun IntroLogin(modifier: Modifier = Modifier) {
+fun LoginScreen(navController: NavController, modifier: Modifier = Modifier) {
     Box (
         modifier = Modifier.fillMaxSize().background(Color(0xFFF6F6))
     ){
@@ -42,7 +42,7 @@ fun IntroLogin(modifier: Modifier = Modifier) {
                     " kesehatan Darah Anda untuk mendapatkan\n" +
                     "              kehidupan yang lebih baik?")
             Spacer(modifier = Modifier.height(15.dp))
-            Button(onClick = {  },
+            Button(onClick = { navController.navigate("masuk") },
                     modifier = Modifier
                     .width(320.dp)
                 .height(50.dp),
@@ -54,7 +54,7 @@ fun IntroLogin(modifier: Modifier = Modifier) {
             Spacer(modifier = Modifier.height(15.dp))
             Text(text = "atau")
             Spacer(modifier = Modifier.height(10.dp))
-            Button(onClick = { /*TODO*/ },
+            Button(onClick = { navController.navigate("daftar") },
                 modifier = Modifier
                     .width(320.dp)
                     .height(50.dp),
