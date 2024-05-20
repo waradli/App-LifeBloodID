@@ -18,12 +18,12 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.navigation.NavHostController
 import com.example.appslifebloodid.Page.Component.Item.Item_About
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AboutScreen(
+    navController: NavController,
     modifier: Modifier = Modifier,
 ) {
     Scaffold(
@@ -41,7 +41,7 @@ fun AboutScreen(
                         Text(
                             text = "About",
                             style = TextStyle(
-                                fontSize = 20.sp,
+                                fontSize = 16.sp,
                                 color = Color.White,
                                 fontWeight = FontWeight.SemiBold,
                             ),
@@ -58,7 +58,9 @@ fun AboutScreen(
                 .padding(PaddingValues)
         ) {
             item {
-                Item_About()
+                Item_About(
+                    navController = navController
+                )
             }
         }
     }

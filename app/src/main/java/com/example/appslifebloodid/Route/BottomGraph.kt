@@ -6,6 +6,10 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.appslifebloodid.Page.AboutScreen
+import com.example.appslifebloodid.Page.Component.NavigateScreen.KebijakanPrivasi
+import com.example.appslifebloodid.Page.Component.NavigateScreen.KetentuanPengguna
+import com.example.appslifebloodid.Page.Component.NavigateScreen.Pertanyaan
+import com.example.appslifebloodid.Page.Component.NavigateScreen.PusatBantuan
 import com.example.appslifebloodid.Page.Component.NavigateScreen.TentangAplikasi
 import com.example.appslifebloodid.Page.EventScreen
 import com.example.appslifebloodid.Page.HomeScreen
@@ -27,12 +31,24 @@ fun BottomGraph(
             EventScreen()
         }
         composable(route = RouteBotNav.About.route) {
-            AboutScreen()
+            AboutScreen(navController = navController)
         }
 
         // New Screen About
-        composable(route = "Tentang Aplikasi"){
-            TentangAplikasi()
+        composable(route = "TentangAplikasi"){
+            TentangAplikasi(navController = navController)
+        }
+        composable(route = "Kebijakan&Privasi"){
+            KebijakanPrivasi(navController = navController)
+        }
+        composable(route = "PusatBantuan"){
+            PusatBantuan(navController = navController)
+        }
+        composable(route = "KetentuanPengguna"){
+            KetentuanPengguna(navController = navController)
+        }
+        composable(route = "PertanyaanYangSeringDitanyakan"){
+            Pertanyaan(navController = navController)
         }
     }
 }

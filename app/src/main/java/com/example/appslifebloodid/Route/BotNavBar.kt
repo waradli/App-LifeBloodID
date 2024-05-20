@@ -43,8 +43,22 @@ fun BotNavBar(
     modifier: Modifier = Modifier
 ) {
     val navController = rememberNavController()
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentDestination = navBackStackEntry?.destination
+    val noBottomBarRoutes = listOf(
+        "TentangAplikasi",
+        "Kebijakan&Privasi",
+        "PusatBantuan",
+        "KetentuanPengguna",
+        "PertanyaanYangSeringDitanyakan"
+    )
+
     Scaffold(
-        bottomBar = { BottomBar(navController = navController) }
+        bottomBar = {
+            if (currentDestination?.route !in noBottomBarRoutes) {
+                BottomBar(navController = navController)
+            }
+        }
     ) { innerPadding ->
         BottomGraph(
             navController = navController,
@@ -67,9 +81,10 @@ fun BottomBar(
     )
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
+
     Row(
         modifier = Modifier
-            .padding(horizontal = 10.dp, vertical = 30.dp,)
+            .padding(horizontal = 10.dp, vertical = 30.dp)
             .background(Color(0xFFE35A5A), shape = RoundedCornerShape(50))
             .height(58.dp)
             .fillMaxWidth(),

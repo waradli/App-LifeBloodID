@@ -28,12 +28,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.navigation.NavHostController
 
 
 @Composable
 fun Item_About(
-
+    navController: NavController,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -46,8 +45,9 @@ fun Item_About(
                 .fillMaxWidth()
                 .shadow(
                     elevation = 2.dp,
-                )
-        ) {
+                ),
+
+            ) {
             Column {
                 Row(
                     horizontalArrangement = Arrangement.SpaceBetween,
@@ -65,7 +65,7 @@ fun Item_About(
                     )
                     IconButton(
                         onClick = {
-
+                            navController.navigate("TentangAplikasi")
                         },
                     ) {
                         Icon(
@@ -94,7 +94,7 @@ fun Item_About(
                         modifier = Modifier.padding(start = 15.dp, top = 10.dp)
                     )
                     IconButton(
-                        onClick = { /*TODO*/ },
+                        onClick = { navController.navigate("Kebijakan&Privasi") },
                     ) {
                         Icon(
                             imageVector = Icons.Default.KeyboardArrowRight,
@@ -122,7 +122,7 @@ fun Item_About(
                         modifier = Modifier.padding(start = 15.dp, top = 10.dp)
                     )
                     IconButton(
-                        onClick = { /*TODO*/ },
+                        onClick = { navController.navigate("PusatBantuan") },
                     ) {
                         Icon(
                             imageVector = Icons.Default.KeyboardArrowRight,
@@ -150,7 +150,7 @@ fun Item_About(
                         modifier = Modifier.padding(start = 15.dp, top = 10.dp)
                     )
                     IconButton(
-                        onClick = { /*TODO*/ },
+                        onClick = { navController.navigate("KetentuanPengguna") },
                     ) {
                         Icon(
                             imageVector = Icons.Default.KeyboardArrowRight,
@@ -178,7 +178,7 @@ fun Item_About(
                         modifier = Modifier.padding(start = 15.dp, top = 10.dp)
                     )
                     IconButton(
-                        onClick = { /*TODO*/ },
+                        onClick = { navController.navigate("PertanyaanYangSeringDitanyakan") },
                     ) {
                         Icon(
                             imageVector = Icons.Default.KeyboardArrowRight,
