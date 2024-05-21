@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun IntroScreen3(modifier: Modifier = Modifier) {
     Box (
-        modifier = Modifier.fillMaxSize().background(Color(0xFFF6F6))
+        modifier = Modifier.fillMaxSize().background(Color(0xFF1F1F1))
 
     ){
         Column(
