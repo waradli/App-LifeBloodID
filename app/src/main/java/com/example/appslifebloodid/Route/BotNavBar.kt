@@ -69,7 +69,7 @@ fun BottomBar(
     val currentDestination = navBackStackEntry?.destination
     Row(
         modifier = Modifier
-            .padding(horizontal = 10.dp, vertical = 30.dp,)
+            .padding(horizontal = 10.dp, vertical = 50.dp,)
             .background(Color(0xFFE35A5A), shape = RoundedCornerShape(50))
             .height(58.dp)
             .fillMaxWidth(),

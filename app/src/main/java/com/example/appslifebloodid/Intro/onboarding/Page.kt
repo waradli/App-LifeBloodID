@@ -14,7 +14,7 @@ val pages = listOf(
     Page(
         description = "Selamat datang di Lifeblood ID",
         image = R.drawable.intro1,
-        imageSizeFraction = 0.55f
+        imageSizeFraction = 0.30f
     ),
     Page(
         description = "Mulailah perjalanan kebaikanmu dengan satu tetes darah yang berarti bagi mereka yang membutuhkan.",
