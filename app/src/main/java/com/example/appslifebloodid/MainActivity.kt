@@ -12,10 +12,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.app_donor_darah.Route.BotNavBar
-import com.example.appslifebloodid.Intro.LoginScreen
-import com.example.appslifebloodid.Intro.onboarding.OnBoardingScreen
-import com.example.appslifebloodid.Screen.ScreenDaftar
-import com.example.appslifebloodid.Screen.ScreenMasuk
+import com.example.appslifebloodid.intro.LoginScreen
+import com.example.appslifebloodid.intro.onboarding.OnBoardingScreen
+import com.example.appslifebloodid.screen.ScreenDaftar
+import com.example.appslifebloodid.screen.ScreenMasuk
 import com.example.appslifebloodid.ui.theme.AppsLifeBloodIDTheme
 
 class MainActivity : ComponentActivity() {
