@@ -2,6 +2,7 @@ package com.example.appslifebloodid.page.component.item
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -217,7 +218,8 @@ fun Item_Home() {
                         contentDescription = null,
                         Modifier.padding(top = 8.dp, bottom = 4.dp)
                     )
-                    Text(text = "Reward",
+                    Text(
+                        text = "Reward",
                         fontStyle = FontStyle.Italic,
                         fontWeight = FontWeight.Bold,
                         fontSize = 11.sp,
@@ -226,5 +228,19 @@ fun Item_Home() {
                 }
             }
         }
+        Spacer(modifier = Modifier.height(20.dp))
+        Row (modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 25.dp),
+            horizontalArrangement = Arrangement.Start){
+            Text(text = "Artikel Donor Darah", fontSize = 18.sp, fontWeight = FontWeight.Bold)
+            Box(modifier = Modifier.padding(start = 135.dp)){
+                Text(text = "lihat semua",
+                    modifier = Modifier.clickable {  },
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Light, color = Color.Blue)
+            }
+        }
+
     }
 }
