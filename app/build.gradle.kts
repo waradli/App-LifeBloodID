@@ -74,4 +74,7 @@ dependencies {
 
     // SplashScreen
     implementation(libs.androidx.core.splashscreen)
+
+    //Home
+    implementation(libs.androidx.constraintlayout.compose)
 }

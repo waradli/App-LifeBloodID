@@ -12,8 +12,8 @@ import com.example.appslifebloodid.page.Component.NavigateScreen.Pertanyaan
 import com.example.appslifebloodid.page.Component.NavigateScreen.PusatBantuan
 import com.example.appslifebloodid.page.Component.NavigateScreen.TentangAplikasi
 import com.example.appslifebloodid.page.EventScreen
-import com.example.appslifebloodid.page.RiwayatScreen
 import com.example.appslifebloodid.page.HomeScreen
+import com.example.appslifebloodid.page.RiwayatScreen
 
 @Composable
 fun BottomGraph(
