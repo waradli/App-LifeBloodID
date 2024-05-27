@@ -1,7 +1,9 @@
 package com.example.appslifebloodid.page.component.item
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -14,6 +16,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
@@ -22,6 +26,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
@@ -35,6 +40,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.appslifebloodid.R
+import com.example.appslifebloodid.data.DataColumn
+import com.example.appslifebloodid.data.DataColumn.artikelColum
+import com.example.appslifebloodid.intro.onboarding.components.ArtikelItem
+import com.example.appslifebloodid.model.dataArtikel
 
 @Preview
 @Composable
@@ -241,6 +250,12 @@ fun Item_Home() {
                     fontWeight = FontWeight.Light, color = Color.Blue)
             }
         }
-
+        Spacer(modifier = Modifier.height(10.dp))
+        val Artikels = remember{DataColumn.artikelColum}
+        LazyColumn (
+            modifier = Modifier.padding(vertical = 8.dp, horizontal = 8.dp)
+        ){
+            items(items = Artikels, itemContent = { ArtikelItem(Artikel = it)})
+        }
     }
 }
