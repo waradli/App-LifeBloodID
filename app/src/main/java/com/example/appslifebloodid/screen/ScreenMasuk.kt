@@ -14,6 +14,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedTextField
@@ -25,6 +27,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -34,23 +37,52 @@ import androidx.navigation.NavController
 import com.example.appslifebloodid.R
 
 @Composable
-fun ScreenMasuk(navController: NavController, modifier: Modifier = Modifier) {
+fun ScreenMasuk(navController: NavController) {
+    var email by remember {
+        mutableStateOf("")
+    }
+    var password by remember{
+        mutableStateOf("")
+    }
+
     Box (
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFF6F6))
+            .background(Color(0xFFF1F1F1))
     ){
-        var email by remember {
-            mutableStateOf("")
-        }
-        var password by remember{
-            mutableStateOf("")
-        }
         Column (
             modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ){
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 16.dp, top = 60.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(40.dp)
+                        .background(Color.White, shape = CircleShape)
+                        .shadow(2.dp, CircleShape)
+                        .clickable { navController.popBackStack() },
+                    contentAlignment = Alignment.Center
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_arrow_back),
+                        contentDescription = "Back"
+                    )
+                }
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = "Masuk",
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier
+                        .padding(start = 110.dp)
+                )
+            }
+            Spacer(modifier = Modifier.height(16.dp))
             Image(painter = painterResource(id = R.drawable.imgmsk), contentDescription ="gambar masuk", modifier = Modifier
                 .width(250.dp)
                 .height(250.dp) )
@@ -63,9 +95,21 @@ fun ScreenMasuk(navController: NavController, modifier: Modifier = Modifier) {
                 horizontalAlignment = Alignment.CenterHorizontally
 
             ){
-                OutlinedTextField(value = email, onValueChange = {email = it}, label = { Text(text = "Email atau No.Hp")}, modifier = Modifier.width(330.dp))
+                OutlinedTextField(value = email, onValueChange = {email = it},
+                    label = { Text(text = "Email atau No.Hp")},
+                    modifier = Modifier
+                        .width(365.dp)
+                        .height(60.dp),
+                    shape = RoundedCornerShape(10.dp)
+                )
                 Spacer(modifier = Modifier.height(10.dp))
-                OutlinedTextField(value = password, onValueChange = {password=it}, label = { Text(text = "Password")}, modifier = Modifier.width(330.dp))
+                OutlinedTextField(value = password, onValueChange = {password=it},
+                    label = { Text(text = "Password")},
+                    modifier = Modifier
+                        .width(365.dp)
+                        .height(60.dp),
+                    shape = RoundedCornerShape(10.dp)
+                )
             }
             Spacer(modifier = Modifier.height(3.dp))
             Row(
@@ -82,16 +126,29 @@ fun ScreenMasuk(navController: NavController, modifier: Modifier = Modifier) {
 
             Button(onClick = { navController.navigate("home") },
                 modifier = Modifier
-                    .width(330.dp)
-                    .height(50.dp),
+                    .width(365.dp)
+                    .height(48.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xFFB20909)
-                )
+                ),
+                shape = RoundedCornerShape(10.dp)
             ) {
                 Text(text = "Masuk", fontSize = 18.sp)
             }
             Spacer(modifier = Modifier.height(15.dp))
-            Text(text = "atau masuk dengan")
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Box(modifier = Modifier
+                    .width(100.dp)
+                    .height(1.dp)
+                    .background(Color.Gray))
+                Spacer(modifier = Modifier.width(10.dp))
+                Text(text = "Atau masuk dengan", fontSize = 14.sp)
+                Spacer(modifier = Modifier.width(10.dp))
+                Box(modifier = Modifier
+                    .width(100.dp)
+                    .height(1.dp)
+                    .background(Color.Gray))
+            }
             Spacer(modifier = Modifier.height(15.dp))
             Row(
                 modifier = Modifier.fillMaxWidth(),

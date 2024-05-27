@@ -35,11 +35,11 @@ import androidx.navigation.NavController
 import com.example.appslifebloodid.R
 
 @Composable
-fun ScreenDaftar(navController: NavController, modifier: Modifier = Modifier) {
+fun ScreenDaftar(navController: NavController) {
     Box (
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFF6F6))
+            .background(Color(0xFFF1F1F1))
     ){
         Column(
             modifier = Modifier.fillMaxSize(),

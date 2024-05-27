@@ -60,7 +60,7 @@ fun SplashScreenContent() {
         )
     }
     Box(
-        modifier = Modifier.fillMaxSize().background(Color(0xFFFFF6F6)),
+        modifier = Modifier.fillMaxSize().background(Color(0xFFF1F1F1)),
         contentAlignment = Alignment.Center
     ) {
         Box(
@@ -71,7 +71,7 @@ fun SplashScreenContent() {
         Image(
             modifier = Modifier
                 .alpha(gerak.value)
-                .size(350.dp),
+                .size(420.dp),
             painter = painterResource(id = R.drawable.logo),
             contentDescription = null
         )

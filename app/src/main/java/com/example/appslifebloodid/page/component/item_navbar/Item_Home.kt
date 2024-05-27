@@ -1,4 +1,4 @@
-package com.example.appslifebloodid.page.component.item
+package com.example.appslifebloodid.page.component.item_navbar
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
