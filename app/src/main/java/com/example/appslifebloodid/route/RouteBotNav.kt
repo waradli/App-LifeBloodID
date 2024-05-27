@@ -1,5 +1,4 @@
-package com.app_donor_darah.Route
-
+package com.example.appslifebloodid.route
 
 import com.example.appslifebloodid.R
 
@@ -13,31 +12,31 @@ sealed class RouteBotNav(
     object Home : RouteBotNav(
         route = "Home",
         title = "Home",
-        icon = R.drawable.baseline_home_24,
-        focused = R.drawable.baseline_home_focus24
+        icon = R.drawable.ic_home,
+        focused = R.drawable.ic_home_focus
     )
 
     // Route Riwayat
     object Riwayat : RouteBotNav(
         route = "Riwayat",
         title = "Riwayat",
-        icon = R.drawable.baseline_history_edu_24,
-        focused = R.drawable.baseline_history_edu_focus24
+        icon = R.drawable.ic_riwayat,
+        focused = R.drawable.ic_riwayat_focus
     )
 
     // Route Event
     object Event : RouteBotNav(
         route = "Event",
         title = "Event",
-        icon = R.drawable.baseline_event_available_24,
-        focused = R.drawable.baseline_event_available_focus24
+        icon = R.drawable.ic_event,
+        focused = R.drawable.ic_event_focus
     )
 
     // Route About
     object About : RouteBotNav(
         route = "About",
         title = "About",
-        icon = R.drawable.baseline_info_outline_24,
-        focused = R.drawable.baseline_info_outline_focus24
+        icon = R.drawable.ic_about,
+        focused = R.drawable.ic_about_focus
     )
 }

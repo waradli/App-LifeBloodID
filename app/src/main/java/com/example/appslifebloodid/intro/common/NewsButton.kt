@@ -17,10 +17,10 @@ fun NewsButton(
     onClick:() -> Unit
 ) {
     Button(onClick = onClick, colors = ButtonDefaults.buttonColors(
-        containerColor = MaterialTheme.colorScheme.primary,
+        containerColor = Color(0xFFb20909),
         contentColor = Color.White
     ),
-        shape = RoundedCornerShape(size = 6.dp)
+        shape = RoundedCornerShape(size = 10.dp)
     ) {
         Text(text = text, style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.SemiBold)
         )

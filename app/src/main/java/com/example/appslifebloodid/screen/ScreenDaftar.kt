@@ -14,6 +14,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
@@ -26,6 +28,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -36,6 +39,16 @@ import com.example.appslifebloodid.R
 
 @Composable
 fun ScreenDaftar(navController: NavController) {
+    var nama by remember {
+        mutableStateOf("")
+    }
+    var email by remember{
+        mutableStateOf("")
+    }
+    var password by remember{
+        mutableStateOf("")
+    }
+
     Box (
         modifier = Modifier
             .fillMaxSize()
@@ -43,19 +56,37 @@ fun ScreenDaftar(navController: NavController) {
     ){
         Column(
             modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            var nama by remember {
-                mutableStateOf("")
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 16.dp, top = 60.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(40.dp)
+                        .background(Color.White, shape = CircleShape)
+                        .shadow(2.dp, CircleShape)
+                        .clickable { navController.popBackStack() },
+                    contentAlignment = Alignment.Center
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_arrow_back),
+                        contentDescription = "Back"
+                    )
+                }
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = "Daftar",
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier
+                        .padding(start = 110.dp)
+                )
             }
-            var email by remember{
-                mutableStateOf("")
-            }
-            var password by remember{
-                mutableStateOf("")
-            }
-
+            Spacer(modifier = Modifier.height(16.dp))
             Image(
                 painter = painterResource(id = R.drawable.imgdft),
                 contentDescription = "daftar",
@@ -72,28 +103,48 @@ fun ScreenDaftar(navController: NavController) {
                 horizontalAlignment = Alignment.CenterHorizontally
 
             ){
-                OutlinedTextField(value = nama, onValueChange = {nama = it}, label = { Text(text = "Nama Lengkap")}, modifier = Modifier.width(330.dp))
+                OutlinedTextField(value = nama, onValueChange = {nama = it},
+                    label = { Text(text = "Nama Lengkap")},
+                    modifier = Modifier
+                        .width(365.dp)
+                        .height(60.dp),
+                    shape = RoundedCornerShape(10.dp)
+                )
                 Spacer(modifier = Modifier.height(10.dp))
-                OutlinedTextField(value = email, onValueChange = {email = it}, label = { Text(text = "Email atau No.Hp")}, modifier = Modifier.width(330.dp))
+                OutlinedTextField(value = email, onValueChange = {email = it},
+                    label = { Text(text = "Email atau No.Hp")},
+                    modifier = Modifier
+                        .width(365.dp)
+                        .height(60.dp),
+                    shape = RoundedCornerShape(10.dp)
+                )
                 Spacer(modifier = Modifier.height(10.dp))
-                OutlinedTextField(value = password, onValueChange = {password=it}, label = { Text(text = "Password")}, modifier = Modifier.width(330.dp))
+                OutlinedTextField(value = password, onValueChange = {password=it},
+                    label = { Text(text = "Password")},
+                    modifier = Modifier
+                        .width(365.dp)
+                        .height(60.dp),
+                    shape = RoundedCornerShape(10.dp)
+                )
             }
-            Spacer(modifier = Modifier.height(5.dp))
+            Spacer(modifier = Modifier.height(15.dp))
             Row (
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.padding(start = 20.dp)
+                modifier = Modifier
+                    .padding(start = 8.dp, end = 15.dp)
             ){
                 var Checked by remember{
                     mutableStateOf(false)
                 }
                 Checkbox(checked = Checked, onCheckedChange = {Checked = it})
-                Text(text = "Dengan mendaftar, kamu telah menyetujui Ketentuan Pemakaian dan Pengaturan Privasi yang ada di LifeBloodID ", fontSize = 13.sp)
+                Text(text = "Dengan mendaftar, kamu telah menyetujui Ketentuan Pemakaian dan Pengaturan Privasi yang ada di LifeBloodID ", fontSize = 11.sp)
             }
             Spacer(modifier = Modifier.height(15.dp))
             Button(onClick = { navController.navigate("masuk") },
                 modifier = Modifier
-                    .width(330.dp)
-                    .height(50.dp),
+                    .width(365.dp)
+                    .height(48.dp),
+                shape = RoundedCornerShape(10.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xFFB20909)
                 )

@@ -14,13 +14,14 @@ import com.example.appslifebloodid.page.Component.NavigateScreen.TentangAplikasi
 import com.example.appslifebloodid.page.EventScreen
 import com.example.appslifebloodid.page.HomeScreen
 import com.example.appslifebloodid.page.RiwayatScreen
+import com.example.appslifebloodid.route.RouteBotNav
 
 @Composable
 fun BottomGraph(
     navController: NavHostController,
     modifier: Modifier = Modifier,
 ) {
-    NavHost(navController = navController, startDestination =RouteBotNav.Home.route) {
+    NavHost(navController = navController, startDestination = RouteBotNav.Home.route) {
         composable(route = RouteBotNav.Home.route) {
             HomeScreen()
         }

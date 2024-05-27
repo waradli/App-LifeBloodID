@@ -8,12 +8,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
@@ -22,7 +19,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -36,6 +32,7 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.appslifebloodid.route.RouteBotNav
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -57,7 +54,6 @@ fun BotNavBar(
 @Composable
 fun BottomBar(
     navController: NavHostController,
-    modifier: Modifier = Modifier
 ) {
     val Screens = listOf(
         RouteBotNav.Home,
@@ -70,7 +66,7 @@ fun BottomBar(
     Row(
         modifier = Modifier
             .padding(horizontal = 10.dp, vertical = 50.dp,)
-            .background(Color(0xFFE35A5A), shape = RoundedCornerShape(50))
+            .background(Color(0xFFE35A5A), shape = RoundedCornerShape(30))
             .height(58.dp)
             .fillMaxWidth(),
 
@@ -91,22 +87,21 @@ fun BottomBar(
 @Composable
 fun RowScope.AddItem(
     Screens: RouteBotNav,
-    modifier: Modifier = Modifier,
     currentDestination: NavDestination?,
     navController: NavHostController,
 ) {
     val selected = currentDestination?.hierarchy?.any() { it.route == Screens.route } == true
     val contentColor = if (selected) Color(0xFFb20909) else Color(
-        0xffFFF6F6
+        0xffF1F1F1
     )
     val background = if (selected) Color(
-        0xffFFF6F6
+        0xffF1F1F1
     ).copy(alpha = 1f) else Color.Transparent
     Box(
         modifier = Modifier
             .height(45.dp)
-            .padding(horizontal = 8.dp)
-            .background(background, shape = RoundedCornerShape(50))
+            .padding(start = 17.dp, end = 17.dp)
+            .background(background, shape = RoundedCornerShape(30))
             .clickable(onClick = {
                 navController.navigate(Screens.route) {
                     popUpTo(navController.graph.findStartDestination().id)

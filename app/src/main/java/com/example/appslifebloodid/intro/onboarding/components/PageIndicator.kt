@@ -18,7 +18,7 @@ fun PageIndicator(
     modifier: Modifier = Modifier,
     pageSize: Int,
     selectedPage: Int,
-    selectedColor: Color = MaterialTheme.colorScheme.primary,
+    selectedColor: Color = Color(0xFFb20909),
     unselectedColor: Color = Color.Gray
 ){
     Row(modifier = modifier, horizontalArrangement = Arrangement.SpaceBetween) {
