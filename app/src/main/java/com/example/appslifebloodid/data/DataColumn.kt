@@ -16,6 +16,18 @@ object DataColumn {
             title = "Gabungan Organisasi Wanita Kota Mojokerto Gelar Donor Darah",
             date = "23 April 2024",
             photo = R.drawable.imgartikel
+        ),
+        dataArtikel(
+            id = 3,
+            title = "Gabungan Organisasi Wanita Kota Mojokerto Gelar Donor Darah",
+            date = "23 April 2024",
+            photo = R.drawable.imgartikel
+        ),
+        dataArtikel(
+            id = 4,
+            title = "Gabungan Organisasi Wanita Kota Mojokerto Gelar Donor Darah",
+            date = "23 April 2024",
+            photo = R.drawable.imgartikel
         )
 
     )

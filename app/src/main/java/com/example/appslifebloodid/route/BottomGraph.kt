@@ -5,6 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.appslifebloodid.intro.onboarding.components.menu_home.ScreenReward
 import com.example.appslifebloodid.page.AboutScreen
 import com.example.appslifebloodid.page.Component.NavigateScreen.KebijakanPrivasi
 import com.example.appslifebloodid.page.Component.NavigateScreen.KetentuanPengguna
@@ -23,7 +24,7 @@ fun BottomGraph(
 ) {
     NavHost(navController = navController, startDestination = RouteBotNav.Home.route) {
         composable(route = RouteBotNav.Home.route) {
-            HomeScreen()
+            HomeScreen(navController = navController)
         }
         composable(route = RouteBotNav.Riwayat.route) {
             RiwayatScreen()
@@ -50,6 +51,11 @@ fun BottomGraph(
         }
         composable(route = "PertanyaanYangSeringDitanyakan"){
             Pertanyaan(navController = navController)
+        }
+
+        //ScreenReward
+        composable(route = "ScreenReward"){
+            ScreenReward(navController = navController)
         }
     }
 }

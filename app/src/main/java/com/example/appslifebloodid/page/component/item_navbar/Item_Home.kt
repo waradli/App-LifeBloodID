@@ -39,15 +39,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.navigation.NavController
 import com.example.appslifebloodid.R
 import com.example.appslifebloodid.data.DataColumn
 import com.example.appslifebloodid.data.DataColumn.artikelColum
 import com.example.appslifebloodid.intro.onboarding.components.ArtikelItem
 import com.example.appslifebloodid.model.dataArtikel
 
-@Preview
+
 @Composable
-fun Item_Home() {
+fun Item_Home(navController: NavController) {
     Column(
         Modifier
             .fillMaxHeight()
@@ -226,6 +227,8 @@ fun Item_Home() {
                         painter = painterResource(id = R.drawable.reward),
                         contentDescription = null,
                         Modifier.padding(top = 8.dp, bottom = 4.dp)
+                            .clickable { navController.navigate("ScreenReward") }
+
                     )
                     Text(
                         text = "Reward",
