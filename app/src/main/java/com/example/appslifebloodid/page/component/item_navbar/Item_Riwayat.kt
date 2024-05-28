@@ -28,11 +28,15 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.appslifebloodid.R
+import com.example.appslifebloodid.data.DataRiwayat
+import com.example.appslifebloodid.model.Model_Riwayat
 
 
 @Composable
 fun Item_Riwayat(
     modifier: Modifier = Modifier,
+    riwayats : Model_Riwayat
+
 ) {
     Column {
         Card(
@@ -57,12 +61,12 @@ fun Item_Riwayat(
                         horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
                         Image(
-                            painter = painterResource(id = R.drawable.pngwing),
+                            painter = painterResource(id = riwayats.image),
                             modifier = Modifier.size(115.dp),
                             contentScale = ContentScale.Fit,
                             contentDescription = "Image Riwayat"
                         )
-                        Text(text = "ID   001234")
+                        Text(text = "ID  ${riwayats.noId}" )
                     }
                 }
                 Divider(
@@ -82,7 +86,7 @@ fun Item_Riwayat(
                         modifier = Modifier.fillMaxSize(),
                     ) {
                         Text(
-                            text = "A",
+                            text = "${riwayats.darah}",
                             style = TextStyle(fontSize = 70.sp),
                         )
 
@@ -102,13 +106,13 @@ fun Item_Riwayat(
                         horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
                         Image(
-                            painter = painterResource(id = R.drawable.qr_code),
+                            painter = painterResource(id = riwayats.imageScan),
                             modifier = Modifier.size(115.dp),
                             contentScale = ContentScale.Fit,
                             contentDescription = "Image Riwayat"
                         )
                         Text(
-                            text = "21,Maret,2024",
+                            text = riwayats.tanggal,
                             style = TextStyle(
                                 Color(0xffD2D2D2),
                                 fontSize = 12.sp,
@@ -118,172 +122,5 @@ fun Item_Riwayat(
                 }
             }
         }
-        Card(
-            elevation = CardDefaults.cardElevation(8.dp),
-            modifier = Modifier
-                .padding(top = 20.dp, start = 10.dp, end = 10.dp)
-                .size(width = 450.dp, height = 150.dp),
-            shape = RoundedCornerShape(10.dp),
-            colors = CardDefaults.cardColors(
-                Color(0xffFFFFFF)
-            ),
-            border = BorderStroke(2.dp, Color.Black)
-        ) {
-            Row(
-                horizontalArrangement = Arrangement.Center
-            ) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxHeight()
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                    ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.pngwing),
-                            modifier = Modifier.size(115.dp),
-                            contentScale = ContentScale.Fit,
-                            contentDescription = "Image Riwayat"
-                        )
-                        Text(text = "ID   001234")
-                    }
-                }
-                Divider(
-                    thickness = 1.dp, color = Color.Black, modifier = Modifier
-                        .size(width = 2.dp, height = 200.dp)
-                        .graphicsLayer(rotationZ = 180f)
-                )
-                Box(
-                    modifier = Modifier
-                        .fillMaxHeight()
-                        .width(120.dp)
-
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.SpaceAround,
-                        modifier = Modifier.fillMaxSize(),
-                    ) {
-                        Text(
-                            text = "A",
-                            style = TextStyle(fontSize = 70.sp),
-                        )
-
-                    }
-                }
-                Divider(
-                    thickness = 1.dp, color = Color.Black, modifier = Modifier
-                        .size(width = 2.dp, height = 200.dp)
-                        .graphicsLayer(rotationZ = 180f)
-                )
-                Box(
-                    modifier = Modifier
-                        .fillMaxHeight()
-                        .padding(5.dp)
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                    ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.qr_code),
-                            modifier = Modifier.size(115.dp),
-                            contentScale = ContentScale.Fit,
-                            contentDescription = "Image Riwayat"
-                        )
-                        Text(
-                            text = "21,Maret,2024",
-                            style = TextStyle(
-                                Color(0xffD2D2D2),
-                                fontSize = 12.sp,
-                            )
-                        )
-                    }
-                }
-            }
-        }
-        Card(
-            elevation = CardDefaults.cardElevation(8.dp),
-            modifier = Modifier
-                .padding(top = 20.dp, start = 10.dp, end = 10.dp)
-                .size(width = 450.dp, height = 150.dp),
-            shape = RoundedCornerShape(10.dp),
-            colors = CardDefaults.cardColors(
-                Color(0xffFFFFFF)
-            ),
-            border = BorderStroke(2.dp, Color.Black)
-        ) {
-            Row(
-                horizontalArrangement = Arrangement.Center
-            ) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxHeight()
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                    ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.pngwing),
-                            modifier = Modifier.size(115.dp),
-                            contentScale = ContentScale.Fit,
-                            contentDescription = "Image Riwayat"
-                        )
-                        Text(text = "ID   001234")
-                    }
-                }
-                Divider(
-                    thickness = 1.dp, color = Color.Black, modifier = Modifier
-                        .size(width = 2.dp, height = 200.dp)
-                        .graphicsLayer(rotationZ = 180f)
-                )
-                Box(
-                    modifier = Modifier
-                        .fillMaxHeight()
-                        .width(120.dp)
-
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.SpaceAround,
-                        modifier = Modifier.fillMaxSize(),
-                    ) {
-                        Text(
-                            text = "A",
-                            style = TextStyle(fontSize = 70.sp),
-                        )
-
-                    }
-                }
-                Divider(
-                    thickness = 1.dp, color = Color.Black, modifier = Modifier
-                        .size(width = 2.dp, height = 200.dp)
-                        .graphicsLayer(rotationZ = 180f)
-                )
-                Box(
-                    modifier = Modifier
-                        .fillMaxHeight()
-                        .padding(5.dp)
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                    ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.qr_code),
-                            modifier = Modifier.size(115.dp),
-                            contentScale = ContentScale.Fit,
-                            contentDescription = "Image Riwayat"
-                        )
-                        Text(
-                            text = "21,Maret,2024",
-                            style = TextStyle(
-                                Color(0xffD2D2D2),
-                                fontSize = 12.sp,
-                            )
-                        )
-                    }
-                }
-            }
-        }
-
     }
 }
