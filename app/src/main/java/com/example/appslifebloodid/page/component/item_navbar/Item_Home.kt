@@ -166,6 +166,7 @@ fun Item_Home(navController: NavController) {
                         Modifier
                             .size(52.dp)
                             .padding(top = 8.dp, bottom = 4.dp)
+                            .clickable { navController.navigate("ScreenJadwalDonor") }
                     )
                     Text(text = "Jadwal Donor",
                         fontStyle = FontStyle.Italic,
@@ -187,6 +188,7 @@ fun Item_Home(navController: NavController) {
                         Modifier
                             .size(52.dp)
                             .padding(top = 8.dp, bottom = 4.dp)
+                            .clickable { navController.navigate("ScreenStockDarah") }
                     )
                     Text(text = "Stock Darah",
                         fontStyle = FontStyle.Italic,
@@ -208,6 +210,7 @@ fun Item_Home(navController: NavController) {
                         Modifier
                             .size(52.dp)
                             .padding(top = 8.dp, bottom = 4.dp)
+                            .clickable { navController.navigate("ScreenChat") }
                     )
                     Text(text = "Chat",
                         fontStyle = FontStyle.Italic,
