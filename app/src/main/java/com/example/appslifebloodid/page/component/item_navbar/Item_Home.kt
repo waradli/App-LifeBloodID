@@ -210,7 +210,7 @@ fun Item_Home(navController: NavController) {
                         Modifier
                             .size(52.dp)
                             .padding(top = 8.dp, bottom = 4.dp)
-                            .clickable { navController.navigate("ScreenChat") }
+                            .clickable { navController.navigate("ScreenDaftarDr") }
                     )
                     Text(text = "Chat",
                         fontStyle = FontStyle.Italic,

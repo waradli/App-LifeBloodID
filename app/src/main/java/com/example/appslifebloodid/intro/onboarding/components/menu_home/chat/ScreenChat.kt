@@ -1,4 +1,4 @@
-package com.example.appslifebloodid.intro.onboarding.components.menu_home
+package com.example.appslifebloodid.intro.onboarding.components.menu_home.chat
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
