@@ -261,7 +261,7 @@ fun Item_Home(navController: NavController) {
         LazyColumn (
             modifier = Modifier.padding(vertical = 8.dp, horizontal = 8.dp)
         ){
-            items(items = Artikels, itemContent = { ArtikelItem(Artikel = it)})
+            items(items = Artikels, itemContent = { ArtikelItem(Artikel = it, navController=navController)})
         }
     }
 }

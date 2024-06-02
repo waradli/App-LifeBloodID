@@ -35,6 +35,7 @@ import com.example.appslifebloodid.model.dataDokter
 @Composable
 fun ItemDokter(modifier: Modifier = Modifier,
                dtDokter:dataDokter,
+               navController: NavController
 ) {
     Column(modifier = modifier.padding(top = 15.dp)) {
         Card(
@@ -82,7 +83,7 @@ fun ItemDokter(modifier: Modifier = Modifier,
                     Spacer(modifier = Modifier.width(5.dp))
                     Text(text = dtDokter.masakerja)
                     Spacer(modifier = Modifier.width(40.dp))
-                    Button(onClick = {  }, modifier = Modifier.width(100.dp), shape = RoundedCornerShape(10.dp), colors = ButtonDefaults.buttonColors(Color(0xffE35A5A))) {
+                    Button(onClick = { navController.navigate("ScreenChat") }, modifier = Modifier.width(100.dp), shape = RoundedCornerShape(10.dp), colors = ButtonDefaults.buttonColors(Color(0xffE35A5A))) {
                         Text(text = "Chat", fontSize = 18.sp)
                     }
                 }

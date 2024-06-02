@@ -1,15 +1,19 @@
 package com.app_donor_darah.Route
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.appslifebloodid.intro.onboarding.components.menu_home.DetailArtikel
 import com.example.appslifebloodid.intro.onboarding.components.menu_home.ScreenJadwalDonor
 import com.example.appslifebloodid.intro.onboarding.components.menu_home.chat.ScreenChat
 import com.example.appslifebloodid.intro.onboarding.components.menu_home.ScreenReward
 import com.example.appslifebloodid.intro.onboarding.components.menu_home.ScreenStockDarah
 import com.example.appslifebloodid.intro.onboarding.components.menu_home.chat.ScreenDaftarDr
+import com.example.appslifebloodid.model.dataArtikel
 import com.example.appslifebloodid.page.AboutScreen
 import com.example.appslifebloodid.page.Component.NavigateScreen.KebijakanPrivasi
 import com.example.appslifebloodid.page.Component.NavigateScreen.KetentuanPengguna
@@ -21,6 +25,7 @@ import com.example.appslifebloodid.page.HomeScreen
 import com.example.appslifebloodid.page.RiwayatScreen
 import com.example.appslifebloodid.route.RouteBotNav
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun BottomGraph(
     navController: NavHostController,
@@ -41,37 +46,43 @@ fun BottomGraph(
         }
 
         // New Screen About
-        composable(route = "TentangAplikasi"){
+        composable(route = "TentangAplikasi") {
             TentangAplikasi(navController = navController)
         }
-        composable(route = "Kebijakan&Privasi"){
+        composable(route = "Kebijakan&Privasi") {
             KebijakanPrivasi(navController = navController)
         }
-        composable(route = "PusatBantuan"){
+        composable(route = "PusatBantuan") {
             PusatBantuan(navController = navController)
         }
-        composable(route = "KetentuanPengguna"){
+        composable(route = "KetentuanPengguna") {
             KetentuanPengguna(navController = navController)
         }
-        composable(route = "PertanyaanYangSeringDitanyakan"){
+        composable(route = "PertanyaanYangSeringDitanyakan") {
             Pertanyaan(navController = navController)
         }
 
         //ScreenMenuHome
-        composable(route = "ScreenReward"){
+        composable(route = "ScreenReward") {
             ScreenReward(navController = navController)
         }
-        composable(route = "ScreenChat"){
+        composable(route = "ScreenChat") {
             ScreenChat(navController = navController)
         }
-        composable(route = "ScreenDaftarDr"){
+        composable(route = "ScreenDaftarDr") {
             ScreenDaftarDr(navController = navController)
         }
-        composable(route = "ScreenStockDarah"){
+        composable(route = "ScreenStockDarah") {
             ScreenStockDarah(navController = navController)
         }
-        composable(route = "ScreenJadwalDonor"){
+        composable(route = "ScreenJadwalDonor") {
             ScreenJadwalDonor(navController = navController)
+        }
+        composable(route = "ScreenChat") {
+            ScreenChat(navController = navController)
+        }
+        composable(route = "DetailArtikel") {
+            DetailArtikel(navController = navController)
         }
     }
 }

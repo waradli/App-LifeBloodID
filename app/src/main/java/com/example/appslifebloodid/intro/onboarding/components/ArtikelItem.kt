@@ -21,12 +21,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.appslifebloodid.data.DataColumn
 import com.example.appslifebloodid.model.dataArtikel
 
 @Composable
-fun ArtikelItem(modifier: Modifier = Modifier,
-                Artikel: dataArtikel) {
+fun ArtikelItem(
+    modifier: Modifier = Modifier,
+    Artikel: dataArtikel,
+    navController: NavController
+) {
     Card(
         modifier = Modifier
             .padding(horizontal = 8.dp, vertical = 8.dp)
@@ -36,23 +40,27 @@ fun ArtikelItem(modifier: Modifier = Modifier,
         elevation = CardDefaults.cardElevation(
             defaultElevation = 6.dp
         )
-        
+
     ) {
         Row {
             ArtikelImage(Artikel = Artikel)
             Spacer(modifier = Modifier.width(10.dp))
-            Column (
+            Column(
                 modifier = Modifier.padding(top = 5.dp)
-            ){
-                
+            ) {
+
                 Text(text = Artikel.title, fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.height(5.dp))
                 Text(text = Artikel.date)
                 Spacer(modifier = Modifier.height(30.dp))
-                Row (modifier = Modifier.padding(start = 120.dp)){
-                    Text(text = "Baca Artikel", modifier = Modifier.clickable {  },
+                Row(modifier = Modifier.padding(start = 120.dp)) {
+                    Text(
+                        text = "Baca Artikel",
+                        modifier = Modifier.clickable { navController.navigate("DetailArtikel") },
                         fontSize = 15.sp,
-                        fontWeight = FontWeight.Light, color = Color.Red)
+                        fontWeight = FontWeight.Light,
+                        color = Color.Red
+                    )
                 }
             }
         }
@@ -60,9 +68,12 @@ fun ArtikelItem(modifier: Modifier = Modifier,
 }
 
 @Composable
-fun ArtikelImage(modifier: Modifier = Modifier,
-                 Artikel: dataArtikel) {
-    Image(painter = painterResource(id = Artikel.photo),
+fun ArtikelImage(
+    modifier: Modifier = Modifier,
+    Artikel: dataArtikel
+) {
+    Image(
+        painter = painterResource(id = Artikel.photo),
         contentDescription = null,
         contentScale = ContentScale.Crop,
         modifier = Modifier
@@ -70,6 +81,6 @@ fun ArtikelImage(modifier: Modifier = Modifier,
             .height(150.dp)
             .padding(5.dp)
             .clip(RoundedCornerShape(10.dp))
-        )
-            
+    )
+
 }

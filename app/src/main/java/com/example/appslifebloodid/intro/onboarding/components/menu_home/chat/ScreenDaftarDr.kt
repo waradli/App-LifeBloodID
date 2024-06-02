@@ -39,6 +39,7 @@ import com.example.appslifebloodid.R
 import com.example.appslifebloodid.data.DataColumnDokter
 import com.example.appslifebloodid.data.DataColumnReward
 import com.example.appslifebloodid.intro.onboarding.components.menu_home.ItemReward
+import com.example.appslifebloodid.page.Component.Item.Item_About
 
 @Composable
 fun ScreenDaftarDr(modifier: Modifier = Modifier,
@@ -106,10 +107,11 @@ fun ScreenDaftarDr(modifier: Modifier = Modifier,
             Spacer(modifier = Modifier.height(10.dp))
             val dtDokters = remember { DataColumnDokter.dokterColumn }
             LazyColumn(
-                modifier = Modifier
+                modifier = Modifier,
+
             ) {
                 items(items = dtDokters) { dtDokter ->
-                    ItemDokter(dtDokter = dtDokter)
+                    ItemDokter(dtDokter = dtDokter,navController=navController)
                 }
             }
         }
