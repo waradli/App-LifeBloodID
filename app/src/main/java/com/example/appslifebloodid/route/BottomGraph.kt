@@ -5,8 +5,10 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.appslifebloodid.intro.onboarding.components.menu_home.ScreenJadwalDonor
 import com.example.appslifebloodid.intro.onboarding.components.menu_home.chat.ScreenChat
 import com.example.appslifebloodid.intro.onboarding.components.menu_home.ScreenReward
+import com.example.appslifebloodid.intro.onboarding.components.menu_home.ScreenStockDarah
 import com.example.appslifebloodid.intro.onboarding.components.menu_home.chat.ScreenDaftarDr
 import com.example.appslifebloodid.page.AboutScreen
 import com.example.appslifebloodid.page.Component.NavigateScreen.KebijakanPrivasi
@@ -64,6 +66,12 @@ fun BottomGraph(
         }
         composable(route = "ScreenDaftarDr"){
             ScreenDaftarDr(navController = navController)
+        }
+        composable(route = "ScreenStockDarah"){
+            ScreenStockDarah(navController = navController)
+        }
+        composable(route = "ScreenJadwalDonor"){
+            ScreenJadwalDonor(navController = navController)
         }
     }
 }
