@@ -168,12 +168,13 @@ fun Item_Home(navController: NavController) {
                             .padding(top = 8.dp, bottom = 4.dp)
                             .clickable { navController.navigate("ScreenJadwalDonor") }
                     )
-                    Text(text = "Jadwal Donor",
+                    Text(
+                        text = "Jadwal Donor",
                         fontStyle = FontStyle.Italic,
                         fontWeight = FontWeight.Bold,
                         fontSize = 11.sp,
                         color = Color(android.graphics.Color.parseColor("#000000"))
-                        )
+                    )
                 }
                 Column(
                     modifier = Modifier
@@ -190,7 +191,8 @@ fun Item_Home(navController: NavController) {
                             .padding(top = 8.dp, bottom = 4.dp)
                             .clickable { navController.navigate("ScreenStockDarah") }
                     )
-                    Text(text = "Stock Darah",
+                    Text(
+                        text = "Stock Darah",
                         fontStyle = FontStyle.Italic,
                         fontWeight = FontWeight.Bold,
                         fontSize = 11.sp,
@@ -212,7 +214,8 @@ fun Item_Home(navController: NavController) {
                             .padding(top = 8.dp, bottom = 4.dp)
                             .clickable { navController.navigate("ScreenDaftarDr") }
                     )
-                    Text(text = "Chat",
+                    Text(
+                        text = "Chat",
                         fontStyle = FontStyle.Italic,
                         fontWeight = FontWeight.Bold,
                         fontSize = 11.sp,
@@ -229,7 +232,8 @@ fun Item_Home(navController: NavController) {
                     Image(
                         painter = painterResource(id = R.drawable.reward),
                         contentDescription = null,
-                        Modifier.padding(top = 8.dp, bottom = 4.dp)
+                        Modifier
+                            .padding(top = 8.dp, bottom = 4.dp)
                             .clickable { navController.navigate("ScreenReward") }
 
                     )
@@ -244,24 +248,30 @@ fun Item_Home(navController: NavController) {
             }
         }
         Spacer(modifier = Modifier.height(20.dp))
-        Row (modifier = Modifier
-            .fillMaxWidth()
-            .padding(start = 25.dp),
-            horizontalArrangement = Arrangement.Start){
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 25.dp),
+            horizontalArrangement = Arrangement.Start
+        ) {
             Text(text = "Artikel Donor Darah", fontSize = 18.sp, fontWeight = FontWeight.Bold)
-            Box(modifier = Modifier.padding(start = 135.dp)){
-                Text(text = "lihat semua",
-                    modifier = Modifier.clickable {  },
+            Box(modifier = Modifier.padding(start = 135.dp)) {
+                Text(
+                    text = "lihat semua",
+                    modifier = Modifier.clickable { },
                     fontSize = 15.sp,
-                    fontWeight = FontWeight.Light, color = Color.Blue)
+                    fontWeight = FontWeight.Light, color = Color.Blue
+                )
             }
         }
         Spacer(modifier = Modifier.height(10.dp))
-        val Artikels = remember{DataColumn.artikelColum}
-        LazyColumn (
+        val Artikels = remember { DataColumn.artikelColum }
+        LazyColumn(
             modifier = Modifier.padding(vertical = 8.dp, horizontal = 8.dp)
-        ){
-            items(items = Artikels, itemContent = { ArtikelItem(Artikel = it, navController=navController)})
+        ) {
+            items(
+                items = Artikels,
+                itemContent = { ArtikelItem(art = it, navController = navController) })
         }
     }
 }

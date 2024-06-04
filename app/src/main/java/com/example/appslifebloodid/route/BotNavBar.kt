@@ -1,6 +1,8 @@
 package com.app_donor_darah.Route
 
 import android.annotation.SuppressLint
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -34,6 +36,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.appslifebloodid.route.RouteBotNav
 
+@RequiresApi(Build.VERSION_CODES.O)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun BotNavBar(
@@ -124,7 +127,7 @@ fun RowScope.AddItem(
             AnimatedVisibility(visible = selected) {
                 Text(
                     text = Screens.title, style = TextStyle(
-                        fontSize = 12.sp,
+                        fontSize = 10.sp,
                         fontWeight = FontWeight.SemiBold
                     ), color = contentColor
                 )
@@ -133,6 +136,7 @@ fun RowScope.AddItem(
     }
 }
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Preview(showBackground = true)
 @Composable
 private fun BotNavBarPrev() {

@@ -82,4 +82,7 @@ dependencies {
     implementation("com.maxkeppeler.sheets-compose-dialogs:core:1.2.0")
     implementation("com.maxkeppeler.sheets-compose-dialogs:calendar:1.2.0")
 
+    // Image Async
+    implementation("io.coil-kt:coil-compose:2.6.0")
+
 }
