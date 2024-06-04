@@ -1,6 +1,7 @@
 package com.example.appslifebloodid.intro.onboarding.components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,11 +20,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.appslifebloodid.model.dataEvent
 
 @Composable
 fun GridItem(modifier: Modifier = Modifier,
-             grids : dataEvent)
+             grids : dataEvent,
+             navController: NavController
+)
 {
     Column (
         modifier = Modifier
@@ -32,7 +36,8 @@ fun GridItem(modifier: Modifier = Modifier,
 
     ){
         Card(shape = RoundedCornerShape(10.dp),
-            modifier = Modifier.size(width = 300.dp, height = 180.dp),
+            modifier = Modifier.size(width = 300.dp, height = 180.dp)
+                .clickable { navController.navigate("DetailEvent/${grids.id}")  },
             elevation = CardDefaults.cardElevation(
                 defaultElevation = 6.dp
             ),

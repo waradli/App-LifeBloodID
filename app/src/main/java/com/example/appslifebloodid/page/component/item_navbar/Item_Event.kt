@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -22,6 +23,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.appslifebloodid.intro.onboarding.components.GridItem
 import com.example.appslifebloodid.intro.onboarding.components.ImageSliderEvent
 import com.example.appslifebloodid.data.DataGrid
@@ -29,6 +31,7 @@ import com.example.appslifebloodid.model.dataEvent
 
 @Composable
 fun Item_Event(modifier: Modifier = Modifier,
+               navController: NavController,
                grids: List<dataEvent> = DataGrid.GridEvent
               ) {
     Column (modifier = Modifier
@@ -52,6 +55,7 @@ fun Item_Event(modifier: Modifier = Modifier,
                 colors = TextFieldDefaults.colors()
             )
         }
+
         LazyVerticalGrid(
             contentPadding = PaddingValues(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
@@ -60,7 +64,7 @@ fun Item_Event(modifier: Modifier = Modifier,
 
             ) {
             items(grids, key = {it.id}){
-                GridItem(grids = it)
+                GridItem(grids = it, navController = navController)
             }
         }
 

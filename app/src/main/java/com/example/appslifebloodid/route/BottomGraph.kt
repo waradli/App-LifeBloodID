@@ -5,9 +5,12 @@ import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import com.example.appslifebloodid.intro.onboarding.components.menu_home.DetailArtikel
+import com.example.appslifebloodid.intro.onboarding.components.menu_home.DetailEvent
 import com.example.appslifebloodid.intro.onboarding.components.menu_home.ScreenJadwalDonor
 import com.example.appslifebloodid.intro.onboarding.components.menu_home.chat.ScreenChat
 import com.example.appslifebloodid.intro.onboarding.components.menu_home.ScreenReward
@@ -39,7 +42,7 @@ fun BottomGraph(
             RiwayatScreen()
         }
         composable(route = RouteBotNav.Event.route) {
-            EventScreen()
+            EventScreen(navController = navController)
         }
         composable(route = RouteBotNav.About.route) {
             AboutScreen(navController = navController)
@@ -83,6 +86,15 @@ fun BottomGraph(
         }
         composable(route = "DetailArtikel") {
             DetailArtikel(navController = navController)
+        }
+        composable(
+            route = "DetailEvent/{eventId}",
+            arguments = listOf(navArgument("eventId") { type = NavType.IntType })
+        ) { navBackStackEntry ->
+            DetailEvent(
+                navController = navController,
+                eventId = navBackStackEntry.arguments?.getInt("eventId")
+            )
         }
     }
 }
