@@ -1,0 +1,85 @@
+Index: app/src/main/java/com/example/appslifebloodid/route/BottomGraph.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.app_donor_darah.Route\r\n\r\nimport android.os.Build\r\nimport androidx.annotation.RequiresApi\r\nimport androidx.compose.runtime.Composable\r\nimport androidx.compose.ui.Modifier\r\nimport androidx.navigation.NavHostController\r\nimport androidx.navigation.compose.NavHost\r\nimport androidx.navigation.compose.composable\r\nimport com.example.appslifebloodid.intro.onboarding.components.menu_home.DetailArtikel\r\nimport com.example.appslifebloodid.intro.onboarding.components.menu_home.ScreenJadwalDonor\r\nimport com.example.appslifebloodid.intro.onboarding.components.menu_home.chat.ScreenChat\r\nimport com.example.appslifebloodid.intro.onboarding.components.menu_home.ScreenReward\r\nimport com.example.appslifebloodid.intro.onboarding.components.menu_home.ScreenStockDarah\r\nimport com.example.appslifebloodid.intro.onboarding.components.menu_home.chat.ScreenDaftarDr\r\nimport com.example.appslifebloodid.model.dataArtikel\r\nimport com.example.appslifebloodid.page.AboutScreen\r\nimport com.example.appslifebloodid.page.Component.NavigateScreen.KebijakanPrivasi\r\nimport com.example.appslifebloodid.page.Component.NavigateScreen.KetentuanPengguna\r\nimport com.example.appslifebloodid.page.Component.NavigateScreen.Pertanyaan\r\nimport com.example.appslifebloodid.page.Component.NavigateScreen.PusatBantuan\r\nimport com.example.appslifebloodid.page.Component.NavigateScreen.TentangAplikasi\r\nimport com.example.appslifebloodid.page.EventScreen\r\nimport com.example.appslifebloodid.page.HomeScreen\r\nimport com.example.appslifebloodid.page.RiwayatScreen\r\nimport com.example.appslifebloodid.route.RouteBotNav\r\n\r\n@RequiresApi(Build.VERSION_CODES.O)\r\n@Composable\r\nfun BottomGraph(\r\n    navController: NavHostController,\r\n    modifier: Modifier = Modifier,\r\n) {\r\n    NavHost(navController = navController, startDestination = RouteBotNav.Home.route) {\r\n        composable(route = RouteBotNav.Home.route) {\r\n            HomeScreen(navController = navController)\r\n        }\r\n        composable(route = RouteBotNav.Riwayat.route) {\r\n            RiwayatScreen()\r\n        }\r\n        composable(route = RouteBotNav.Event.route) {\r\n            EventScreen()\r\n        }\r\n        composable(route = RouteBotNav.About.route) {\r\n            AboutScreen(navController = navController)\r\n        }\r\n\r\n        // New Screen About\r\n        composable(route = \"TentangAplikasi\") {\r\n            TentangAplikasi(navController = navController)\r\n        }\r\n        composable(route = \"Kebijakan&Privasi\") {\r\n            KebijakanPrivasi(navController = navController)\r\n        }\r\n        composable(route = \"PusatBantuan\") {\r\n            PusatBantuan(navController = navController)\r\n        }\r\n        composable(route = \"KetentuanPengguna\") {\r\n            KetentuanPengguna(navController = navController)\r\n        }\r\n        composable(route = \"PertanyaanYangSeringDitanyakan\") {\r\n            Pertanyaan(navController = navController)\r\n        }\r\n\r\n        //ScreenMenuHome\r\n        composable(route = \"ScreenReward\") {\r\n            ScreenReward(navController = navController)\r\n        }\r\n        composable(route = \"ScreenChat\") {\r\n            ScreenChat(navController = navController)\r\n        }\r\n        composable(route = \"ScreenDaftarDr\") {\r\n            ScreenDaftarDr(navController = navController)\r\n        }\r\n        composable(route = \"ScreenStockDarah\") {\r\n            ScreenStockDarah(navController = navController)\r\n        }\r\n        composable(route = \"ScreenJadwalDonor\") {\r\n            ScreenJadwalDonor(navController = navController)\r\n        }\r\n        composable(route = \"ScreenChat\") {\r\n            ScreenChat(navController = navController)\r\n        }\r\n        composable(route = \"DetailArtikel\") {\r\n            DetailArtikel(navController = navController)\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/appslifebloodid/route/BottomGraph.kt b/app/src/main/java/com/example/appslifebloodid/route/BottomGraph.kt
+--- a/app/src/main/java/com/example/appslifebloodid/route/BottomGraph.kt	
++++ b/app/src/main/java/com/example/appslifebloodid/route/BottomGraph.kt	
+@@ -4,16 +4,19 @@
+ import androidx.annotation.RequiresApi
+ import androidx.compose.runtime.Composable
+ import androidx.compose.ui.Modifier
++import androidx.compose.ui.platform.LocalContext
++import androidx.navigation.NavBackStackEntry
+ import androidx.navigation.NavHostController
++import androidx.navigation.NavType
+ import androidx.navigation.compose.NavHost
+ import androidx.navigation.compose.composable
++import androidx.navigation.navArgument
+ import com.example.appslifebloodid.intro.onboarding.components.menu_home.DetailArtikel
+ import com.example.appslifebloodid.intro.onboarding.components.menu_home.ScreenJadwalDonor
+ import com.example.appslifebloodid.intro.onboarding.components.menu_home.chat.ScreenChat
+ import com.example.appslifebloodid.intro.onboarding.components.menu_home.ScreenReward
+ import com.example.appslifebloodid.intro.onboarding.components.menu_home.ScreenStockDarah
+ import com.example.appslifebloodid.intro.onboarding.components.menu_home.chat.ScreenDaftarDr
+-import com.example.appslifebloodid.model.dataArtikel
+ import com.example.appslifebloodid.page.AboutScreen
+ import com.example.appslifebloodid.page.Component.NavigateScreen.KebijakanPrivasi
+ import com.example.appslifebloodid.page.Component.NavigateScreen.KetentuanPengguna
+@@ -31,6 +34,7 @@
+     navController: NavHostController,
+     modifier: Modifier = Modifier,
+ ) {
++    val context = LocalContext.current
+     NavHost(navController = navController, startDestination = RouteBotNav.Home.route) {
+         composable(route = RouteBotNav.Home.route) {
+             HomeScreen(navController = navController)
+@@ -81,8 +85,18 @@
+         composable(route = "ScreenChat") {
+             ScreenChat(navController = navController)
+         }
+-        composable(route = "DetailArtikel") {
+-            DetailArtikel(navController = navController)
++        composable(
++            route = "DetailArtikel/{artikelId}",
++            arguments = listOf(navArgument("artikelId") {
++                type = NavType.IntType
++            })
++        ) {
++
++            navBackStackEntry ->
++            DetailArtikel(
++                navController = navController,
++                artikelId = navBackStackEntry.arguments?.getInt("artikelId")
++            )
+         }
+     }
+ }
+\ No newline at end of file
+Index: .idea/deploymentTargetSelector.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"deploymentTargetSelector\">\r\n    <selectionStates>\r\n      <SelectionState runConfigName=\"app\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n        <DropdownSelection timestamp=\"2024-05-25T11:57:03.575023600Z\">\r\n          <Target type=\"DEFAULT_BOOT\">\r\n            <handle>\r\n              <DeviceId pluginId=\"LocalEmulator\" identifier=\"path=C:\\Users\\Lenovo\\.android\\avd\\Pixel_6_API_30_1.avd\" />\r\n            </handle>\r\n          </Target>\r\n        </DropdownSelection>\r\n        <DialogSelection />\r\n      </SelectionState>\r\n    </selectionStates>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deploymentTargetSelector.xml b/.idea/deploymentTargetSelector.xml
+--- a/.idea/deploymentTargetSelector.xml	
++++ b/.idea/deploymentTargetSelector.xml	
+@@ -13,6 +13,12 @@
+         </DropdownSelection>
+         <DialogSelection />
+       </SelectionState>
++      <SelectionState runConfigName="MainActivity">
++        <option name="selectionMode" value="DROPDOWN" />
++      </SelectionState>
++      <SelectionState runConfigName="BotNavBarPrev">
++        <option name="selectionMode" value="DROPDOWN" />
++      </SelectionState>
+     </selectionStates>
+   </component>
+ </project>
+\ No newline at end of file
