@@ -85,6 +85,15 @@ fun BottomGraph(
             ScreenChat(navController = navController)
         }
         composable(
+            route = "DetailArtikel/{artikelId}",
+            arguments = listOf(navArgument("artikelId") { type = NavType.IntType })
+        ) { navBackStackEntry ->
+            DetailArtikel(
+                navController = navController,
+                artikelId = navBackStackEntry.arguments?.getInt("artikelId")
+            )
+        }
+        composable(
             route = "DetailEvent/{eventId}",
             arguments = listOf(navArgument("eventId") { type = NavType.IntType })
         ) { navBackStackEntry ->
