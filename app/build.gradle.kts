@@ -61,6 +61,7 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.runtime.livedata)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -71,6 +72,8 @@ dependencies {
 
     // Navigasi
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
 
     // SplashScreen
     implementation(libs.androidx.core.splashscreen)
@@ -79,10 +82,19 @@ dependencies {
     implementation(libs.androidx.constraintlayout.compose)
 
     //calender
-    implementation("com.maxkeppeler.sheets-compose-dialogs:core:1.2.0")
-    implementation("com.maxkeppeler.sheets-compose-dialogs:calendar:1.2.0")
+    implementation(libs.core)
+    implementation(libs.calendar)
 
     // Image Async
-    implementation("io.coil-kt:coil-compose:2.6.0")
+    implementation(libs.coil.compose)
 
+    //Retrofit
+    implementation (libs.androidx.ui.v105)
+    implementation (libs.androidx.material.v105)
+    implementation (libs.ui.tooling.preview)
+    implementation (libs.androidx.lifecycle.viewmodel.compose.v100alpha07)
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+    implementation (libs.logging.interceptor.v490)
+    implementation (libs.androidx.navigation.compose.v240alpha08)
 }
