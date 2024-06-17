@@ -27,6 +27,8 @@ import com.example.appslifebloodid.ui.page.EventScreen
 import com.example.appslifebloodid.ui.page.HomeScreen
 import com.example.appslifebloodid.ui.page.RiwayatScreen
 import com.example.appslifebloodid.route.RouteBotNav
+import com.example.appslifebloodid.ui.intro.onboarding.components.menu_home.LihatSemua
+import com.example.appslifebloodid.ui.intro.onboarding.components.menu_home.PendaftaranEvent
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
@@ -102,5 +104,12 @@ fun BottomGraph(
                 eventId = navBackStackEntry.arguments?.getInt("eventId")
             )
         }
+        composable(route = "PendaftaranEvent") {
+            PendaftaranEvent(navController = navController)
+        }
+        composable(route = "LihatSemua") {
+            LihatSemua(navController = navController)
+        }
+
     }
 }

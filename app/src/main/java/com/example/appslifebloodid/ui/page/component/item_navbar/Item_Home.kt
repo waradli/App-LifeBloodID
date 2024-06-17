@@ -258,7 +258,7 @@ fun Item_Home(navController: NavController) {
             Box(modifier = Modifier.padding(start = 135.dp)) {
                 Text(
                     text = "lihat semua",
-                    modifier = Modifier.clickable { },
+                    modifier = Modifier.clickable { navController.navigate("LihatSemua") },
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Light, color = Color.Blue
                 )

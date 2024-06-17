@@ -1,34 +1,23 @@
-package com.example.appslifebloodid.ui.intro.onboarding.components
+package com.example.appslifebloodid.ui.intro.onboarding.components.menu_home
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CardElevation
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -37,14 +26,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.app_donor_darah.Route.BotNavBar
-import com.example.appslifebloodid.data.DataColumn
 import com.example.appslifebloodid.model.dataArtikel
 
 @Composable
-fun ArtikelItem(
+fun Itemlihatsemua(
     modifier: Modifier = Modifier,
-    art: dataArtikel,
+    lhtartikel: dataArtikel,
     navController: NavController
 ) {
     Card(
@@ -57,7 +44,7 @@ fun ArtikelItem(
             modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp)
         ) {
             Image(
-                painter = painterResource(id = art.photo),
+                painter = painterResource(id = lhtartikel.photo),
                 contentDescription = "News",
                 modifier = Modifier
                     .width(120.dp)
@@ -68,14 +55,14 @@ fun ArtikelItem(
             )
             Column(modifier = Modifier.padding(10.dp)) {
                 Text(
-                    text = art.title,
+                    text = lhtartikel.title,
                     style = TextStyle(
                         fontWeight = FontWeight.SemiBold,
                         fontSize = 20.sp,
                     )
                 )
                 Text(
-                    text = art.date, style = TextStyle(
+                    text = lhtartikel.date, style = TextStyle(
                         fontWeight = FontWeight.Medium,
                         fontSize = 14.sp,
                         color = Color(0xff959595)
@@ -83,7 +70,7 @@ fun ArtikelItem(
                 )
                 Box(modifier = Modifier.padding(start = 80.dp, top = 20.dp)) {
                     Button(
-                        onClick = { navController.navigate("DetailArtikel/${art.id}") },
+                        onClick = { navController.navigate("DetailArtikel/${lhtartikel.id}") },
                         shape = RoundedCornerShape(13.dp),
                         modifier = Modifier
                             .width(130.dp)
@@ -104,8 +91,4 @@ fun ArtikelItem(
 
         }
     }
-
 }
-
-
-
