@@ -16,7 +16,7 @@ object RetrofitInstance {
 
     val api: AuthService by lazy {
         Retrofit.Builder()
-            .baseUrl("http://192.168.1.30:3000/api/auth/")
+            .baseUrl("http://192.168.1.11:3000/api/auth/")
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

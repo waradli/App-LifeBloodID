@@ -1,4 +1,4 @@
-package com.example.appslifebloodid.ui.screen
+package com.example.appslifebloodid.ui.intro
 
 import android.annotation.SuppressLint
 import android.content.Intent

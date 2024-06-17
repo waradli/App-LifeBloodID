@@ -26,11 +26,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.appslifebloodid.ui.intro.Dimens.MediumPadding2
 import com.example.appslifebloodid.ui.intro.Dimens.PageIndicatorWidth
+import com.example.appslifebloodid.ui.intro.FirstScreen
 import com.example.appslifebloodid.ui.intro.common.NewsButton
 import com.example.appslifebloodid.ui.intro.common.NewsTextButton
 import com.example.appslifebloodid.ui.intro.onboarding.components.OnBoardingPage
 import com.example.appslifebloodid.ui.intro.onboarding.components.PageIndicator
-import com.example.appslifebloodid.ui.intro.LoginScreen
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -117,20 +117,6 @@ fun OnBoardingScreen(navController: NavController) {
                 )
             }
             Spacer(modifier = Modifier.weight(0.5f))
-        }
-    }
-}
-
-
-@Composable
-fun SetupNavigation() {
-    val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "onBoardingScreen") {
-        composable("onBoardingScreen") {
-            OnBoardingScreen(navController = navController)
-        }
-        composable("signInScreen") {
-            LoginScreen(navController = navController)
         }
     }
 }

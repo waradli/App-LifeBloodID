@@ -1,4 +1,4 @@
-package com.example.appslifebloodid.ui.screen
+package com.example.appslifebloodid.ui.intro
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -18,10 +18,12 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -31,29 +33,30 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.appslifebloodid.R
+import com.example.appslifebloodid.ui.base.AuthViewModel
 
 @Composable
-fun ScreenMasuk(navController: NavController) {
-    var email by remember {
-        mutableStateOf("")
-    }
-    var password by remember{
-        mutableStateOf("")
-    }
+fun RegisterScreen(authViewModel: AuthViewModel, navController: NavController) {
+    val username = remember { mutableStateOf("") }
+    val email = remember { mutableStateOf("") }
+    val password = remember { mutableStateOf("") }
+
+    val registerResult by authViewModel.registerResult.observeAsState()
 
     Box (
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFF1F1F1))
     ){
-        Column (
+        Column(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
-        ){
+        ) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -75,7 +78,7 @@ fun ScreenMasuk(navController: NavController) {
                 }
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    text = "Masuk",
+                    text = "Daftar",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier
@@ -83,72 +86,87 @@ fun ScreenMasuk(navController: NavController) {
                 )
             }
             Spacer(modifier = Modifier.height(16.dp))
-            Image(painter = painterResource(id = R.drawable.imgmsk), contentDescription ="gambar masuk", modifier = Modifier
-                .width(250.dp)
-                .height(250.dp) )
-            Text(text = "Login akun agar anda dapat menemukan \n" +
-                    "        informasi terkait donor darah", fontSize = 18.sp)
-            Spacer(modifier = Modifier.height(10.dp))
+            Image(
+                painter = painterResource(id = R.drawable.imgdft),
+                contentDescription = "daftar",
+                modifier = Modifier
+                    .width(150.dp)
+                    .height(150.dp)
+            )
+            Text(text = "Register akun agar anda dapat menemukan \n" +
+                    "             informasi terkait donor darah", fontSize = 16.sp)
+            Spacer(modifier = Modifier.height(15.dp))
             Column (
                 modifier = Modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
 
             ){
-                OutlinedTextField(value = email, onValueChange = {email = it},
-                    label = { Text(text = "Email atau No.Hp")},
+                OutlinedTextField(
+                    value = username.value,
+                    onValueChange = { username.value = it },
+                    label = { Text(text = "Nama Lengkap")},
                     modifier = Modifier
                         .width(365.dp)
                         .height(60.dp),
                     shape = RoundedCornerShape(10.dp)
                 )
+//                Spacer(modifier = Modifier.height(10.dp))
+//                OutlinedTextField(value = email, onValueChange = {email = it},
+//                    label = { Text(text = "Email atau No.Hp")},
+//                    modifier = Modifier
+//                        .width(365.dp)
+//                        .height(60.dp),
+//                    shape = RoundedCornerShape(10.dp)
+//                )
                 Spacer(modifier = Modifier.height(10.dp))
-                OutlinedTextField(value = password, onValueChange = {password=it},
+                OutlinedTextField(
+                    value = password.value,
+                    onValueChange = { password.value = it },
                     label = { Text(text = "Password")},
+                    visualTransformation = PasswordVisualTransformation(),
                     modifier = Modifier
                         .width(365.dp)
                         .height(60.dp),
                     shape = RoundedCornerShape(10.dp)
                 )
-            }
-            Spacer(modifier = Modifier.height(3.dp))
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 260.dp, end = 0.dp)
-            ) {
-                Text(text = "Lupa Kata Sandi?",
-                    modifier = Modifier.clickable {  },
-                    fontSize = 15.sp,
-                    fontWeight = FontWeight.Light)
             }
             Spacer(modifier = Modifier.height(15.dp))
-
-            Button(onClick = { navController.navigate("home") },
+            Row (
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier
+                    .padding(start = 8.dp, end = 15.dp)
+            ){
+                var Checked by remember{
+                    mutableStateOf(false)
+                }
+                Checkbox(checked = Checked, onCheckedChange = {Checked = it})
+                Text(text = "Dengan mendaftar, kamu telah menyetujui Ketentuan Pemakaian dan Pengaturan Privasi yang ada di LifeBloodID ", fontSize = 11.sp)
+            }
+            Spacer(modifier = Modifier.height(15.dp))
+            Button(onClick = { navController.navigate("login") },
                 modifier = Modifier
                     .width(365.dp)
                     .height(48.dp),
+                shape = RoundedCornerShape(10.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xFFB20909)
-                ),
-                shape = RoundedCornerShape(10.dp)
-            ) {
-                Text(text = "Masuk", fontSize = 18.sp)
+                )
+                ) {
+                Text(text = "Daftar", fontSize = 18.sp)
             }
-            Spacer(modifier = Modifier.height(15.dp))
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Box(modifier = Modifier
-                    .width(100.dp)
-                    .height(1.dp)
-                    .background(Color.Gray))
-                Spacer(modifier = Modifier.width(10.dp))
-                Text(text = "Atau masuk dengan", fontSize = 14.sp)
-                Spacer(modifier = Modifier.width(10.dp))
-                Box(modifier = Modifier
-                    .width(100.dp)
-                    .height(1.dp)
-                    .background(Color.Gray))
-            }
+//            Button(
+//                onClick = { authViewModel.register(username.value, password.value) },
+//                modifier = Modifier.padding(top = 16.dp)
+//            ) {
+//                Text("Register")
+//            }
+//
+//            registerResult?.let {
+//                Text(text = "Register Success! Token: ${it.token}")
+//            }
+            Spacer(modifier = Modifier.height(10.dp))
+            Text(text = "atau daftar dengan")
             Spacer(modifier = Modifier.height(15.dp))
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -173,13 +191,11 @@ fun ScreenMasuk(navController: NavController) {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "Belum punya akun?",
-                    fontSize = 12.sp,
+                    text = "Sudah punya akun?",
                     fontWeight = FontWeight.Light
                 )
                 Text(
-                    text = "Daftar",
-                    fontSize = 12.sp,
+                    text = "Masuk",
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.clickable {
 
@@ -188,5 +204,7 @@ fun ScreenMasuk(navController: NavController) {
             }
         }
     }
-
 }
+
+
+
