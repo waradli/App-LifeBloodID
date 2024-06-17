@@ -1,4 +1,4 @@
-package com.example.appslifebloodid.ui.intro.onboarding.components.menu_home.chat
+package com.example.appslifebloodid.ui.page.component.menu_home.chat
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -38,7 +38,7 @@ import androidx.navigation.NavController
 import com.example.appslifebloodid.R
 import com.example.appslifebloodid.data.DataColumnDokter
 import com.example.appslifebloodid.data.DataColumnReward
-import com.example.appslifebloodid.ui.intro.onboarding.components.menu_home.ItemReward
+import com.example.appslifebloodid.ui.page.component.menu_home.ItemReward
 import com.example.appslifebloodid.page.Component.Item.Item_About
 
 @Composable

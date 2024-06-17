@@ -44,7 +44,39 @@ fun BotNavBar(
 ) {
     val navController = rememberNavController()
     Scaffold(
-        bottomBar = { BottomBar(navController = navController) }
+        bottomBar = {
+            val navBackStackEntry by navController.currentBackStackEntryAsState()
+            val currentDestination = navBackStackEntry?.destination?.route
+
+            val shouldHideBottomBar = currentDestination in listOf(
+                // Home Screen
+                // Box Home
+                "ScreenChat",
+                "ScreenReward",
+                "ScreenStockDarah",
+                "ScreenJadwalDonor",
+
+                // Artikel Donor Darah
+                "DetailArtikel/{artikelId}",
+                "DetailEvent/{eventId}",
+
+                // Profile
+                "ScreenProfile",
+
+                //  About
+                "TentangAplikasi",
+                "Kebijakan&Privasi",
+                "PusatBantuan",
+                "KetentuanPengguna",
+                "PertanyaanYangSeringDitanyakan",
+
+
+
+            )
+            AnimatedVisibility(visible = !shouldHideBottomBar) {
+                BottomBar(navController = navController)
+            }
+        }
     ) { innerPadding ->
         BottomGraph(
             navController = navController,
@@ -68,9 +100,9 @@ fun BottomBar(
     val currentDestination = navBackStackEntry?.destination
     Row(
         modifier = Modifier
-            .padding(horizontal = 10.dp, vertical = 50.dp,)
-            .background(Color(0xFFE35A5A), shape = RoundedCornerShape(30))
-            .height(58.dp)
+            .padding(horizontal = 10.dp, vertical = 60.dp)
+            .background(Color(0xffb20909), shape = RoundedCornerShape(25))
+            .height(70.dp)
             .fillMaxWidth(),
 
 
@@ -102,9 +134,9 @@ fun RowScope.AddItem(
     ).copy(alpha = 1f) else Color.Transparent
     Box(
         modifier = Modifier
-            .height(45.dp)
-            .padding(start = 17.dp, end = 17.dp)
-            .background(background, shape = RoundedCornerShape(30))
+            .height(50.dp)
+            .padding(start = 15.dp, end = 15.dp)
+            .background(background, shape = RoundedCornerShape(25))
             .clickable(onClick = {
                 navController.navigate(Screens.route) {
                     popUpTo(navController.graph.findStartDestination().id)
@@ -115,7 +147,7 @@ fun RowScope.AddItem(
             })
     ) {
         Row(
-            modifier = Modifier.padding(start = 8.dp, end = 8.dp, bottom = 8.dp, top = 8.dp),
+            modifier = Modifier.padding(start = 5.dp, end = 5.dp, bottom = 5.dp, top = 8.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(4.dp)
         ) {
@@ -127,7 +159,7 @@ fun RowScope.AddItem(
             AnimatedVisibility(visible = selected) {
                 Text(
                     text = Screens.title, style = TextStyle(
-                        fontSize = 10.sp,
+                        fontSize = 15.sp,
                         fontWeight = FontWeight.SemiBold
                     ), color = contentColor
                 )

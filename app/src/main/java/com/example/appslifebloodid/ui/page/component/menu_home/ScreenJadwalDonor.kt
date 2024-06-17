@@ -1,4 +1,4 @@
-package com.example.appslifebloodid.ui.intro.onboarding.components.menu_home
+package com.example.appslifebloodid.ui.page.component.menu_home
 
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -33,7 +33,7 @@ fun ScreenJadwalDonor(modifier: Modifier = Modifier, navController: NavControlle
                 .fillMaxWidth()
                 .height(100.dp)
                 .padding(top = 35.dp)
-                .background(Color(0xffE35A5A))
+                .background(Color(0xffb20909))
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),

@@ -20,6 +20,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
@@ -30,7 +31,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
@@ -58,7 +61,7 @@ fun Item_Home(navController: NavController) {
     ) {
         ConstraintLayout {
             val (topImg, profile, item) = createRefs()
-            Image(painterResource(id = R.drawable.bg_home), null,
+            Image(painterResource(id = R.drawable.bg_homee), null,
                 Modifier
                     .padding(top = 35.dp)
                     .fillMaxWidth()
@@ -85,7 +88,11 @@ fun Item_Home(navController: NavController) {
                         modifier = Modifier
                             .size(90.dp)
                             .padding(start = 30.dp, top = 20.dp)
+                            .clickable {
+                                navController.navigate("ScreenProfile")
+                            }
                     )
+
                     Column(
                         modifier = Modifier.padding(
                             top = 30.dp, start = 15.dp
@@ -101,24 +108,16 @@ fun Item_Home(navController: NavController) {
                         Text(
                             text = "122233",
                             style = TextStyle(
-                                fontSize = 10.sp,
+                                fontSize = 15.sp,
                                 color = Color.White,
-
-                                )
+                            )
                         )
                     }
-                    Box(
-                        modifier = Modifier.padding(start = 60.dp)
-                    ) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.notifikasi),
-                            contentDescription = "Notification",
-                            modifier = Modifier
-                                .size(60.dp)
-                                .padding(top = 30.dp)
-
-                        )
-                    }
+                    Spacer(modifier = Modifier.width(30.dp))
+                    Icon(
+                        painter = painterResource(id = R.drawable.notif),
+                        contentDescription = "Notification",
+                    )
                 }
                 Spacer(modifier = Modifier.height(17.dp))
                 OutlinedTextField(
