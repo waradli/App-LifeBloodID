@@ -51,7 +51,7 @@ fun ScreenDaftarDr(modifier: Modifier = Modifier,
                 .fillMaxWidth()
                 .height(100.dp)
                 .padding(top = 35.dp)
-                .background(Color(0xffE35A5A))
+                .background(Color(0xffb20909))
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),

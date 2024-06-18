@@ -2,6 +2,7 @@ package com.example.appslifebloodid.page.Component.NavigateScreen
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -32,6 +33,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.appslifebloodid.ui.theme.poppinsFontFamily
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -39,50 +41,44 @@ fun PusatBantuan(
     navController: NavController,
     modifier: Modifier = Modifier
 ) {
-    Scaffold(
-        modifier = Modifier.fillMaxWidth(),
-        containerColor = Color(0xffE1DDDD),
-        topBar = {
-            Row(
-                horizontalArrangement = Arrangement.Center
-            ) {
-                TopAppBar(
-                    colors = TopAppBarDefaults.topAppBarColors(containerColor = Color(0xffE35A5A)),
-                    title = {
-                        Box(
-                            modifier = Modifier.fillMaxSize(),
-                            contentAlignment = Alignment.Center,
-                        ) {
-                            Text(
-                                text = "Pusat Bantuan",
-                                style = TextStyle(
-                                    fontSize = 16.sp,
-                                    color = Color.White,
-                                    fontWeight = FontWeight.SemiBold,
-                                ),
-                            )
-                        }
+    Column(
+        modifier = Modifier.padding(vertical = 50.dp)) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(70.dp)
+                .background(Color(0xffb20909)),
 
-                    },
-                    navigationIcon = {
-                        IconButton(
-                            onClick = { navController.popBackStack() },
-                            modifier = Modifier
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.KeyboardArrowLeft,
-                                contentDescription = null,
-                                tint = Color.White
-                            )
-                        }
-                    }
+            ) {
+            Row(
+                horizontalArrangement = Arrangement.Start,
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(vertical = 10.dp, horizontal = 20.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.KeyboardArrowLeft,
+                    contentDescription = "Icon Arrow",
+                    modifier = Modifier
+                        .size(width = 45.dp, height = 45.dp)
+                        .clickable {
+                            navController.popBackStack()
+                        },
+                    tint = Color.White
+                )
+                Text(
+                    text = "Pusat Bantuan",
+                    style = TextStyle(
+                        fontSize = 25.sp,
+                        color = Color.White,
+                        fontFamily = poppinsFontFamily,
+                        fontWeight = FontWeight.SemiBold
+                    ),
+                    modifier = Modifier.padding(vertical = 5.dp, horizontal = 60.dp)
                 )
             }
         }
-    ) { PaddingValues ->
         LazyColumn(
             modifier = Modifier
-                .padding(PaddingValues)
                 .fillMaxSize()
                 .height(800.dp)
                 .background(Color(0xffF6F6F6)),
@@ -114,7 +110,7 @@ fun ItemPusatBantuan(
             modifier = Modifier.padding(start = 15.dp, end = 3.dp, top = 20.dp),
             text = "Jika Anda memiliki pertanyaan atau membutuhkan bantuan lebih lanjut, jangan ragu untuk menghubungi tim dukungan LifebloodId: ",
             style = TextStyle(
-                fontSize = 12.sp,
+                fontSize = 15.sp,
             ),
         )
         Spacer(modifier = modifier.padding(bottom = 20.dp))
@@ -131,7 +127,7 @@ fun ItemPusatBantuan(
                 modifier = Modifier.padding(start = 8.dp),
                 text = "Email: support@lifebloodid.com",
                 style = TextStyle(
-                    fontSize = 12.sp,
+                    fontSize = 15.sp,
                 )
             )
         }
@@ -149,7 +145,7 @@ fun ItemPusatBantuan(
                 modifier = Modifier.padding(start = 8.dp),
                 text = "Telepon: +628123456789",
                 style = TextStyle(
-                    fontSize = 12.sp,
+                    fontSize = 15.sp,
                 )
             )
         }
@@ -157,7 +153,7 @@ fun ItemPusatBantuan(
         Text(
             modifier = Modifier.padding(start = 15.dp, end = 3.dp),
             style = TextStyle(
-                fontSize = 12.sp,
+                fontSize = 15.sp,
             ),
             text = "Tim dukungan kami siap membantu Anda dengan segala pertanyaan atau masalah yang Anda hadapi saat menggunakan LifebloodId. Kami berkomitmen untuk mendukung kegiatan donor darah dan memastikan pengalaman pengguna yang positif dalam menyelamatkan nyawa."
         )
@@ -165,7 +161,7 @@ fun ItemPusatBantuan(
         Text(
             modifier = Modifier.padding(start = 15.dp, end = 3.dp),
             style = TextStyle(
-                fontSize = 12.sp,
+                fontSize = 15.sp,
             ),
             text = "Terima kasih atas partisipasi Anda dalam mendukung kegiatan donor darah melalui LifebloodId!"
         )

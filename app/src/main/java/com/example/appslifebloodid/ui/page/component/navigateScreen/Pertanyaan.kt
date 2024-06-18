@@ -1,6 +1,7 @@
 package com.example.appslifebloodid.page.Component.NavigateScreen
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
@@ -30,6 +32,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.appslifebloodid.ui.theme.poppinsFontFamily
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -37,50 +40,45 @@ fun Pertanyaan(
     navController: NavController,
     modifier: Modifier = Modifier
 ) {
-    Scaffold(
-        modifier = Modifier.fillMaxWidth(),
-        containerColor = Color(0xffE1DDDD),
-        topBar = {
-            Row(
-                horizontalArrangement = Arrangement.Center
-            ) {
-                TopAppBar(
-                    colors = TopAppBarDefaults.topAppBarColors(containerColor = Color(0xffE35A5A)),
-                    title = {
-                        Box(
-                            modifier = Modifier.fillMaxSize(),
-                            contentAlignment = Alignment.Center,
-                        ) {
-                            Text(
-                                text = "Pertanyaan Yang Sering Ditanyakan?",
-                                style = TextStyle(
-                                    fontSize = 16.sp,
-                                    color = Color.White,
-                                    fontWeight = FontWeight.SemiBold,
-                                ),
-                            )
-                        }
+    Column(
+        modifier = Modifier.padding(vertical = 50.dp)
+    ){
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(70.dp)
+                .background(Color(0xffb20909)),
 
-                    },
-                    navigationIcon = {
-                        IconButton(
-                            onClick = { navController.popBackStack() },
-                            modifier = Modifier
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.KeyboardArrowLeft,
-                                contentDescription = null,
-                                tint = Color.White
-                            )
-                        }
-                    }
+            ) {
+            Row(
+                horizontalArrangement = Arrangement.Start,
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(vertical = 10.dp, horizontal = 20.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.KeyboardArrowLeft,
+                    contentDescription = "Icon Arrow",
+                    modifier = Modifier
+                        .size(width = 45.dp, height = 45.dp)
+                        .clickable {
+                            navController.popBackStack()
+                        },
+                    tint = Color.White
+                )
+                Text(
+                    text = "Pertanyaan yang Sering Ditanyakan?",
+                    style = TextStyle(
+                        fontSize = 15.sp,
+                        color = Color.White,
+                        fontFamily = poppinsFontFamily,
+                        fontWeight = FontWeight.SemiBold
+                    ),
+                    modifier = Modifier.padding(vertical = 5.dp, horizontal = 10.dp)
                 )
             }
         }
-    ) { PaddingValues ->
         LazyColumn(
             modifier = Modifier
-                .padding(PaddingValues)
                 .fillMaxSize()
                 .height(800.dp)
                 .background(Color(0xffF6F6F6)),
@@ -91,6 +89,7 @@ fun Pertanyaan(
             }
         }
     }
+
 }
 
 @Composable

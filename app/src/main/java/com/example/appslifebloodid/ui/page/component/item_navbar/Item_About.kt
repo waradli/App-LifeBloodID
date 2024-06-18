@@ -41,7 +41,7 @@ fun Item_About(
         Box(
             modifier = Modifier
                 .background(color = Color(0xfffffff).copy(alpha = 1f))
-                .height(350.dp)
+                .height(400.dp)
                 .fillMaxWidth()
                 .shadow(
                     elevation = 2.dp,
@@ -53,12 +53,12 @@ fun Item_About(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 10.dp)
+                        .padding(horizontal = 10.dp, vertical = 10.dp)
                 ) {
                     Text(
                         text = "Tentang Aplikasi",
                         style = TextStyle(
-                            fontSize = 12.sp,
+                            fontSize = 18.sp,
 
                             ),
                         modifier = Modifier.padding(start = 15.dp, top = 10.dp)
@@ -84,12 +84,12 @@ fun Item_About(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 10.dp)
+                        .padding(horizontal = 10.dp, vertical = 10.dp)
                 ) {
                     Text(
                         text = "Kebijakan & Privasi",
                         style = TextStyle(
-                            fontSize = 12.sp,
+                            fontSize = 18.sp,
                         ),
                         modifier = Modifier.padding(start = 15.dp, top = 10.dp)
                     )
@@ -112,12 +112,12 @@ fun Item_About(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 10.dp)
+                        .padding(horizontal = 10.dp, vertical = 10.dp)
                 ) {
                     Text(
                         text = "Pusat Bantuan",
                         style = TextStyle(
-                            fontSize = 12.sp,
+                            fontSize = 18.sp,
                         ),
                         modifier = Modifier.padding(start = 15.dp, top = 10.dp)
                     )
@@ -133,19 +133,19 @@ fun Item_About(
                 Divider(
                     thickness = 1.dp,
                     color = Color.LightGray,
-                    modifier = Modifier.padding(start = 2.dp, end = 2.dp)
+                    modifier = Modifier.padding(start = 10.dp, end = 2.dp)
 
                 )
                 Row(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 10.dp)
+                        .padding(horizontal = 10.dp, vertical = 10.dp)
                 ) {
                     Text(
                         text = "Ketentuan Pengguna",
                         style = TextStyle(
-                            fontSize = 12.sp,
+                            fontSize = 18.sp,
                         ),
                         modifier = Modifier.padding(start = 15.dp, top = 10.dp)
                     )
@@ -168,12 +168,12 @@ fun Item_About(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 10.dp)
+                        .padding(horizontal = 10.dp, vertical = 10.dp)
                 ) {
                     Text(
                         text = "Pertanyaan yang Sering Ditanyakan?",
                         style = TextStyle(
-                            fontSize = 12.sp,
+                            fontSize = 18.sp,
                         ),
                         modifier = Modifier.padding(start = 15.dp, top = 10.dp)
                     )

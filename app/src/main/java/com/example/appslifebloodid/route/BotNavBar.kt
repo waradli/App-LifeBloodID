@@ -60,6 +60,12 @@ fun BotNavBar(
                 "DetailArtikel/{artikelId}",
                 "DetailEvent/{eventId}",
 
+                // Screen Chat
+                "ScreenDaftarDr",
+
+                // Lihat Semua
+                "LihatSemua",
+
                 // Profile
                 "ScreenProfile",
 
@@ -69,6 +75,9 @@ fun BotNavBar(
                 "PusatBantuan",
                 "KetentuanPengguna",
                 "PertanyaanYangSeringDitanyakan",
+
+                // Event
+                "PendaftaranEvent",
 
 
 

@@ -21,6 +21,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
@@ -54,6 +55,7 @@ import com.example.appslifebloodid.model.dataArtikel
 fun Item_Home(navController: NavController) {
     Column(
         Modifier
+            .padding(vertical = 2.dp)
             .fillMaxHeight()
             .fillMaxWidth()
             .background(color = Color(android.graphics.Color.parseColor("#ececec"))),
@@ -92,11 +94,11 @@ fun Item_Home(navController: NavController) {
                                 navController.navigate("ScreenProfile")
                             }
                     )
-
                     Column(
-                        modifier = Modifier.padding(
-                            top = 30.dp, start = 15.dp
-                        ),
+                        modifier = Modifier
+                            .padding(
+                                top = 30.dp, start = 15.dp
+                            )
                     ) {
                         Text(
                             text = "Halo, Ali Wardana",
@@ -113,10 +115,14 @@ fun Item_Home(navController: NavController) {
                             )
                         )
                     }
-                    Spacer(modifier = Modifier.width(30.dp))
+                    Spacer(modifier = Modifier.width(20.dp))
                     Icon(
-                        painter = painterResource(id = R.drawable.notif),
-                        contentDescription = "Notification",
+                        imageVector = Icons.Filled.Notifications,
+                        contentDescription = "Notif",
+                        tint = Color.White,
+                        modifier = Modifier
+                            .padding(vertical = 30.dp, horizontal = 30.dp)
+                            .size(width = 40.dp, height = 40.dp)
                     )
                 }
                 Spacer(modifier = Modifier.height(17.dp))
