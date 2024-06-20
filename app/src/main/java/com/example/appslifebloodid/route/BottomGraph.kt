@@ -9,7 +9,6 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.example.appslifebloodid.model.dataArtikel
 import com.example.appslifebloodid.ui.page.AboutScreen
 import com.example.appslifebloodid.page.Component.NavigateScreen.KebijakanPrivasi
 import com.example.appslifebloodid.page.Component.NavigateScreen.KetentuanPengguna
@@ -17,12 +16,10 @@ import com.example.appslifebloodid.page.Component.NavigateScreen.Pertanyaan
 import com.example.appslifebloodid.page.Component.NavigateScreen.PusatBantuan
 import com.example.appslifebloodid.page.Component.NavigateScreen.TentangAplikasi
 import com.example.appslifebloodid.ui.page.EventScreen
-import com.example.appslifebloodid.ui.page.HomeScreen
 import com.example.appslifebloodid.ui.page.RiwayatScreen
 import com.example.appslifebloodid.route.RouteBotNav
-import com.example.appslifebloodid.ui.intro.onboarding.components.menu_home.LihatSemua
 import com.example.appslifebloodid.ui.intro.onboarding.components.menu_home.PendaftaranEvent
-import com.example.appslifebloodid.ui.page.component.menu_home.DetailArtikel
+import com.example.appslifebloodid.ui.page.HomeScreen
 import com.example.appslifebloodid.ui.page.component.menu_home.DetailEvent
 import com.example.appslifebloodid.ui.page.component.menu_home.ScreenJadwalDonor
 import com.example.appslifebloodid.ui.page.component.menu_home.ScreenReward
@@ -90,9 +87,9 @@ fun BottomGraph(
         composable(route = "ScreenProfile") {
             ProfileScreen(navController = navController)
         }
-        composable(route = "LihatSemua") {
-            LihatSemua(navController = navController)
-        }
+//        composable(route = "LihatSemua") {
+//            LihatSemua(navController = navController)
+//        }
 
 
         // Event
@@ -100,15 +97,15 @@ fun BottomGraph(
             PendaftaranEvent(navController = navController)
         }
 
-        composable(
-            route = "DetailArtikel/{artikelId}",
-            arguments = listOf(navArgument("artikelId") { type = NavType.IntType })
-        ) { navBackStackEntry ->
-            DetailArtikel(
-                navController = navController,
-                artikelId = navBackStackEntry.arguments?.getInt("artikelId")
-            )
-        }
+//        composable(
+//            route = "DetailArtikel/{artikelId}",
+//            arguments = listOf(navArgument("artikelId") { type = NavType.IntType })
+//        ) { navBackStackEntry ->
+//            DetailArtikel(
+//                navController = navController,
+//                artikelId = navBackStackEntry.arguments?.getInt("artikelId")
+//            )
+//        }
         composable(
             route = "DetailEvent/{eventId}",
             arguments = listOf(navArgument("eventId") { type = NavType.IntType })

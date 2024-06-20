@@ -10,16 +10,18 @@ object RetrofitInstance {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
+    val baseUrl = "http://192.168.132.120:3000/api/"
+
     private val client = OkHttpClient.Builder()
         .addInterceptor(loggingInterceptor)
         .build()
 
-    val api: AuthService by lazy {
+    val api: ApiService by lazy {
         Retrofit.Builder()
-            .baseUrl("http://192.168.1.11:3000/api/auth/")
+            .baseUrl(baseUrl)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(AuthService::class.java)
+            .create(ApiService::class.java)
     }
 }

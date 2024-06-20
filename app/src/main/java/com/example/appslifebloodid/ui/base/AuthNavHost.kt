@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.app_donor_darah.Route.BotNavBar
+import com.example.appslifebloodid.route.BotNavBar
 import com.example.appslifebloodid.ui.intro.FirstScreen
 import com.example.appslifebloodid.ui.intro.onboarding.OnBoardingScreen
 import com.example.appslifebloodid.ui.intro.LoginScreen

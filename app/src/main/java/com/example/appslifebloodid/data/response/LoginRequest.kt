@@ -1,6 +1,6 @@
 package com.example.appslifebloodid.data.response
 
 data class LoginRequest(
-    val username: String,
+    val credential: String,
     val password: String
 )

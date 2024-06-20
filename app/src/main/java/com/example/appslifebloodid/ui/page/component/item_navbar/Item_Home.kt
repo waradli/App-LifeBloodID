@@ -28,6 +28,8 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -43,16 +45,23 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.appslifebloodid.R
-import com.example.appslifebloodid.data.DataColumn
-import com.example.appslifebloodid.data.DataColumn.artikelColum
+import com.example.appslifebloodid.data.network.RetrofitInstance
+import com.example.appslifebloodid.data.repository.ArticleRepository
+import com.example.appslifebloodid.ui.base.ArticleViewModel
 import com.example.appslifebloodid.ui.intro.onboarding.components.ArtikelItem
-import com.example.appslifebloodid.model.dataArtikel
-
+import com.example.appslifebloodid.ui.page.ArticleViewModelFactory
 
 @Composable
 fun Item_Home(navController: NavController) {
+    val repository = ArticleRepository(RetrofitInstance.api)
+    val viewModel: ArticleViewModel = viewModel(
+        factory = ArticleViewModelFactory(repository)
+    )
+    val articles by viewModel.articles.observeAsState(emptyList())
+
     Column(
         Modifier
             .padding(vertical = 2.dp)
@@ -270,13 +279,14 @@ fun Item_Home(navController: NavController) {
             }
         }
         Spacer(modifier = Modifier.height(10.dp))
-        val Artikels = remember { DataColumn.artikelColum }
+//        val Artikels = remember { DataColumn.artikelColum }
         LazyColumn(
             modifier = Modifier.padding(vertical = 8.dp, horizontal = 8.dp)
         ) {
             items(
-                items = Artikels,
-                itemContent = { ArtikelItem(art = it, navController = navController) })
+                items = articles,
+                itemContent = { art -> ArtikelItem(art, navController) }
+            )
         }
     }
 }

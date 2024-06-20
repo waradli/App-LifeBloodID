@@ -147,10 +147,10 @@ fun LoginScreen(authViewModel: AuthViewModel, navController: NavController) {
 //            ) {
 //                Text("Login")
 //            }
-//
-//            loginResult?.let {
-//                Text(text = "Login Success! Token: ${it.token}")
-//            }
+
+            loginResult?.let {
+                Text(text = "Login Success! Token: ${it.token}")
+            }
 
             Spacer(modifier = Modifier.height(15.dp))
             Row(verticalAlignment = Alignment.CenterVertically) {

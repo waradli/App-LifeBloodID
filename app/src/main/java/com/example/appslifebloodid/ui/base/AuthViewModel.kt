@@ -27,9 +27,9 @@ class AuthViewModel(private val repository: AuthRepository) : ViewModel() {
     }
 
     @SuppressLint("NullSafeMutableLiveData")
-    fun register(username: String, password: String) {
+    fun register(username: String, email: String, password: String) {
         viewModelScope.launch {
-            val response = repository.register(RegisterRequest(username, password))
+            val response = repository.register(RegisterRequest(username, email, password))
             _registerResult.postValue(response)
         }
     }

@@ -111,14 +111,16 @@ fun RegisterScreen(authViewModel: AuthViewModel, navController: NavController) {
                         .height(60.dp),
                     shape = RoundedCornerShape(10.dp)
                 )
-//                Spacer(modifier = Modifier.height(10.dp))
-//                OutlinedTextField(value = email, onValueChange = {email = it},
-//                    label = { Text(text = "Email atau No.Hp")},
-//                    modifier = Modifier
-//                        .width(365.dp)
-//                        .height(60.dp),
-//                    shape = RoundedCornerShape(10.dp)
-//                )
+                Spacer(modifier = Modifier.height(10.dp))
+                OutlinedTextField(
+                    value = email.value,
+                    onValueChange = {email.value = it},
+                    label = { Text(text = "Email atau No.Hp")},
+                    modifier = Modifier
+                        .width(365.dp)
+                        .height(60.dp),
+                    shape = RoundedCornerShape(10.dp)
+                )
                 Spacer(modifier = Modifier.height(10.dp))
                 OutlinedTextField(
                     value = password.value,
@@ -144,27 +146,27 @@ fun RegisterScreen(authViewModel: AuthViewModel, navController: NavController) {
                 Text(text = "Dengan mendaftar, kamu telah menyetujui Ketentuan Pemakaian dan Pengaturan Privasi yang ada di LifeBloodID ", fontSize = 11.sp)
             }
             Spacer(modifier = Modifier.height(15.dp))
-            Button(onClick = { navController.navigate("login") },
-                modifier = Modifier
-                    .width(365.dp)
-                    .height(48.dp),
-                shape = RoundedCornerShape(10.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFFB20909)
-                )
-                ) {
-                Text(text = "Daftar", fontSize = 18.sp)
+//            Button(onClick = { navController.navigate("login") },
+//                modifier = Modifier
+//                    .width(365.dp)
+//                    .height(48.dp),
+//                shape = RoundedCornerShape(10.dp),
+//                colors = ButtonDefaults.buttonColors(
+//                    containerColor = Color(0xFFB20909)
+//                )
+//                ) {
+//                Text(text = "Daftar", fontSize = 18.sp)
+//            }
+            Button(
+                onClick = { authViewModel.register(username.value, email.value, password.value) },
+                modifier = Modifier.padding(top = 16.dp)
+            ) {
+                Text("Register")
             }
-//            Button(
-//                onClick = { authViewModel.register(username.value, password.value) },
-//                modifier = Modifier.padding(top = 16.dp)
-//            ) {
-//                Text("Register")
-//            }
-//
-//            registerResult?.let {
-//                Text(text = "Register Success! Token: ${it.token}")
-//            }
+
+            registerResult?.let {
+                Text(text = "Register Success! Token: ${it.token}")
+            }
             Spacer(modifier = Modifier.height(10.dp))
             Text(text = "atau daftar dengan")
             Spacer(modifier = Modifier.height(15.dp))
