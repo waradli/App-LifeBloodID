@@ -26,6 +26,7 @@ import com.example.appslifebloodid.ui.page.component.menu_home.ScreenReward
 import com.example.appslifebloodid.ui.page.component.menu_home.ScreenStockDarah
 import com.example.appslifebloodid.ui.page.component.menu_home.chat.ScreenChat
 import com.example.appslifebloodid.ui.page.component.menu_home.chat.ScreenDaftarDr
+import com.example.appslifebloodid.ui.page.component.notifikasi.ScreenNotifikasi
 import com.example.appslifebloodid.ui.page.component.profile.ProfileScreen
 
 @RequiresApi(Build.VERSION_CODES.O)
@@ -86,6 +87,9 @@ fun BottomGraph(
         }
         composable(route = "ScreenProfile") {
             ProfileScreen(navController = navController)
+        }
+        composable(route = "ScreenNotif") {
+            ScreenNotifikasi(navController=navController)
         }
 //        composable(route = "LihatSemua") {
 //            LihatSemua(navController = navController)

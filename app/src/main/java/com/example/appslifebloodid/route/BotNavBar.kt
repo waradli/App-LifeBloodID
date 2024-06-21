@@ -80,6 +80,9 @@ fun BotNavBar(
                 // Event
                 "PendaftaranEvent",
 
+                // Event
+                "ScreenNotif",
+
 
 
             )

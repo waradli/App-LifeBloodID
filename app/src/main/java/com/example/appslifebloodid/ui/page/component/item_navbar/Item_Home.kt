@@ -130,8 +130,11 @@ fun Item_Home(navController: NavController) {
                         contentDescription = "Notif",
                         tint = Color.White,
                         modifier = Modifier
-                            .padding(vertical = 30.dp, horizontal = 30.dp)
+                            .padding(vertical = 30.dp, horizontal = 50.dp)
                             .size(width = 40.dp, height = 40.dp)
+                            .clickable {
+                                navController.navigate("ScreenNotif")
+                            }
                     )
                 }
                 Spacer(modifier = Modifier.height(17.dp))

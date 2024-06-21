@@ -55,13 +55,13 @@ fun TentangAplikasi(
             Row(
                 horizontalArrangement = Arrangement.Start,
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.padding(vertical = 10.dp, horizontal = 20.dp)
+                modifier = Modifier.padding(vertical = 15.dp, horizontal = 20.dp)
             ) {
                 Icon(
                     imageVector = Icons.Filled.KeyboardArrowLeft,
                     contentDescription = "Icon Arrow",
                     modifier = Modifier
-                        .size(width = 45.dp, height = 45.dp)
+                        .size(width = 30.dp, height = 30.dp)
                         .clickable {
                             navController.popBackStack()
                         },
@@ -70,12 +70,12 @@ fun TentangAplikasi(
                 Text(
                     text = "Tentang Aplikasi",
                     style = TextStyle(
-                        fontSize = 25.sp,
+                        fontSize = 22.sp,
                         color = Color.White,
                         fontFamily = poppinsFontFamily,
                         fontWeight = FontWeight.SemiBold
                     ),
-                    modifier = Modifier.padding(vertical = 5.dp, horizontal = 50.dp)
+                    modifier = Modifier.padding(vertical = 5.dp, horizontal = 70.dp)
                 )
             }
         }

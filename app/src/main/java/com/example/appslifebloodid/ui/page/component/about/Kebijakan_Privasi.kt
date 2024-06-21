@@ -36,13 +36,13 @@ import com.example.appslifebloodid.ui.theme.poppinsFontFamily
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Pertanyaan(
+fun KebijakanPrivasi(
     navController: NavController,
     modifier: Modifier = Modifier
 ) {
     Column(
         modifier = Modifier.padding(vertical = 50.dp)
-    ){
+    ) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -53,27 +53,27 @@ fun Pertanyaan(
             Row(
                 horizontalArrangement = Arrangement.Start,
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.padding(vertical = 10.dp, horizontal = 20.dp)
+                modifier = Modifier.padding(vertical = 15.dp, horizontal = 20.dp)
             ) {
                 Icon(
                     imageVector = Icons.Filled.KeyboardArrowLeft,
                     contentDescription = "Icon Arrow",
                     modifier = Modifier
-                        .size(width = 45.dp, height = 45.dp)
+                        .size(width = 30.dp, height = 30.dp)
                         .clickable {
                             navController.popBackStack()
                         },
                     tint = Color.White
                 )
                 Text(
-                    text = "Pertanyaan yang Sering Ditanyakan?",
+                    text = "Kebijakan & Privasi",
                     style = TextStyle(
-                        fontSize = 15.sp,
+                        fontSize = 22.sp,
                         color = Color.White,
                         fontFamily = poppinsFontFamily,
                         fontWeight = FontWeight.SemiBold
                     ),
-                    modifier = Modifier.padding(vertical = 5.dp, horizontal = 10.dp)
+                    modifier = Modifier.padding(vertical = 5.dp, horizontal = 60.dp)
                 )
             }
         }
@@ -85,7 +85,7 @@ fun Pertanyaan(
             contentPadding = PaddingValues(16.dp)
         ) {
             item {
-                ItemPertanyaan()
+                ItemTentangAplikasi()
             }
         }
     }
@@ -93,7 +93,7 @@ fun Pertanyaan(
 }
 
 @Composable
-fun ItemPertanyaan(
+fun ItemTentangAplikasi(
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -108,65 +108,67 @@ fun ItemPertanyaan(
             )
     ) {
         Text(
-            modifier = Modifier.padding(start = 10.dp, end = 3.dp, top = 20.dp),
-            text = "1.Bagaimana cara mendaftar sebagai pendonor di LifebloodId? ",
+            modifier = Modifier.padding(start = 15.dp, end = 3.dp, top = 20.dp),
+            text = "1. Pengumpulan Informasi ",
             style = TextStyle(
-                fontSize = 12.sp,
+                fontSize = 16.sp,
+                fontWeight = FontWeight.SemiBold
             ),
         )
         Text(
             modifier = Modifier.padding(start = 10.dp, end = 10.dp, top = 20.dp),
-            text = "Untuk mendaftar sebagai pendonor di LifebloodId, buka aplikasi dan ikuti langkah-langkah pendaftaran yang disediakan. Isi informasi pribadi Anda dengan akurat dan lengkap.",
+            text = "Aplikasi Donor Darah XYZ dapat mengumpulkan informasi pribadi seperti nama, alamat, nomor telepon, tanggal lahir, golongan darah,telepon, tanggal lahir, golongan darah, dan riwayat donor darah untuk keperluan administrasi dan logistik\n",
+            style = TextStyle(
+                fontSize = 15.sp,
+                textAlign = TextAlign.Justify,
+            ),
+        )
+        Text(
+            modifier = Modifier.padding(start = 15.dp, end = 3.dp, top = 20.dp),
+            text = "2.  Tujuan Pengumpulan",
+            style = TextStyle(
+                fontSize = 14.sp,
+                fontWeight = FontWeight.SemiBold
+            ),
+        )
+        Text(
+            modifier = Modifier.padding(start = 10.dp, end = 10.dp, top = 20.dp),
+            text = "Informasi yang dikumpulkan digunakan untuk memfasilitasi proses pendaftaran donor darah,mengatur jadwal donor darah, dan menghubungkan donor dengan penerima darah yang membutuhkan\n",
             style = TextStyle(
                 fontSize = 12.sp,
                 textAlign = TextAlign.Justify,
             ),
         )
         Text(
-            modifier = Modifier.padding(start = 10.dp, end = 3.dp, top = 20.dp),
-            text = "2.Bagaimana cara mencari lokasi donor darah terdekat?",
+            modifier = Modifier.padding(start = 15.dp, end = 3.dp, top = 20.dp),
+            text = "3.   Penggunaan Informasi",
             style = TextStyle(
-                fontSize = 12.sp,
+                fontSize = 14.sp,
+                fontWeight = FontWeight.SemiBold
             ),
         )
         Text(
             modifier = Modifier.padding(start = 10.dp, end = 10.dp, top = 20.dp),
-            text = "Di dalam aplikasi LifebloodId, Anda dapat menggunakan fitur \"Cari Lokasi Donor Darah\" untuk menemukan lokasi donor darah yang terdekat berdasarkan lokasi Anda saat ini atau lokasi yang dipilih.",
+            text = "Informasi pribadi yang dikumpulkan hanya digunakan untuk keperluan internal aplikasi,seperti manajemen akun pengguna dan komunikasi terkait donor darah.\n",
             style = TextStyle(
                 fontSize = 12.sp,
                 textAlign = TextAlign.Justify,
             ),
         )
         Text(
-            modifier = Modifier.padding(start = 10.dp, end = 3.dp, top = 20.dp),
-            text = "3.Bagaimana cara melihat jadwal donor darah di LifebloodId? ",
+            modifier = Modifier.padding(start = 15.dp, end = 3.dp, top = 20.dp),
+            text = "4.  Kerahasiaan dan Keamanan",
             style = TextStyle(
-                fontSize = 12.sp,
+                fontSize = 14.sp,
+                fontWeight = FontWeight.SemiBold
             ),
         )
         Text(
             modifier = Modifier.padding(start = 10.dp, end = 10.dp, top = 20.dp),
-            text = "Di dalam aplikasi LifebloodId, navigasikan ke menu \"Jadwal Donor Darah\" untuk melihat acara donor darah yang terjadwal. Anda dapat mendaftar untuk berpartisipasi dalam acara tertentu.",
+            text = "Kami mengambil tindakan keamanan yang tepat untuk melindungi informasi pribadi pengguna dari akses, penggunaan, atau pengungkapan yang tidak sah.\n",
             style = TextStyle(
                 fontSize = 12.sp,
                 textAlign = TextAlign.Justify,
             ),
         )
-        Text(
-            modifier = Modifier.padding(start = 10.dp, end = 3.dp, top = 20.dp),
-            text = "4.Bagaimana cara melihat riwayat donor darah saya?",
-            style = TextStyle(
-                fontSize = 12.sp,
-            ),
-        )
-        Text(
-            modifier = Modifier.padding(start = 10.dp, end = 10.dp, top = 20.dp),
-            text = "Anda dapat melihat riwayat donor darah Anda dengan masuk ke menu \"Riwayat Donor\" di dalam aplikasi LifebloodId. Riwayat ini mencakup jumlah donasi, jenis darah yang didonasikan, dan tanggal donor terakhir.",
-            style = TextStyle(
-                fontSize = 12.sp,
-                textAlign = TextAlign.Justify,
-            ),
-        )
-
-    }
-}
+    }}
