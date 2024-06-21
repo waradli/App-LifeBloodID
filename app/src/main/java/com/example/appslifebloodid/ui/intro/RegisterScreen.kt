@@ -1,5 +1,6 @@
 package com.example.appslifebloodid.ui.intro
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -31,6 +32,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -146,26 +148,27 @@ fun RegisterScreen(authViewModel: AuthViewModel, navController: NavController) {
                 Text(text = "Dengan mendaftar, kamu telah menyetujui Ketentuan Pemakaian dan Pengaturan Privasi yang ada di LifeBloodID ", fontSize = 11.sp)
             }
             Spacer(modifier = Modifier.height(15.dp))
-//            Button(onClick = { navController.navigate("login") },
-//                modifier = Modifier
-//                    .width(365.dp)
-//                    .height(48.dp),
-//                shape = RoundedCornerShape(10.dp),
-//                colors = ButtonDefaults.buttonColors(
-//                    containerColor = Color(0xFFB20909)
-//                )
-//                ) {
-//                Text(text = "Daftar", fontSize = 18.sp)
-//            }
             Button(
                 onClick = { authViewModel.register(username.value, email.value, password.value) },
-                modifier = Modifier.padding(top = 16.dp)
-            ) {
-                Text("Register")
+                modifier = Modifier
+                    .width(365.dp)
+                    .height(48.dp),
+                shape = RoundedCornerShape(10.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0xFFB20909)
+                )
+                ) {
+                Text(text = "Daftar", fontSize = 18.sp)
             }
-
-            registerResult?.let {
-                Text(text = "Register Success! Token: ${it.token}")
+            registerResult?.let { result ->
+                if (result.message == "User registered successfully") {
+                    Toast.makeText(LocalContext.current, "Daftar successfully", Toast.LENGTH_SHORT).show()
+                    navController.navigate("login") {
+                        popUpTo(navController.graph.startDestinationId) {
+                            inclusive = true
+                        }
+                    }
+                }
             }
             Spacer(modifier = Modifier.height(10.dp))
             Text(text = "atau daftar dengan")

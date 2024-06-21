@@ -279,7 +279,6 @@ fun Item_Home(navController: NavController) {
             }
         }
         Spacer(modifier = Modifier.height(10.dp))
-//        val Artikels = remember { DataColumn.artikelColum }
         LazyColumn(
             modifier = Modifier.padding(vertical = 8.dp, horizontal = 8.dp)
         ) {

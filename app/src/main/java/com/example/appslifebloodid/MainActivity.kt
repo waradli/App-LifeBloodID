@@ -29,19 +29,6 @@ class MainActivity : ComponentActivity() {
             AuthNavHost(navController, authViewModel)
         }
     }
-//private val authViewModel: AuthViewModel by viewModels {
-//    AuthViewModelFactory(AuthRepository())
-//}
-//
-//    @RequiresApi(Build.VERSION_CODES.O)
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        enableEdgeToEdge()
-//        setContent {
-//            val navController = rememberNavController()
-//            Item_Home(navController = navController)
-//        }
-//    }
 }
 
 class AuthViewModelFactory(private val repository: AuthRepository) : ViewModelProvider.Factory {

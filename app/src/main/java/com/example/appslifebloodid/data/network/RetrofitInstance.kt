@@ -10,7 +10,7 @@ object RetrofitInstance {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
-    val baseUrl = "http://192.168.132.120:3000/api/"
+    val baseUrl = "https://api-lifebloodid.adirdk.blog/api/"
 
     private val client = OkHttpClient.Builder()
         .addInterceptor(loggingInterceptor)

@@ -46,7 +46,6 @@ fun ArtikelItem(article: Article, navController: NavController) {
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp)
         ) {
-            // Ensure image loading is handled correctly; you might use a library like Coil or Glide
             Image(
                 painter = rememberAsyncImagePainter(model = imageUrl),
                 contentDescription = "News",

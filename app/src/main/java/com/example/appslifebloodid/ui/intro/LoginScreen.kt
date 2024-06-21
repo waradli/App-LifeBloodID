@@ -1,5 +1,6 @@
 package com.example.appslifebloodid.ui.intro
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -21,6 +22,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
@@ -29,6 +31,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -130,7 +133,7 @@ fun LoginScreen(authViewModel: AuthViewModel, navController: NavController) {
             Spacer(modifier = Modifier.height(15.dp))
 
             Button(
-                onClick = { navController.navigate("home") },
+                onClick = { authViewModel.login(username.value, password.value) },
                 modifier = Modifier
                     .width(365.dp)
                     .height(48.dp),
@@ -141,15 +144,16 @@ fun LoginScreen(authViewModel: AuthViewModel, navController: NavController) {
             ) {
                 Text(text = "Masuk", fontSize = 18.sp)
             }
-//            Button(
-//                onClick = { authViewModel.login(username.value, password.value) },
-//                modifier = Modifier.padding(top = 16.dp)
-//            ) {
-//                Text("Login")
-//            }
 
-            loginResult?.let {
-                Text(text = "Login Success! Token: ${it.token}")
+            loginResult?.let { result ->
+                if (result.message == "Login successful") {
+                    Toast.makeText(LocalContext.current, "Login successful", Toast.LENGTH_SHORT).show()
+                    navController.navigate("home") {
+                        popUpTo(navController.graph.startDestinationId) {
+                            inclusive = true
+                        }
+                    }
+                }
             }
 
             Spacer(modifier = Modifier.height(15.dp))
