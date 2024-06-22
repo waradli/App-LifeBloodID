@@ -9,10 +9,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -22,13 +19,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.appslifebloodid.page.Component.Item.Item_About
+import com.example.appslifebloodid.ui.base.AuthViewModel
+import com.example.appslifebloodid.ui.page.component.item_navbar.Item_About
 import com.example.appslifebloodid.ui.theme.poppinsFontFamily
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AboutScreen(
     navController: NavController,
+    authViewModel: AuthViewModel,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -57,7 +56,8 @@ fun AboutScreen(
         ) {
             item {
                 Item_About(
-                    navController = navController
+                    navController = navController,
+                    authViewModel = authViewModel
                 )
             }
         }

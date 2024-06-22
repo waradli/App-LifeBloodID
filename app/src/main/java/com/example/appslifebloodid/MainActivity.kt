@@ -1,7 +1,9 @@
 package com.example.appslifebloodid
 
+import android.app.Application
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -13,11 +15,10 @@ import androidx.navigation.compose.rememberNavController
 import com.example.appslifebloodid.data.repository.AuthRepository
 import com.example.appslifebloodid.ui.base.AuthNavHost
 import com.example.appslifebloodid.ui.base.AuthViewModel
-import com.example.appslifebloodid.ui.page.component.item_navbar.Item_Home
 
 class MainActivity : ComponentActivity() {
     private val authViewModel: AuthViewModel by viewModels {
-        AuthViewModelFactory(AuthRepository())
+        AuthViewModelFactory(application, AuthRepository())
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -26,13 +27,25 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             val navController = rememberNavController()
-            AuthNavHost(navController, authViewModel)
+            val startDestination = if (authViewModel.isUserLoggedIn()) "home" else "onBoardingScreen"
+            AuthNavHost(navController = navController, startDestination = startDestination, authViewModel = authViewModel)
+        }
+
+        if (authViewModel.isUserLoggedIn()) {
+            val loggedInUser = authViewModel.getUsername()
+            if (loggedInUser != null) {
+                Log.d("AuthStatus", "User $loggedInUser is logged in")
+            } else {
+                Log.d("AuthStatus", "Unable to retrieve logged in user")
+            }
+        } else {
+            Log.d("AuthStatus", "User is not logged in")
         }
     }
 }
 
-class AuthViewModelFactory(private val repository: AuthRepository) : ViewModelProvider.Factory {
+class AuthViewModelFactory(private val application: Application, private val repository: AuthRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return AuthViewModel(repository) as T
+        return AuthViewModel(application, repository) as T
     }
 }

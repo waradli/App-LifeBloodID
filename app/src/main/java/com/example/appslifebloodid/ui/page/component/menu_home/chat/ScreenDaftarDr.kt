@@ -19,7 +19,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
@@ -37,9 +36,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.appslifebloodid.R
 import com.example.appslifebloodid.data.DataColumnDokter
-import com.example.appslifebloodid.data.DataColumnReward
-import com.example.appslifebloodid.ui.page.component.menu_home.ItemReward
-import com.example.appslifebloodid.page.Component.Item.Item_About
 
 @Composable
 fun ScreenDaftarDr(modifier: Modifier = Modifier,

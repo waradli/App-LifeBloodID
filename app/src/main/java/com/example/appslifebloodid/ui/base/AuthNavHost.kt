@@ -14,8 +14,8 @@ import com.example.appslifebloodid.ui.intro.RegisterScreen
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun AuthNavHost(navController: NavHostController, authViewModel: AuthViewModel) {
-    NavHost(navController = navController, startDestination = "onBoardingScreen") {
+fun AuthNavHost(navController: NavHostController, startDestination: String, authViewModel: AuthViewModel) {
+    NavHost(navController = navController, startDestination = startDestination) {
         composable("onBoardingScreen") {
             OnBoardingScreen(navController = navController)
         }
@@ -29,7 +29,7 @@ fun AuthNavHost(navController: NavHostController, authViewModel: AuthViewModel) 
             RegisterScreen(authViewModel, navController)
         }
         composable("home") {
-            BotNavBar()
+            BotNavBar(authViewModel = authViewModel)
         }
     }
 }

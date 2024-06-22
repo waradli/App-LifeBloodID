@@ -1,4 +1,4 @@
-package com.example.appslifebloodid.page.Component.Item
+package com.example.appslifebloodid.ui.page.component.item_navbar
 
 
 import androidx.compose.foundation.background
@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowRight
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Divider
@@ -19,6 +20,11 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
@@ -28,13 +34,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.appslifebloodid.ui.base.AuthViewModel
 
 
 @Composable
 fun Item_About(
     navController: NavController,
+    authViewModel: AuthViewModel,
     modifier: Modifier = Modifier,
 ) {
+    var showDialog by remember { mutableStateOf(false) }
+    val logoutStatus by authViewModel.logoutStatus.observeAsState()
+
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
@@ -195,7 +206,7 @@ fun Item_About(
             }
         }
         Button(
-            onClick = { /*TODO*/ },
+            onClick = { showDialog = true },
             modifier = Modifier.padding(top = 80.dp),
             shape = RoundedCornerShape(10.dp),
             colors = ButtonDefaults.buttonColors(Color(0xfffB20909))
@@ -208,6 +219,38 @@ fun Item_About(
                 )
             )
         }
-    }
 
+        if (showDialog) {
+            AlertDialog(
+                onDismissRequest = { showDialog = false },
+                text = {
+                    Text("Anda yakin ingin keluar?")
+                },
+                confirmButton = {
+                    Button(
+                        onClick = {
+                            authViewModel.logout()
+                            showDialog = false
+                        }
+                    ) {
+                        Text("Keluar")
+                    }
+                },
+                dismissButton = {
+                    Button(
+                        onClick = { showDialog = false }
+                    ) {
+                        Text("Batal")
+                    }
+                }
+            )
+        }
+        logoutStatus?.let {
+            if (it) {
+                navController.navigate("loginScreen") {
+                    popUpTo("home") { inclusive = true }
+                }
+            }
+        }
+    }
 }

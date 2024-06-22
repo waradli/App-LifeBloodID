@@ -36,12 +36,14 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.app_donor_darah.Route.BottomGraph
+import com.example.appslifebloodid.ui.base.AuthViewModel
 
 @RequiresApi(Build.VERSION_CODES.O)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun BotNavBar(
     modifier: Modifier = Modifier,
+    authViewModel: AuthViewModel,
 ) {
     val navController = rememberNavController()
     Scaffold(
@@ -77,6 +79,9 @@ fun BotNavBar(
                 "KetentuanPengguna",
                 "PertanyaanYangSeringDitanyakan",
 
+
+                "loginScreen",
+
                 // Event
                 "PendaftaranEvent",
 
@@ -93,6 +98,7 @@ fun BotNavBar(
     ) { innerPadding ->
         BottomGraph(
             navController = navController,
+            authViewModel = authViewModel,
             modifier = Modifier.padding(innerPadding),
         )
     }
@@ -185,5 +191,6 @@ fun RowScope.AddItem(
 @Preview(showBackground = true)
 @Composable
 private fun BotNavBarPrev() {
-    BotNavBar()
+    val authViewModel = viewModel<AuthViewModel>()
+    BotNavBar(authViewModel = authViewModel)
 }

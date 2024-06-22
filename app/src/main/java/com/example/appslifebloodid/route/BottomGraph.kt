@@ -18,6 +18,9 @@ import com.example.appslifebloodid.page.Component.NavigateScreen.TentangAplikasi
 import com.example.appslifebloodid.ui.page.EventScreen
 import com.example.appslifebloodid.ui.page.RiwayatScreen
 import com.example.appslifebloodid.route.RouteBotNav
+import com.example.appslifebloodid.ui.base.AuthViewModel
+import com.example.appslifebloodid.ui.intro.FirstScreen
+import com.example.appslifebloodid.ui.intro.LoginScreen
 import com.example.appslifebloodid.ui.intro.onboarding.components.menu_home.PendaftaranEvent
 import com.example.appslifebloodid.ui.page.HomeScreen
 import com.example.appslifebloodid.ui.page.component.menu_home.DetailEvent
@@ -33,6 +36,7 @@ import com.example.appslifebloodid.ui.page.component.profile.ProfileScreen
 @Composable
 fun BottomGraph(
     navController: NavHostController,
+    authViewModel: AuthViewModel,
     modifier: Modifier = Modifier,
 ) {
     NavHost(navController = navController, startDestination = RouteBotNav.Home.route) {
@@ -46,8 +50,10 @@ fun BottomGraph(
             EventScreen(navController = navController)
         }
         composable(route = RouteBotNav.About.route) {
-            AboutScreen(navController = navController)
+            AboutScreen(navController = navController, authViewModel = authViewModel)
         }
+
+        composable("loginScreen") { FirstScreen(navController = navController) }
 
         // New Screen About
         composable(route = "TentangAplikasi") {
