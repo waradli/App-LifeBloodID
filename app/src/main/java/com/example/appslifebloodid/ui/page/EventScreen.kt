@@ -9,7 +9,6 @@ import com.example.appslifebloodid.page.Component.Item.Item_Event
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun EventScreen(
-    modifier: Modifier = Modifier,
     navController: NavController
 ) {
     Item_Event(navController = navController)

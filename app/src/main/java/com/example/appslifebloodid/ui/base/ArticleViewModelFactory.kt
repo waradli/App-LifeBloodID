@@ -1,9 +1,8 @@
-package com.example.appslifebloodid.ui.page
+package com.example.appslifebloodid.ui.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.appslifebloodid.data.repository.ArticleRepository
-import com.example.appslifebloodid.ui.base.ArticleViewModel
 
 class ArticleViewModelFactory(private val repository: ArticleRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

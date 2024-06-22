@@ -2,6 +2,7 @@ package com.example.appslifebloodid.data.network
 
 import com.example.appslifebloodid.data.response.Article
 import com.example.appslifebloodid.data.response.AuthResponse
+import com.example.appslifebloodid.data.response.DataEvent
 import com.example.appslifebloodid.data.response.LoginRequest
 import com.example.appslifebloodid.data.response.RegisterRequest
 import retrofit2.Response
@@ -18,4 +19,7 @@ interface ApiService {
 
     @GET("articles")
     suspend fun getArticles(): Response<List<Article>>
+
+    @GET("locations")
+    suspend fun getLocations(): Response<List<DataEvent>>
 }

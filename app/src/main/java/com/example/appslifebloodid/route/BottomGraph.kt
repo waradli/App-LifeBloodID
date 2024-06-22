@@ -20,10 +20,8 @@ import com.example.appslifebloodid.ui.page.RiwayatScreen
 import com.example.appslifebloodid.route.RouteBotNav
 import com.example.appslifebloodid.ui.base.AuthViewModel
 import com.example.appslifebloodid.ui.intro.FirstScreen
-import com.example.appslifebloodid.ui.intro.LoginScreen
 import com.example.appslifebloodid.ui.intro.onboarding.components.menu_home.PendaftaranEvent
 import com.example.appslifebloodid.ui.page.HomeScreen
-import com.example.appslifebloodid.ui.page.component.menu_home.DetailEvent
 import com.example.appslifebloodid.ui.page.component.menu_home.ScreenJadwalDonor
 import com.example.appslifebloodid.ui.page.component.menu_home.ScreenReward
 import com.example.appslifebloodid.ui.page.component.menu_home.ScreenStockDarah
@@ -116,14 +114,14 @@ fun BottomGraph(
 //                artikelId = navBackStackEntry.arguments?.getInt("artikelId")
 //            )
 //        }
-        composable(
-            route = "DetailEvent/{eventId}",
-            arguments = listOf(navArgument("eventId") { type = NavType.IntType })
-        ) { navBackStackEntry ->
-            DetailEvent(
-                navController = navController,
-                eventId = navBackStackEntry.arguments?.getInt("eventId")
-            )
-        }
+//        composable(
+//            route = "DetailEvent/{eventId}",
+//            arguments = listOf(navArgument("eventId") { type = NavType.IntType })
+//        ) { navBackStackEntry ->
+//            DetailEvent(
+//                navController = navController,
+//                eventId = navBackStackEntry.arguments?.getInt("eventId")
+//            )
+//        }
     }
 }

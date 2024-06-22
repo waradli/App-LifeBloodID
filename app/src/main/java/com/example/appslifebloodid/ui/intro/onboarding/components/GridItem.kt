@@ -16,19 +16,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.appslifebloodid.model.dataEvent
+import coil.compose.rememberAsyncImagePainter
+import com.example.appslifebloodid.data.network.RetrofitInstance
+import com.example.appslifebloodid.data.response.DataEvent
 
 @Composable
-fun GridItem(modifier: Modifier = Modifier,
-             grids : dataEvent,
-             navController: NavController
-)
-{
+fun GridItem(locations: DataEvent, navController: NavController) {
+    val imageUrl = RetrofitInstance.baseUrl + locations.image_url
+
+    println("Image URL: $imageUrl")
+
     Column (
         modifier = Modifier
             .fillMaxWidth()
@@ -37,22 +38,22 @@ fun GridItem(modifier: Modifier = Modifier,
     ){
         Card(shape = RoundedCornerShape(10.dp),
             modifier = Modifier.size(width = 300.dp, height = 180.dp)
-                .clickable { navController.navigate("DetailEvent/${grids.id}")  },
+                .clickable { navController.navigate("DetailEvent/${locations.id}")  },
             elevation = CardDefaults.cardElevation(
                 defaultElevation = 6.dp
             ),
         ) {
             Image(
-                painter = painterResource(id = grids.photo),
+                painter = rememberAsyncImagePainter(model = imageUrl),
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .size(150.dp, 125.dp)
                     .clip(shape = RoundedCornerShape(8.dp))
             )
-            Text(text = grids.title, fontSize = 16.sp, fontWeight = FontWeight.Bold,onTextLayout = {})
+            Text(text = locations.title, fontSize = 16.sp, fontWeight = FontWeight.Bold,onTextLayout = {})
             Spacer(modifier = Modifier.height(5.dp))
-            Text(text = grids.alamat, fontSize = 14.sp)
+            Text(text = locations.address, fontSize = 14.sp)
         }
 
 
