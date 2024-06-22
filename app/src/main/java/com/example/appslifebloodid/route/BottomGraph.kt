@@ -41,7 +41,7 @@ fun BottomGraph(
 ) {
     NavHost(navController = navController, startDestination = RouteBotNav.Home.route) {
         composable(route = RouteBotNav.Home.route) {
-            HomeScreen(navController = navController)
+            HomeScreen(navController = navController, authViewModel = authViewModel)
         }
         composable(route = RouteBotNav.Riwayat.route) {
             RiwayatScreen()
@@ -92,7 +92,7 @@ fun BottomGraph(
             ScreenChat(navController = navController)
         }
         composable(route = "ScreenProfile") {
-            ProfileScreen(navController = navController)
+            ProfileScreen(navController = navController, authViewModel = authViewModel)
         }
         composable(route = "ScreenNotif") {
             ScreenNotifikasi(navController=navController)

@@ -33,14 +33,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.appslifebloodid.R
+import com.example.appslifebloodid.ui.base.AuthViewModel
 import com.example.appslifebloodid.ui.theme.poppinsFontFamily
 
 @Composable
 fun ProfileScreen(
-    modifier: Modifier = Modifier,
     navController: NavController,
+    authViewModel: AuthViewModel
 ) {
-    // Navbar Profile
+    val username = authViewModel.getUsername()
+
+
     Column(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -89,9 +92,9 @@ fun ProfileScreen(
                     ) {
                         Column {
                             Text(
-                                text = "Halo," + "Ali",
+                                text = "Halo, ${username ?: "Tidak ada nama"}",
                                 style = TextStyle(
-                                    fontSize = 30.sp,
+                                    fontSize = 20.sp,
                                     fontFamily = poppinsFontFamily,
                                     fontWeight = FontWeight.SemiBold,
                                     color = Color.White

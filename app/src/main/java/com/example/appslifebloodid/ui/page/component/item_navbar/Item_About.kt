@@ -40,8 +40,7 @@ import com.example.appslifebloodid.ui.base.AuthViewModel
 @Composable
 fun Item_About(
     navController: NavController,
-    authViewModel: AuthViewModel,
-    modifier: Modifier = Modifier,
+    authViewModel: AuthViewModel
 ) {
     var showDialog by remember { mutableStateOf(false) }
     val logoutStatus by authViewModel.logoutStatus.observeAsState()
@@ -51,7 +50,7 @@ fun Item_About(
     ) {
         Box(
             modifier = Modifier
-                .background(color = Color(0xfffffff).copy(alpha = 1f))
+                .background(color = Color(0xFFFFFFFF).copy(alpha = 1f))
                 .height(400.dp)
                 .fillMaxWidth()
                 .shadow(
@@ -209,7 +208,7 @@ fun Item_About(
             onClick = { showDialog = true },
             modifier = Modifier.padding(top = 80.dp),
             shape = RoundedCornerShape(10.dp),
-            colors = ButtonDefaults.buttonColors(Color(0xfffB20909))
+            colors = ButtonDefaults.buttonColors(Color(0xFFB20909))
         ) {
             Text(
                 text = "KELUAR",
@@ -248,7 +247,7 @@ fun Item_About(
         logoutStatus?.let {
             if (it) {
                 navController.navigate("loginScreen") {
-                    popUpTo("home") { inclusive = true }
+                    popUpTo("loginScreen") { inclusive = true }
                 }
             }
         }

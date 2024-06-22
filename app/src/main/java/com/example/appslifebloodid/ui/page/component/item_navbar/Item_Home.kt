@@ -51,16 +51,18 @@ import com.example.appslifebloodid.R
 import com.example.appslifebloodid.data.network.RetrofitInstance
 import com.example.appslifebloodid.data.repository.ArticleRepository
 import com.example.appslifebloodid.ui.base.ArticleViewModel
+import com.example.appslifebloodid.ui.base.AuthViewModel
 import com.example.appslifebloodid.ui.intro.onboarding.components.ArtikelItem
 import com.example.appslifebloodid.ui.page.ArticleViewModelFactory
 
 @Composable
-fun Item_Home(navController: NavController) {
+fun Item_Home(navController: NavController, authViewModel: AuthViewModel) {
     val repository = ArticleRepository(RetrofitInstance.api)
     val viewModel: ArticleViewModel = viewModel(
         factory = ArticleViewModelFactory(repository)
     )
     val articles by viewModel.articles.observeAsState(emptyList())
+    val username = authViewModel.getUsername()
 
     Column(
         Modifier
@@ -110,14 +112,14 @@ fun Item_Home(navController: NavController) {
                             )
                     ) {
                         Text(
-                            text = "Halo, Ali Wardana",
+                            text = "Selamat Datang",
                             style = TextStyle(
                                 fontSize = 20.sp,
                                 color = Color.White,
                             )
                         )
                         Text(
-                            text = "122233",
+                            text = username ?: "Tidak ada nama",
                             style = TextStyle(
                                 fontSize = 15.sp,
                                 color = Color.White,
