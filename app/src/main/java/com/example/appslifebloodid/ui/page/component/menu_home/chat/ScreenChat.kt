@@ -1,158 +1,284 @@
 package com.example.appslifebloodid.ui.page.component.menu_home.chat
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.interaction.DragInteraction
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
-import androidx.compose.material.icons.filled.KeyboardArrowRight
-import androidx.compose.material3.Card
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
+import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.ime
+
 import com.example.appslifebloodid.R
+
+data class ChatMessage(val text: String, val isSentByCurrentUser: Boolean, val timestamp: String)
 
 @Composable
 fun ScreenChat(
     modifier: Modifier = Modifier,
-    navController: NavController
+    navController: NavController,
+    username: String
 ) {
-    Column(modifier = modifier) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(100.dp)
-                .padding(top = 35.dp)
-                .background(Color(0xffE35A5A))
-        ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                IconButton(
-                    onClick = { navController.popBackStack() },
-                    modifier = Modifier.padding(top = 10.dp)
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.KeyboardArrowLeft,
-                        tint = Color.White,
-                        modifier = Modifier.size(50.dp),
-                        contentDescription = "Icon Arrow"
-                    )
-                }
-                Column(modifier = Modifier.padding(top = 10.dp)) {
-                    Card(
-                        modifier = Modifier
-                            .width(50.dp)
-                            .height(50.dp),
-                        shape = RoundedCornerShape(30.dp)
-                    ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.img_profile),
-                            contentDescription = null
-                        )
-                    }
-                }
-                Spacer(modifier = Modifier.width(10.dp))
-                Column {
-                    Text(
-                        text = "Dokter Ali",
-                        fontSize = 20.sp,
-                        color = Color.White,
-                        fontWeight = FontWeight.Bold
-                    )
-                    Spacer(modifier = Modifier.height(2.dp))
-                    Row(modifier = Modifier.padding(top = 2.dp)) {
-                        Card(
-                            modifier = Modifier
-                                .padding(top = 5.dp)
-                                .width(8.dp)
-                                .height(8.dp),
-                            shape = RoundedCornerShape(30.dp)
-                        ) {
-                        }
-                        Spacer(modifier = Modifier.width(5.dp))
-                        Text(text = "Online", fontSize = 15.sp, color = Color.White)
-                    }
+    var messageText by remember { mutableStateOf("") }
+    val messages = remember { mutableStateListOf(
+        ChatMessage("Halo Selamat Pagi dok, Saya Izin Bertanya mengenai donor darah", true, "10:13"),
+        ChatMessage("Selamat Pagi, Ada yang bisa saya bantu ?", false, "10:13"),
+        ChatMessage("Ini saya sampai kapan disuntik pak?", true, "10:15")
+    )}
 
+    Column(modifier = modifier.fillMaxSize()) {
+        Header(navController, username)
+        ChatContent(messages, Modifier.weight(1f))
+        Box(modifier = Modifier.windowInsetsPadding(WindowInsets.ime).imePadding()) {
+            ChatInput(
+                messageText = messageText,
+                onMessageTextChanged = { messageText = it },
+                onSendClicked = {
+                    if (messageText.isNotBlank()) {
+                        messages.add(ChatMessage(messageText, true, "10:20"))
+                        messageText = ""
+                    }
                 }
-            }
-        }
-        Spacer(modifier = Modifier.height(30.dp))
-        Box(modifier = Modifier
-            .padding(start = 150.dp)
-            .width(230.dp)
-            .height(100.dp)
-            .clip(RoundedCornerShape(20.dp))
-            .background(Color(0xffE35A5A))) {
-            Column(modifier = Modifier.padding(all = 10.dp)) {
-                Text(text = "Halo Selamat Pagi dok, Saya Izin Bertanya mengenai donor darah", fontSize = 18.sp, color = Color.White)
-                Row(modifier = Modifier.padding(start = 130.dp)) {
-                    Text(text = "10.13", color = Color.White)
-                    Spacer(modifier = Modifier.width(3.dp))
-                    Image(painter = painterResource(id = R.drawable.iconread), contentDescription = null, modifier = Modifier.size(30.dp))
-                }
-            }
-        }
-        Spacer(modifier = Modifier.height(20.dp))
-        Box(modifier = Modifier
-            .padding(start = 10.dp)
-            .width(230.dp)
-            .height(80.dp)
-            .clip(RoundedCornerShape(20.dp))
-            .background(Color(0xffE35A5A))) {
-            Column(modifier = Modifier.padding(all = 10.dp)) {
-                Text(text = "Selamat Pagi, Ada yang bisa saya bantu ?", fontSize = 18.sp, color = Color.White)
-                Row(modifier = Modifier.padding(start = 150.dp)) {
-                    Text(text = "10.13", color = Color.White)
-                    Spacer(modifier = Modifier.width(3.dp))
-                }
-            }
-        }
-        Column(modifier = Modifier.padding(start = 180.dp)) {
-            Image(
-                painter = painterResource(id = R.drawable.keluhan),
-                contentDescription = null,
-                modifier = Modifier
-                    .width(200.dp)
-                    .height(200.dp)
             )
         }
-        Box(modifier = Modifier
-            .padding(start = 150.dp)
-            .width(230.dp)
-            .height(80.dp)
-            .clip(RoundedCornerShape(20.dp))
-            .background(Color(0xffE35A5A))) {
-            Column(modifier = Modifier.padding(all = 10.dp)) {
-                Text(text = "Ini saya sampai kapan disuntik pak?", fontSize = 18.sp, color = Color.White)
-                Row(modifier = Modifier.padding(start = 130.dp)) {
-                    Text(text = "10.13", color = Color.White)
+    }
+}
+
+@Composable
+fun Header(navController: NavController, username: String) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(100.dp)
+            .background(Color(0xffE35A5A))
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 35.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            IconButton(
+                onClick = { navController.popBackStack() },
+                modifier = Modifier.padding(top = 10.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.KeyboardArrowLeft,
+                    tint = Color.White,
+                    modifier = Modifier.size(30.dp),
+                    contentDescription = "Icon Arrow"
+                )
+            }
+            Spacer(modifier = Modifier.width(10.dp))
+            Card(
+                modifier = Modifier
+                    .size(50.dp),
+                shape = RoundedCornerShape(25.dp)
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.img_profile),
+                    contentDescription = null
+                )
+            }
+            Spacer(modifier = Modifier.width(10.dp))
+            Column {
+                Text(
+                    text = username,
+                    fontSize = 20.sp,
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold
+                )
+                Spacer(modifier = Modifier.height(2.dp))
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Box(
+                        modifier = Modifier
+                            .size(8.dp)
+                            .background(Color.Green, RoundedCornerShape(4.dp))
+                    )
+                    Spacer(modifier = Modifier.width(5.dp))
+                    Text(text = "Online", fontSize = 15.sp, color = Color.White)
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun ChatContent(messages: List<ChatMessage>, modifier: Modifier = Modifier) {
+    LazyColumn(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = 10.dp)
+    ) {
+        items(messages) { message ->
+            ChatMessageItem(message)
+        }
+    }
+}
+
+@Composable
+fun ChatMessageItem(message: ChatMessage) {
+    val backgroundColor = if (message.isSentByCurrentUser) Color(0xffDCF8C6) else Color.White
+    val alignment = if (message.isSentByCurrentUser) Alignment.CenterEnd else Alignment.CenterStart
+
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 5.dp),
+        contentAlignment = alignment
+    ) {
+        Column(
+            modifier = Modifier
+                .clip(RoundedCornerShape(10.dp))
+                .background(backgroundColor)
+                .padding(10.dp)
+        ) {
+            Text(text = message.text, fontSize = 16.sp, color = Color.Black)
+            Spacer(modifier = Modifier.height(2.dp))
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.End
+            ) {
+                Text(text = message.timestamp, fontSize = 12.sp, color = Color.Gray)
+                if (message.isSentByCurrentUser) {
                     Spacer(modifier = Modifier.width(3.dp))
-                    Image(painter = painterResource(id = R.drawable.iconread), contentDescription = null, modifier = Modifier.size(30.dp))
+                    Image(
+                        painter = painterResource(id = R.drawable.iconread),
+                        contentDescription = null,
+                        modifier = Modifier.size(15.dp)
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun ChatInput(
+    messageText: String,
+    onMessageTextChanged: (String) -> Unit,
+    onSendClicked: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    val context = LocalContext.current
+    val cameraPermission = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+        if (isGranted) {
+            // Handle the camera action
+        } else {
+            Toast.makeText(context, "Camera permission denied", Toast.LENGTH_SHORT).show()
+        }
+    }
+    val audioPermission = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+        if (isGranted) {
+            // Handle the audio recording action
+        } else {
+            Toast.makeText(context, "Audio recording permission denied", Toast.LENGTH_SHORT).show()
+        }
+    }
+    val filePicker = rememberLauncherForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+        uri?.let {
+            // Handle the selected file
+        }
+    }
+
+    var showExtraOptions by remember { mutableStateOf(false) }
+
+    Column(modifier = modifier.fillMaxWidth().padding(10.dp)) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(vertical = 5.dp)
+        ) {
+            IconButton(onClick = { showExtraOptions = !showExtraOptions }) {
+                Icon(
+                    painter = painterResource(id = R.drawable.plus),
+                    contentDescription = "More options",
+                    tint = Color(0xffE35A5A),
+                    modifier = Modifier.size(30.dp)
+                )
+            }
+            OutlinedTextField(
+                value = messageText,
+                onValueChange = onMessageTextChanged,
+                placeholder = { Text(text = "Type a message...") },
+                modifier = Modifier
+                    .weight(1f)
+                    .height(50.dp)
+                    .padding(start = 10.dp, end = 10.dp)
+            )
+            IconButton(onClick = onSendClicked) {
+                Icon(
+                    painter = painterResource(id = R.drawable.send),
+                    contentDescription = "Send",
+                    tint = Color(0xffE35A5A),
+                    modifier = Modifier.size(30.dp)
+                )
+            }
+        }
+        if (showExtraOptions) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(Color(0xFFEFEFEF))
+                    .padding(vertical = 10.dp),
+                horizontalArrangement = Arrangement.SpaceEvenly
+            ) {
+                IconButton(onClick = { filePicker.launch("*/*") }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.powerclip),
+                        contentDescription = "Upload",
+                        tint = Color(0xffE35A5A),
+                        modifier = Modifier.size(30.dp)
+                    )
+                }
+                IconButton(onClick = {
+                    if (ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+                        // Handle the camera action
+                    } else {
+                        cameraPermission.launch(Manifest.permission.CAMERA)
+                    }
+                }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.camera),
+                        contentDescription = "Camera",
+                        tint = Color(0xffE35A5A),
+                        modifier = Modifier.size(30.dp)
+                    )
+                }
+                IconButton(onClick = {
+                    if (ContextCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
+                        // Handle the audio recording action
+                    } else {
+                        audioPermission.launch(Manifest.permission.RECORD_AUDIO)
+                    }
+                }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.voice),
+                        contentDescription = "Audio",
+                        tint = Color(0xffE35A5A),
+                        modifier = Modifier.size(30.dp)
+                    )
                 }
             }
         }

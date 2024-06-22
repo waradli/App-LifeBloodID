@@ -61,6 +61,7 @@ fun RiwayatScreen(
                 )
             )
         }
+
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()

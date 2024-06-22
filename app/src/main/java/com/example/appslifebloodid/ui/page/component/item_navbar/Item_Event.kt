@@ -63,11 +63,10 @@ fun Item_Event(navController: NavController) {
                 colors = TextFieldDefaults.colors()
             )
         }
-
+    Spacer(modifier = Modifier.height(15.dp))
         LazyVerticalGrid(
-            contentPadding = PaddingValues(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
-            horizontalArrangement = Arrangement.spacedBy(16.dp),
+            contentPadding = PaddingValues(10.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp),
             columns = GridCells.Adaptive(140.dp),
 
             ) {

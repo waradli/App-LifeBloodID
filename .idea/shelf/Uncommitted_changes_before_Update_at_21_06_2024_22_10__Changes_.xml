@@ -1,0 +1,24 @@
+<changelist name="Uncommitted_changes_before_Update_at_21_06_2024_22_10_[Changes]" date="1718982635380" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_06_2024_22_10_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 21/06/2024 22:10 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="app/src/main/res/drawable/voice.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_06_2024_22_10_[Changes]/voice.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="app/src/main/res/drawable/powerclip.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_06_2024_22_10_[Changes]/powerclip.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="app/src/main/res/drawable/send.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_06_2024_22_10_[Changes]/send.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="app/src/main/res/drawable/camera.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_06_2024_22_10_[Changes]/camera.png" />
+  </binary>
+</changelist>

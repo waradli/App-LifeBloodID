@@ -1,3 +1,6 @@
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+
 //package com.example.appslifebloodid.ui.page.component.menu_home
 //
 //import androidx.compose.foundation.Image
@@ -97,3 +100,9 @@
 //        }
 //    }
 //}
+
+@Composable
+fun DetailEvent(modifier: Modifier = Modifier) {
+    
+}
+

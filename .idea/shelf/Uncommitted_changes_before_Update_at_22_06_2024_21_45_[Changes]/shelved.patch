@@ -1,0 +1,464 @@
+Index: app/src/main/java/com/example/appslifebloodid/ui/page/component/menu_home/chat/ScreenChat.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.appslifebloodid.ui.page.component.menu_home.chat\r\n\r\nimport androidx.compose.foundation.Image\r\nimport androidx.compose.foundation.background\r\nimport androidx.compose.foundation.interaction.DragInteraction\r\nimport androidx.compose.foundation.layout.Arrangement\r\nimport androidx.compose.foundation.layout.Box\r\nimport androidx.compose.foundation.layout.Column\r\nimport androidx.compose.foundation.layout.Row\r\nimport androidx.compose.foundation.layout.Spacer\r\nimport androidx.compose.foundation.layout.fillMaxSize\r\nimport androidx.compose.foundation.layout.fillMaxWidth\r\nimport androidx.compose.foundation.layout.height\r\nimport androidx.compose.foundation.layout.padding\r\nimport androidx.compose.foundation.layout.size\r\nimport androidx.compose.foundation.layout.width\r\nimport androidx.compose.foundation.shape.RoundedCornerShape\r\nimport androidx.compose.material.icons.Icons\r\nimport androidx.compose.material.icons.filled.KeyboardArrowLeft\r\nimport androidx.compose.material.icons.filled.KeyboardArrowRight\r\nimport androidx.compose.material3.Card\r\nimport androidx.compose.material3.Icon\r\nimport androidx.compose.material3.IconButton\r\nimport androidx.compose.material3.Text\r\nimport androidx.compose.runtime.Composable\r\nimport androidx.compose.ui.Alignment\r\nimport androidx.compose.ui.Modifier\r\nimport androidx.compose.ui.draw.clip\r\nimport androidx.compose.ui.graphics.Color\r\nimport androidx.compose.ui.graphics.Shape\r\nimport androidx.compose.ui.res.painterResource\r\nimport androidx.compose.ui.text.font.FontWeight\r\nimport androidx.compose.ui.unit.dp\r\nimport androidx.compose.ui.unit.sp\r\nimport androidx.navigation.NavController\r\nimport com.example.appslifebloodid.R\r\n\r\n@Composable\r\nfun ScreenChat(\r\n    modifier: Modifier = Modifier,\r\n    navController: NavController\r\n) {\r\n    Column(modifier = modifier) {\r\n        Box(\r\n            modifier = Modifier\r\n                .fillMaxWidth()\r\n                .height(100.dp)\r\n                .padding(top = 35.dp)\r\n                .background(Color(0xffE35A5A))\r\n        ) {\r\n            Row(\r\n                modifier = Modifier.fillMaxWidth(),\r\n                verticalAlignment = Alignment.CenterVertically\r\n            ) {\r\n                IconButton(\r\n                    onClick = { navController.popBackStack() },\r\n                    modifier = Modifier.padding(top = 10.dp)\r\n                ) {\r\n                    Icon(\r\n                        imageVector = Icons.Default.KeyboardArrowLeft,\r\n                        tint = Color.White,\r\n                        modifier = Modifier.size(50.dp),\r\n                        contentDescription = \"Icon Arrow\"\r\n                    )\r\n                }\r\n                Column(modifier = Modifier.padding(top = 10.dp)) {\r\n                    Card(\r\n                        modifier = Modifier\r\n                            .width(50.dp)\r\n                            .height(50.dp),\r\n                        shape = RoundedCornerShape(30.dp)\r\n                    ) {\r\n                        Image(\r\n                            painter = painterResource(id = R.drawable.img_profile),\r\n                            contentDescription = null\r\n                        )\r\n                    }\r\n                }\r\n                Spacer(modifier = Modifier.width(10.dp))\r\n                Column {\r\n                    Text(\r\n                        text = \"Dokter Ali\",\r\n                        fontSize = 20.sp,\r\n                        color = Color.White,\r\n                        fontWeight = FontWeight.Bold\r\n                    )\r\n                    Spacer(modifier = Modifier.height(2.dp))\r\n                    Row(modifier = Modifier.padding(top = 2.dp)) {\r\n                        Card(\r\n                            modifier = Modifier\r\n                                .padding(top = 5.dp)\r\n                                .width(8.dp)\r\n                                .height(8.dp),\r\n                            shape = RoundedCornerShape(30.dp)\r\n                        ) {\r\n                        }\r\n                        Spacer(modifier = Modifier.width(5.dp))\r\n                        Text(text = \"Online\", fontSize = 15.sp, color = Color.White)\r\n                    }\r\n\r\n                }\r\n            }\r\n        }\r\n        Spacer(modifier = Modifier.height(30.dp))\r\n        Box(modifier = Modifier\r\n            .padding(start = 150.dp)\r\n            .width(230.dp)\r\n            .height(100.dp)\r\n            .clip(RoundedCornerShape(20.dp))\r\n            .background(Color(0xffE35A5A))) {\r\n            Column(modifier = Modifier.padding(all = 10.dp)) {\r\n                Text(text = \"Halo Selamat Pagi dok, Saya Izin Bertanya mengenai donor darah\", fontSize = 18.sp, color = Color.White)\r\n                Row(modifier = Modifier.padding(start = 130.dp)) {\r\n                    Text(text = \"10.13\", color = Color.White)\r\n                    Spacer(modifier = Modifier.width(3.dp))\r\n                    Image(painter = painterResource(id = R.drawable.iconread), contentDescription = null, modifier = Modifier.size(30.dp))\r\n                }\r\n            }\r\n        }\r\n        Spacer(modifier = Modifier.height(20.dp))\r\n        Box(modifier = Modifier\r\n            .padding(start = 10.dp)\r\n            .width(230.dp)\r\n            .height(80.dp)\r\n            .clip(RoundedCornerShape(20.dp))\r\n            .background(Color(0xffE35A5A))) {\r\n            Column(modifier = Modifier.padding(all = 10.dp)) {\r\n                Text(text = \"Selamat Pagi, Ada yang bisa saya bantu ?\", fontSize = 18.sp, color = Color.White)\r\n                Row(modifier = Modifier.padding(start = 150.dp)) {\r\n                    Text(text = \"10.13\", color = Color.White)\r\n                    Spacer(modifier = Modifier.width(3.dp))\r\n                }\r\n            }\r\n        }\r\n        Column(modifier = Modifier.padding(start = 180.dp)) {\r\n            Image(\r\n                painter = painterResource(id = R.drawable.keluhan),\r\n                contentDescription = null,\r\n                modifier = Modifier\r\n                    .width(200.dp)\r\n                    .height(200.dp)\r\n            )\r\n        }\r\n        Box(modifier = Modifier\r\n            .padding(start = 150.dp)\r\n            .width(230.dp)\r\n            .height(80.dp)\r\n            .clip(RoundedCornerShape(20.dp))\r\n            .background(Color(0xffE35A5A))) {\r\n            Column(modifier = Modifier.padding(all = 10.dp)) {\r\n                Text(text = \"Ini saya sampai kapan disuntik pak?\", fontSize = 18.sp, color = Color.White)\r\n                Row(modifier = Modifier.padding(start = 130.dp)) {\r\n                    Text(text = \"10.13\", color = Color.White)\r\n                    Spacer(modifier = Modifier.width(3.dp))\r\n                    Image(painter = painterResource(id = R.drawable.iconread), contentDescription = null, modifier = Modifier.size(30.dp))\r\n                }\r\n            }\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/appslifebloodid/ui/page/component/menu_home/chat/ScreenChat.kt b/app/src/main/java/com/example/appslifebloodid/ui/page/component/menu_home/chat/ScreenChat.kt
+--- a/app/src/main/java/com/example/appslifebloodid/ui/page/component/menu_home/chat/ScreenChat.kt	(revision 809a92219ae5cdb89b6b4f339f859989b68f621d)
++++ b/app/src/main/java/com/example/appslifebloodid/ui/page/component/menu_home/chat/ScreenChat.kt	(date 1718982633032)
+@@ -1,90 +1,112 @@
+ package com.example.appslifebloodid.ui.page.component.menu_home.chat
+ 
++import android.Manifest
++import android.content.pm.PackageManager
++import android.widget.Toast
++import androidx.activity.compose.rememberLauncherForActivityResult
++import androidx.activity.result.contract.ActivityResultContracts
+ import androidx.compose.foundation.Image
+ import androidx.compose.foundation.background
+-import androidx.compose.foundation.interaction.DragInteraction
+-import androidx.compose.foundation.layout.Arrangement
+-import androidx.compose.foundation.layout.Box
+-import androidx.compose.foundation.layout.Column
+-import androidx.compose.foundation.layout.Row
+-import androidx.compose.foundation.layout.Spacer
+-import androidx.compose.foundation.layout.fillMaxSize
+-import androidx.compose.foundation.layout.fillMaxWidth
+-import androidx.compose.foundation.layout.height
+-import androidx.compose.foundation.layout.padding
+-import androidx.compose.foundation.layout.size
+-import androidx.compose.foundation.layout.width
++import androidx.compose.foundation.clickable
++import androidx.compose.foundation.layout.*
++import androidx.compose.foundation.lazy.LazyColumn
++import androidx.compose.foundation.lazy.items
+ import androidx.compose.foundation.shape.RoundedCornerShape
+ import androidx.compose.material.icons.Icons
+ import androidx.compose.material.icons.filled.KeyboardArrowLeft
+-import androidx.compose.material.icons.filled.KeyboardArrowRight
+-import androidx.compose.material3.Card
+-import androidx.compose.material3.Icon
+-import androidx.compose.material3.IconButton
+-import androidx.compose.material3.Text
+-import androidx.compose.runtime.Composable
++import androidx.compose.material3.*
++import androidx.compose.runtime.*
+ import androidx.compose.ui.Alignment
+ import androidx.compose.ui.Modifier
+ import androidx.compose.ui.draw.clip
+ import androidx.compose.ui.graphics.Color
+-import androidx.compose.ui.graphics.Shape
++import androidx.compose.ui.platform.LocalContext
+ import androidx.compose.ui.res.painterResource
+ import androidx.compose.ui.text.font.FontWeight
+ import androidx.compose.ui.unit.dp
+ import androidx.compose.ui.unit.sp
++import androidx.core.content.ContextCompat
+ import androidx.navigation.NavController
+ import com.example.appslifebloodid.R
++import com.example.appslifebloodid.model.dataDokter
++
++data class ChatMessage(val text: String, val isSentByCurrentUser: Boolean, val timestamp: String)
+ 
+ @Composable
+ fun ScreenChat(
+     modifier: Modifier = Modifier,
+-    navController: NavController
++    navController: NavController,
++    username: String
+ ) {
+-    Column(modifier = modifier) {
+-        Box(
+-            modifier = Modifier
+-                .fillMaxWidth()
+-                .height(100.dp)
+-                .padding(top = 35.dp)
+-                .background(Color(0xffE35A5A))
+-        ) {
+-            Row(
+-                modifier = Modifier.fillMaxWidth(),
+-                verticalAlignment = Alignment.CenterVertically
+-            ) {
+-                IconButton(
+-                    onClick = { navController.popBackStack() },
+-                    modifier = Modifier.padding(top = 10.dp)
+-                ) {
+-                    Icon(
+-                        imageVector = Icons.Default.KeyboardArrowLeft,
+-                        tint = Color.White,
+-                        modifier = Modifier.size(50.dp),
+-                        contentDescription = "Icon Arrow"
+-                    )
+-                }
+-                Column(modifier = Modifier.padding(top = 10.dp)) {
+-                    Card(
+-                        modifier = Modifier
+-                            .width(50.dp)
+-                            .height(50.dp),
+-                        shape = RoundedCornerShape(30.dp)
+-                    ) {
+-                        Image(
+-                            painter = painterResource(id = R.drawable.img_profile),
+-                            contentDescription = null
+-                        )
+-                    }
+-                }
+-                Spacer(modifier = Modifier.width(10.dp))
+-                Column {
+-                    Text(
+-                        text = "Dokter Ali",
+-                        fontSize = 20.sp,
+-                        color = Color.White,
+-                        fontWeight = FontWeight.Bold
+-                    )
+-                    Spacer(modifier = Modifier.height(2.dp))
++    var messageText by remember { mutableStateOf("") }
++    val messages = remember { mutableStateListOf(
++        ChatMessage("Halo Selamat Pagi dok, Saya Izin Bertanya mengenai donor darah", true, "10:13"),
++        ChatMessage("Selamat Pagi, Ada yang bisa saya bantu ?", false, "10:13"),
++        ChatMessage("Ini saya sampai kapan disuntik pak?", true, "10:15")
++    )}
++
++    Column(modifier = modifier.fillMaxSize()) {
++        Header(navController, username)
++        ChatContent(messages)
++        ChatInput(
++            messageText = messageText,
++            onMessageTextChanged = { messageText = it },
++            onSendClicked = {
++                messages.add(ChatMessage(messageText, true, "10:20"))
++                messageText = ""
++            }
++        )
++    }
++}
++
++@Composable
++fun Header(navController: NavController, username: String) {
++    Box(
++        modifier = Modifier
++            .fillMaxWidth()
++            .height(100.dp)
++            .padding(top = 35.dp)
++            .background(Color(0xffE35A5A))
++    ) {
++        Row(
++            modifier = Modifier.fillMaxWidth(),
++            verticalAlignment = Alignment.CenterVertically
++        ) {
++            IconButton(
++                onClick = { navController.popBackStack() },
++                modifier = Modifier.padding(top = 10.dp)
++            ) {
++                Icon(
++                    imageVector = Icons.Default.KeyboardArrowLeft,
++                    tint = Color.White,
++                    modifier = Modifier.size(50.dp),
++                    contentDescription = "Icon Arrow"
++                )
++            }
++            Column(modifier = Modifier.padding(top = 10.dp)) {
++                Card(
++                    modifier = Modifier
++                        .width(50.dp)
++                        .height(50.dp),
++                    shape = RoundedCornerShape(30.dp)
++                ) {
++                    Image(
++                        painter = painterResource(id = R.drawable.img_profile),
++                        contentDescription = null
++                    )
++                }
++            }
++            Spacer(modifier = Modifier.width(10.dp))
++            Column {
++                Text(
++                    text = username,
++                    fontSize = 20.sp,
++                    color = Color.White,
++                    fontWeight = FontWeight.Bold
++                )
++                Spacer(modifier = Modifier.height(2.dp))
++                Column {
++
+                     Row(modifier = Modifier.padding(top = 2.dp)) {
+                         Card(
+                             modifier = Modifier
+@@ -93,68 +115,150 @@
+                                 .height(8.dp),
+                             shape = RoundedCornerShape(30.dp)
+                         ) {
++                            Box(modifier = Modifier.background(Color.Green))
+                         }
+                         Spacer(modifier = Modifier.width(5.dp))
+                         Text(text = "Online", fontSize = 15.sp, color = Color.White)
+                     }
++                }
+ 
+-                }
+-            }
+-        }
+-        Spacer(modifier = Modifier.height(30.dp))
+-        Box(modifier = Modifier
+-            .padding(start = 150.dp)
+-            .width(230.dp)
+-            .height(100.dp)
+-            .clip(RoundedCornerShape(20.dp))
+-            .background(Color(0xffE35A5A))) {
+-            Column(modifier = Modifier.padding(all = 10.dp)) {
+-                Text(text = "Halo Selamat Pagi dok, Saya Izin Bertanya mengenai donor darah", fontSize = 18.sp, color = Color.White)
+-                Row(modifier = Modifier.padding(start = 130.dp)) {
+-                    Text(text = "10.13", color = Color.White)
+-                    Spacer(modifier = Modifier.width(3.dp))
+-                    Image(painter = painterResource(id = R.drawable.iconread), contentDescription = null, modifier = Modifier.size(30.dp))
+-                }
+-            }
+-        }
+-        Spacer(modifier = Modifier.height(20.dp))
+-        Box(modifier = Modifier
+-            .padding(start = 10.dp)
+-            .width(230.dp)
+-            .height(80.dp)
+-            .clip(RoundedCornerShape(20.dp))
+-            .background(Color(0xffE35A5A))) {
+-            Column(modifier = Modifier.padding(all = 10.dp)) {
+-                Text(text = "Selamat Pagi, Ada yang bisa saya bantu ?", fontSize = 18.sp, color = Color.White)
+-                Row(modifier = Modifier.padding(start = 150.dp)) {
+-                    Text(text = "10.13", color = Color.White)
++            }
++        }
++    }
++}
++
++@Composable
++fun ChatContent(messages: List<ChatMessage>) {
++    LazyColumn(
++        modifier = Modifier
++            .width(200.dp)
++            .padding(horizontal = 10.dp)
++    ) {
++        items(messages) { message ->
++            ChatMessageItem(message)
++        }
++    }
++}
++
++@Composable
++fun ChatMessageItem(message: ChatMessage) {
++    val backgroundColor = if (message.isSentByCurrentUser) Color(0xffE35A5A) else Color(0xffF1F1F1)
++    val alignment = if (message.isSentByCurrentUser) Alignment.CenterEnd else Alignment.CenterStart
++
++    Box(
++        modifier = Modifier
++            .fillMaxWidth()
++            .padding(vertical = 5.dp),
++        contentAlignment = alignment
++    ) {
++        Column(
++            modifier = Modifier
++                .clip(RoundedCornerShape(20.dp))
++                .background(backgroundColor)
++                .padding(10.dp)
++        ) {
++            Text(text = message.text, fontSize = 18.sp, color = if (message.isSentByCurrentUser) Color.White else Color.Black)
++            Row(horizontalArrangement = Arrangement.End) {
++                Text(text = message.timestamp, fontSize = 12.sp, color = if (message.isSentByCurrentUser) Color.White else Color.Gray)
++                if (message.isSentByCurrentUser) {
+                     Spacer(modifier = Modifier.width(3.dp))
+-                }
+-            }
+-        }
+-        Column(modifier = Modifier.padding(start = 180.dp)) {
+-            Image(
+-                painter = painterResource(id = R.drawable.keluhan),
+-                contentDescription = null,
+-                modifier = Modifier
+-                    .width(200.dp)
+-                    .height(200.dp)
++                    Image(
++                        painter = painterResource(id = R.drawable.iconread),
++                        contentDescription = null,
++                        modifier = Modifier.size(15.dp)
++                    )
++                }
++            }
++        }
++    }
++}
++
++@Composable
++fun ChatInput(
++    messageText: String,
++    onMessageTextChanged: (String) -> Unit,
++    onSendClicked: () -> Unit
++) {
++    val context = LocalContext.current
++    val cameraPermission = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
++        if (isGranted) {
++            // Handle the camera action
++        } else {
++            Toast.makeText(context, "Camera permission denied", Toast.LENGTH_SHORT).show()
++        }
++    }
++    val audioPermission = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
++        if (isGranted) {
++            // Handle the audio recording action
++        } else {
++            Toast.makeText(context, "Audio recording permission denied", Toast.LENGTH_SHORT).show()
++        }
++    }
++    val filePicker = rememberLauncherForActivityResult(ActivityResultContracts.GetContent()) { uri ->
++        uri?.let {
++            // Handle the selected file
++        }
++    }
++
++    Row(
++        modifier = Modifier
++            .fillMaxWidth()
++            .padding(10.dp),
++        verticalAlignment = Alignment.CenterVertically
++    ) {
++        IconButton(onClick = { filePicker.launch("*/*") }) {
++            Icon(
++                painter = painterResource(id = R.drawable.powerclip),
++                contentDescription = "Upload",
++                tint = Color(0xffE35A5A),
++                modifier = Modifier.size(20.dp)
++            )
++        }
++        IconButton(onClick = {
++            if (ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
++                // Handle the camera action
++            } else {
++                cameraPermission.launch(Manifest.permission.CAMERA)
++            }
++        }) {
++            Icon(
++                painter = painterResource(id = R.drawable.camera),
++                contentDescription = "Camera",
++                tint = Color(0xffE35A5A),
++                modifier = Modifier.size(20.dp)
+             )
+         }
+-        Box(modifier = Modifier
+-            .padding(start = 150.dp)
+-            .width(230.dp)
+-            .height(80.dp)
+-            .clip(RoundedCornerShape(20.dp))
+-            .background(Color(0xffE35A5A))) {
+-            Column(modifier = Modifier.padding(all = 10.dp)) {
+-                Text(text = "Ini saya sampai kapan disuntik pak?", fontSize = 18.sp, color = Color.White)
+-                Row(modifier = Modifier.padding(start = 130.dp)) {
+-                    Text(text = "10.13", color = Color.White)
+-                    Spacer(modifier = Modifier.width(3.dp))
+-                    Image(painter = painterResource(id = R.drawable.iconread), contentDescription = null, modifier = Modifier.size(30.dp))
+-                }
+-            }
++        IconButton(onClick = {
++            if (ContextCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
++                // Handle the audio recording action
++            } else {
++                audioPermission.launch(Manifest.permission.RECORD_AUDIO)
++            }
++        }) {
++            Icon(
++                painter = painterResource(id = R.drawable.voice),
++                contentDescription = "Audio",
++                tint = Color(0xffE35A5A),
++                modifier = Modifier.size(20.dp)
++            )
++        }
++        OutlinedTextField(
++            value = messageText,
++            onValueChange = onMessageTextChanged,
++            placeholder = { Text(text = "Type a message...") },
++            modifier = Modifier
++                .weight(1f)
++                .height(50.dp)
++                .padding(start = 10.dp, end = 10.dp),
++
++        )
++        IconButton(onClick = onSendClicked) {
++            Icon(
++                painter = painterResource(id = R.drawable.send),
++                contentDescription = "Send",
++                tint = Color(0xffE35A5A),
++                modifier = Modifier.size(30.dp)
++            )
+         }
+     }
+-}
+\ No newline at end of file
++}
+Index: app/src/main/java/com/example/appslifebloodid/ui/page/RiwayatScreen.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.appslifebloodid.ui.page\r\n\r\nimport androidx.compose.foundation.background\r\nimport androidx.compose.foundation.clickable\r\nimport androidx.compose.foundation.layout.Arrangement\r\nimport androidx.compose.foundation.layout.Box\r\nimport androidx.compose.foundation.layout.Column\r\nimport androidx.compose.foundation.layout.Row\r\nimport androidx.compose.foundation.layout.fillMaxHeight\r\nimport androidx.compose.foundation.layout.fillMaxSize\r\nimport androidx.compose.foundation.layout.fillMaxWidth\r\nimport androidx.compose.foundation.layout.height\r\nimport androidx.compose.foundation.layout.padding\r\nimport androidx.compose.foundation.layout.size\r\nimport androidx.compose.foundation.lazy.LazyColumn\r\nimport androidx.compose.foundation.lazy.items\r\nimport androidx.compose.material.icons.Icons\r\nimport androidx.compose.material.icons.filled.KeyboardArrowLeft\r\nimport androidx.compose.material3.ExperimentalMaterial3Api\r\nimport androidx.compose.material3.Icon\r\nimport androidx.compose.material3.Scaffold\r\nimport androidx.compose.material3.Text\r\nimport androidx.compose.material3.TopAppBar\r\nimport androidx.compose.material3.TopAppBarDefaults\r\nimport androidx.compose.runtime.Composable\r\nimport androidx.compose.ui.Alignment\r\nimport androidx.compose.ui.Modifier\r\nimport androidx.compose.ui.graphics.Color\r\nimport androidx.compose.ui.text.TextStyle\r\nimport androidx.compose.ui.text.font.FontWeight\r\nimport androidx.compose.ui.unit.dp\r\nimport androidx.compose.ui.unit.sp\r\nimport com.example.appslifebloodid.data.DataRiwayat\r\nimport com.example.appslifebloodid.model.Model_Riwayat\r\nimport com.example.appslifebloodid.page.Component.Item.Item_Riwayat\r\nimport com.example.appslifebloodid.ui.theme.poppinsFontFamily\r\n\r\n@OptIn(ExperimentalMaterial3Api::class)\r\n@Composable\r\nfun RiwayatScreen(\r\n    modifier: Modifier = Modifier,\r\n    riwayatt: List<Model_Riwayat> = DataRiwayat.KumpulanRiwayat\r\n) {\r\n    Column(\r\n        modifier = Modifier.padding(vertical = 50.dp)\r\n    ) {\r\n        Box(\r\n            modifier = Modifier\r\n                .fillMaxWidth()\r\n                .height(70.dp)\r\n                .background(Color(0xffb20909))\r\n            , contentAlignment = Alignment.Center\r\n        ) {\r\n            Text(\r\n                text = \"Riwayat\",\r\n                style = TextStyle(\r\n                    fontSize = 25.sp,\r\n                    color = Color.White,\r\n                    fontFamily = poppinsFontFamily,\r\n                    fontWeight = FontWeight.SemiBold\r\n                )\r\n            )\r\n        }\r\n        LazyColumn(\r\n            modifier = Modifier\r\n                .fillMaxSize()\r\n                .fillMaxHeight()\r\n        ) {\r\n            items(riwayatt, key = { it.id }) {\r\n                Item_Riwayat(riwayats = it)\r\n            }\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/appslifebloodid/ui/page/RiwayatScreen.kt b/app/src/main/java/com/example/appslifebloodid/ui/page/RiwayatScreen.kt
+--- a/app/src/main/java/com/example/appslifebloodid/ui/page/RiwayatScreen.kt	(revision 809a92219ae5cdb89b6b4f339f859989b68f621d)
++++ b/app/src/main/java/com/example/appslifebloodid/ui/page/RiwayatScreen.kt	(date 1718992721671)
+@@ -61,6 +61,7 @@
+                 )
+             )
+         }
++
+         LazyColumn(
+             modifier = Modifier
+                 .fillMaxSize()
+Index: app/src/main/java/com/example/appslifebloodid/route/BottomGraph.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.app_donor_darah.Route\r\n\r\nimport android.os.Build\r\nimport androidx.annotation.RequiresApi\r\nimport androidx.compose.runtime.Composable\r\nimport androidx.compose.ui.Modifier\r\nimport androidx.navigation.NavHostController\r\nimport androidx.navigation.NavType\r\nimport androidx.navigation.compose.NavHost\r\nimport androidx.navigation.compose.composable\r\nimport androidx.navigation.navArgument\r\nimport com.example.appslifebloodid.ui.page.AboutScreen\r\nimport com.example.appslifebloodid.page.Component.NavigateScreen.KebijakanPrivasi\r\nimport com.example.appslifebloodid.page.Component.NavigateScreen.KetentuanPengguna\r\nimport com.example.appslifebloodid.page.Component.NavigateScreen.Pertanyaan\r\nimport com.example.appslifebloodid.page.Component.NavigateScreen.PusatBantuan\r\nimport com.example.appslifebloodid.page.Component.NavigateScreen.TentangAplikasi\r\nimport com.example.appslifebloodid.ui.page.EventScreen\r\nimport com.example.appslifebloodid.ui.page.RiwayatScreen\r\nimport com.example.appslifebloodid.route.RouteBotNav\r\nimport com.example.appslifebloodid.ui.intro.onboarding.components.menu_home.PendaftaranEvent\r\nimport com.example.appslifebloodid.ui.page.HomeScreen\r\nimport com.example.appslifebloodid.ui.page.component.menu_home.DetailEvent\r\nimport com.example.appslifebloodid.ui.page.component.menu_home.ScreenJadwalDonor\r\nimport com.example.appslifebloodid.ui.page.component.menu_home.ScreenReward\r\nimport com.example.appslifebloodid.ui.page.component.menu_home.ScreenStockDarah\r\nimport com.example.appslifebloodid.ui.page.component.menu_home.chat.ScreenChat\r\nimport com.example.appslifebloodid.ui.page.component.menu_home.chat.ScreenDaftarDr\r\nimport com.example.appslifebloodid.ui.page.component.notifikasi.ScreenNotifikasi\r\nimport com.example.appslifebloodid.ui.page.component.profile.ProfileScreen\r\n\r\n@RequiresApi(Build.VERSION_CODES.O)\r\n@Composable\r\nfun BottomGraph(\r\n    navController: NavHostController,\r\n    modifier: Modifier = Modifier,\r\n) {\r\n    NavHost(navController = navController, startDestination = RouteBotNav.Home.route) {\r\n        composable(route = RouteBotNav.Home.route) {\r\n            HomeScreen(navController = navController)\r\n        }\r\n        composable(route = RouteBotNav.Riwayat.route) {\r\n            RiwayatScreen()\r\n        }\r\n        composable(route = RouteBotNav.Event.route) {\r\n            EventScreen(navController = navController)\r\n        }\r\n        composable(route = RouteBotNav.About.route) {\r\n            AboutScreen(navController = navController)\r\n        }\r\n\r\n        // New Screen About\r\n        composable(route = \"TentangAplikasi\") {\r\n            TentangAplikasi(navController = navController)\r\n        }\r\n        composable(route = \"Kebijakan&Privasi\") {\r\n            KebijakanPrivasi(navController = navController)\r\n        }\r\n        composable(route = \"PusatBantuan\") {\r\n            PusatBantuan(navController = navController)\r\n        }\r\n        composable(route = \"KetentuanPengguna\") {\r\n            KetentuanPengguna(navController = navController)\r\n        }\r\n        composable(route = \"PertanyaanYangSeringDitanyakan\") {\r\n            Pertanyaan(navController = navController)\r\n        }\r\n\r\n        //ScreenMenuHome\r\n        composable(route = \"ScreenReward\") {\r\n            ScreenReward(navController = navController)\r\n        }\r\n        composable(route = \"ScreenChat\") {\r\n            ScreenChat(navController = navController)\r\n        }\r\n        composable(route = \"ScreenDaftarDr\") {\r\n            ScreenDaftarDr(navController = navController)\r\n        }\r\n        composable(route = \"ScreenStockDarah\") {\r\n            ScreenStockDarah(navController = navController)\r\n        }\r\n        composable(route = \"ScreenJadwalDonor\") {\r\n            ScreenJadwalDonor(navController = navController)\r\n        }\r\n        composable(route = \"ScreenChat\") {\r\n            ScreenChat(navController = navController)\r\n        }\r\n        composable(route = \"ScreenProfile\") {\r\n            ProfileScreen(navController = navController)\r\n        }\r\n        composable(route = \"ScreenNotif\") {\r\n            ScreenNotifikasi(navController=navController)\r\n        }\r\n//        composable(route = \"LihatSemua\") {\r\n//            LihatSemua(navController = navController)\r\n//        }\r\n\r\n\r\n        // Event\r\n        composable(route = \"PendaftaranEvent\") {\r\n            PendaftaranEvent(navController = navController)\r\n        }\r\n\r\n//        composable(\r\n//            route = \"DetailArtikel/{artikelId}\",\r\n//            arguments = listOf(navArgument(\"artikelId\") { type = NavType.IntType })\r\n//        ) { navBackStackEntry ->\r\n//            DetailArtikel(\r\n//                navController = navController,\r\n//                artikelId = navBackStackEntry.arguments?.getInt(\"artikelId\")\r\n//            )\r\n//        }\r\n        composable(\r\n            route = \"DetailEvent/{eventId}\",\r\n            arguments = listOf(navArgument(\"eventId\") { type = NavType.IntType })\r\n        ) { navBackStackEntry ->\r\n            DetailEvent(\r\n                navController = navController,\r\n                eventId = navBackStackEntry.arguments?.getInt(\"eventId\")\r\n            )\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/appslifebloodid/route/BottomGraph.kt b/app/src/main/java/com/example/appslifebloodid/route/BottomGraph.kt
+--- a/app/src/main/java/com/example/appslifebloodid/route/BottomGraph.kt	(revision 809a92219ae5cdb89b6b4f339f859989b68f621d)
++++ b/app/src/main/java/com/example/appslifebloodid/route/BottomGraph.kt	(date 1718982633089)
+@@ -71,7 +71,7 @@
+             ScreenReward(navController = navController)
+         }
+         composable(route = "ScreenChat") {
+-            ScreenChat(navController = navController)
++            ScreenChat(navController = navController, username = "")
+         }
+         composable(route = "ScreenDaftarDr") {
+             ScreenDaftarDr(navController = navController)
+@@ -82,9 +82,7 @@
+         composable(route = "ScreenJadwalDonor") {
+             ScreenJadwalDonor(navController = navController)
+         }
+-        composable(route = "ScreenChat") {
+-            ScreenChat(navController = navController)
+-        }
++
+         composable(route = "ScreenProfile") {
+             ProfileScreen(navController = navController)
+         }
+Index: .idea/deploymentTargetSelector.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"deploymentTargetSelector\">\r\n    <selectionStates>\r\n      <SelectionState runConfigName=\"app\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n        <DropdownSelection timestamp=\"2024-06-21T12:33:31.730004600Z\">\r\n          <Target type=\"DEFAULT_BOOT\">\r\n            <handle>\r\n              <DeviceId pluginId=\"PhysicalDevice\" identifier=\"serial=R9RT602E1PJ\" />\r\n            </handle>\r\n          </Target>\r\n        </DropdownSelection>\r\n        <DialogSelection />\r\n      </SelectionState>\r\n      <SelectionState runConfigName=\"BotNavBarPrev\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n      </SelectionState>\r\n    </selectionStates>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deploymentTargetSelector.xml b/.idea/deploymentTargetSelector.xml
+--- a/.idea/deploymentTargetSelector.xml	(revision 809a92219ae5cdb89b6b4f339f859989b68f621d)
++++ b/.idea/deploymentTargetSelector.xml	(date 1718982953734)
+@@ -13,9 +13,6 @@
+         </DropdownSelection>
+         <DialogSelection />
+       </SelectionState>
+-      <SelectionState runConfigName="BotNavBarPrev">
+-        <option name="selectionMode" value="DROPDOWN" />
+-      </SelectionState>
+     </selectionStates>
+   </component>
+ </project>
+\ No newline at end of file

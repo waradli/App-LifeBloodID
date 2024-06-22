@@ -20,13 +20,15 @@ import com.example.appslifebloodid.ui.page.RiwayatScreen
 import com.example.appslifebloodid.route.RouteBotNav
 import com.example.appslifebloodid.ui.base.AuthViewModel
 import com.example.appslifebloodid.ui.intro.FirstScreen
+import com.example.appslifebloodid.ui.intro.onboarding.components.menu_home.LihatSemua
 import com.example.appslifebloodid.ui.intro.onboarding.components.menu_home.PendaftaranEvent
 import com.example.appslifebloodid.ui.page.HomeScreen
-import com.example.appslifebloodid.ui.page.component.menu_home.jadwal.ScreenJadwalDonor
+import com.example.appslifebloodid.ui.page.component.menu_home.DetailArtikel
 import com.example.appslifebloodid.ui.page.component.menu_home.ScreenReward
 import com.example.appslifebloodid.ui.page.component.menu_home.ScreenStockDarah
 import com.example.appslifebloodid.ui.page.component.menu_home.chat.ScreenChat
 import com.example.appslifebloodid.ui.page.component.menu_home.chat.ScreenDaftarDr
+import com.example.appslifebloodid.ui.page.component.menu_home.jadwal.ScreenJadwalDonor
 import com.example.appslifebloodid.ui.page.component.notifikasi.ScreenNotifikasi
 import com.example.appslifebloodid.ui.page.component.profile.ProfileScreen
 
@@ -75,7 +77,7 @@ fun BottomGraph(
             ScreenReward(navController = navController)
         }
         composable(route = "ScreenChat") {
-            ScreenChat(navController = navController)
+            ScreenChat(navController = navController, username = "")
         }
         composable(route = "ScreenDaftarDr") {
             ScreenDaftarDr(navController = navController)
@@ -86,18 +88,15 @@ fun BottomGraph(
         composable(route = "ScreenDonor") {
             ScreenJadwalDonor(navController = navController)
         }
-        composable(route = "ScreenChat") {
-            ScreenChat(navController = navController)
-        }
         composable(route = "ScreenProfile") {
             ProfileScreen(navController = navController, authViewModel = authViewModel)
         }
         composable(route = "ScreenNotif") {
             ScreenNotifikasi(navController=navController)
         }
-//        composable(route = "LihatSemua") {
-//            LihatSemua(navController = navController)
-//        }
+        composable(route = "LihatSemua") {
+            LihatSemua(navController = navController)
+        }
 
 
         // Event
@@ -105,15 +104,15 @@ fun BottomGraph(
             PendaftaranEvent(navController = navController)
         }
 
-//        composable(
-//            route = "DetailArtikel/{artikelId}",
-//            arguments = listOf(navArgument("artikelId") { type = NavType.IntType })
-//        ) { navBackStackEntry ->
-//            DetailArtikel(
-//                navController = navController,
-//                artikelId = navBackStackEntry.arguments?.getInt("artikelId")
-//            )
-//        }
+        composable(
+            route = "DetailArtikel/{artikelId}",
+            arguments = listOf(navArgument("artikelId") { type = NavType.IntType })
+        ) { navBackStackEntry ->
+            DetailArtikel(
+                navController = navController,
+                artikelId = navBackStackEntry.arguments?.getInt("artikelId")
+            )
+        }
 //        composable(
 //            route = "DetailEvent/{eventId}",
 //            arguments = listOf(navArgument("eventId") { type = NavType.IntType })
