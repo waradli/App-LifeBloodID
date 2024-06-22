@@ -178,7 +178,7 @@ fun Item_Home(navController: NavController, authViewModel: AuthViewModel) {
                         Modifier
                             .size(52.dp)
                             .padding(top = 8.dp, bottom = 4.dp)
-                            .clickable { navController.navigate("ScreenJadwalDonor") }
+                            .clickable { navController.navigate("ScreenDonor") }
                     )
                     Text(
                         text = "Jadwal Donor",
@@ -263,7 +263,7 @@ fun Item_Home(navController: NavController, authViewModel: AuthViewModel) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 25.dp),
+                .padding(horizontal = 10.dp),
             horizontalArrangement = Arrangement.Start
         ) {
             Text(text = "Artikel Donor Darah", fontSize = 18.sp, fontWeight = FontWeight.Bold)

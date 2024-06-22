@@ -57,7 +57,7 @@ fun BotNavBar(
                 "ScreenChat",
                 "ScreenReward",
                 "ScreenStockDarah",
-                "ScreenJadwalDonor",
+                "ScreenDonor",
 
                 // Artikel Donor Darah
                 "DetailArtikel/{artikelId}",

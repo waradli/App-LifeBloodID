@@ -22,7 +22,7 @@ import com.example.appslifebloodid.ui.base.AuthViewModel
 import com.example.appslifebloodid.ui.intro.FirstScreen
 import com.example.appslifebloodid.ui.intro.onboarding.components.menu_home.PendaftaranEvent
 import com.example.appslifebloodid.ui.page.HomeScreen
-import com.example.appslifebloodid.ui.page.component.menu_home.ScreenJadwalDonor
+import com.example.appslifebloodid.ui.page.component.menu_home.jadwal.ScreenJadwalDonor
 import com.example.appslifebloodid.ui.page.component.menu_home.ScreenReward
 import com.example.appslifebloodid.ui.page.component.menu_home.ScreenStockDarah
 import com.example.appslifebloodid.ui.page.component.menu_home.chat.ScreenChat
@@ -83,7 +83,7 @@ fun BottomGraph(
         composable(route = "ScreenStockDarah") {
             ScreenStockDarah(navController = navController)
         }
-        composable(route = "ScreenJadwalDonor") {
+        composable(route = "ScreenDonor") {
             ScreenJadwalDonor(navController = navController)
         }
         composable(route = "ScreenChat") {
