@@ -18,8 +18,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.appslifebloodid.data.network.RetrofitInstance
+import com.example.appslifebloodid.data.repository.EventRepository
+import com.example.appslifebloodid.ui.base.EventRegistrationViewModel
+import com.example.appslifebloodid.ui.base.EventViewModel
+import com.example.appslifebloodid.ui.base.EventViewModelFactory
 import java.util.*
 
 @Composable
@@ -103,9 +109,12 @@ fun DatePickerField(
 
 @Composable
 fun PendaftaranEvent(
-    modifier: Modifier = Modifier,
     navController: NavController
 ) {
+    val repository = EventRepository(RetrofitInstance.api)
+    val eventRegistrationViewModel: EventRegistrationViewModel = viewModel(
+        factory = EventViewModelFactory(repository)
+    )
     Column {
         Box(
             modifier = Modifier
@@ -141,18 +150,19 @@ fun PendaftaranEvent(
         }
 
         // Input Fields
-        val nameState = remember { mutableStateOf("") }
-        val addressState = remember { mutableStateOf("") }
-        val dateOfBirthState = remember { mutableStateOf("") }
-        val selectedGender = remember { mutableStateOf("Pilih Jenis Kelamin") }
-        val phoneNumberState = remember { mutableStateOf("") }
-        val bloodTypeState = remember { mutableStateOf("A") }
+        var fullName by remember { mutableStateOf("") }
+        var address by remember { mutableStateOf("") }
+        var dateOfBirth by remember { mutableStateOf("") }
+        var gender by remember { mutableStateOf("") }
+        var bloodType by remember { mutableStateOf("") }
+        var phoneNumber by remember { mutableStateOf("") }
+        var isSuccess by remember { mutableStateOf(false) }
 
         Column(modifier = Modifier.padding(16.dp)) {
             Text(text = "Nama", fontWeight = FontWeight.Bold)
             OutlinedTextField(
-                value = nameState.value,
-                onValueChange = { nameState.value = it },
+                value = fullName,
+                onValueChange = { fullName = it },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 8.dp),
@@ -161,8 +171,8 @@ fun PendaftaranEvent(
 
             Text(text = "Alamat", fontWeight = FontWeight.Bold)
             OutlinedTextField(
-                value = addressState.value,
-                onValueChange = { addressState.value = it },
+                value = address,
+                onValueChange = { address = it },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 8.dp),
@@ -173,34 +183,34 @@ fun PendaftaranEvent(
             Spacer(modifier = Modifier.height(8.dp))
             DatePickerField(
                 label = "Tanggal Lahir",
-                selectedDate = dateOfBirthState.value,
-                onDateSelected = { dateOfBirthState.value = it }
+                selectedDate = dateOfBirth,
+                onDateSelected = { dateOfBirth = it }
             )
             Spacer(modifier = Modifier.height(5.dp))
             Text(text = "Jenis Kelamin", fontWeight = FontWeight.Bold)
             Spacer(modifier = Modifier.height(5.dp))
             GenderDropdown(
-                selectedGender = selectedGender.value,
-                onGenderSelected = { selectedGender.value = it }
+                selectedGender = gender,
+                onGenderSelected = { gender = it }
             )
 
             Text(text = "Golongan Darah", fontWeight = FontWeight.Bold)
             Row {
-                listOf("A", "B", "AB", "O").forEach { bloodType ->
+                listOf("A", "B", "AB", "O").forEach { blood_Type ->
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         RadioButton(
-                            selected = bloodTypeState.value == bloodType,
-                            onClick = { bloodTypeState.value = bloodType }
+                            selected = bloodType == blood_Type,
+                            onClick = { bloodType = blood_Type }
                         )
                         Text(text = bloodType)
                     }
                 }
             }
 
-            Text(text = "No. Telepon", fontWeight = FontWeight.Bold)
+                Text(text = "No. Telepon", fontWeight = FontWeight.Bold)
             OutlinedTextField(
-                value = phoneNumberState.value,
-                onValueChange = { phoneNumberState.value = it },
+                value = phoneNumber,
+                onValueChange = { phoneNumber = it },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 8.dp),
@@ -221,24 +231,35 @@ fun PendaftaranEvent(
 
             Spacer(modifier = Modifier.height(16.dp))
             Row (modifier = Modifier.padding(start = 240.dp)){
-                Button(onClick = {
-                    // Handle form submission
-                }, modifier = Modifier
-                    .width(100.dp)
-                    .height(40.dp)
-                    ,colors = ButtonDefaults.buttonColors(Color(0xffB20909))) {
+                Button(
+                    onClick = {
+                        eventRegistrationViewModel.eventRegistration(
+                            fullName,
+                            address,
+                            dateOfBirth,
+                            gender,
+                            bloodType,
+                            phoneNumber,
+                            {
+                                isSuccess = true
+                            },
+                            {
+                                // Handle error message here
+                            }
+                        )
+                    },
+                    modifier = Modifier
+                        .width(100.dp)
+                        .height(40.dp)
+                    ,colors = ButtonDefaults.buttonColors(Color(0xffB20909))
+                ) {
                     Text("Kirim")
                 }
-            }
 
+                if (isSuccess) {
+                    Text("Registration Successful!")
+                }
+            }
         }
     }
-}
-
-@Composable
-@Preview
-fun PendaftaranEventPreview() {
-    // This is just a placeholder NavController for the preview
-    val navController = rememberNavController()
-    PendaftaranEvent(navController = navController)
 }

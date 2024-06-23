@@ -1,4 +1,4 @@
-package com.app_donor_darah.Route
+package com.example.appslifebloodid.route
 
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -17,13 +17,14 @@ import com.example.appslifebloodid.page.Component.NavigateScreen.PusatBantuan
 import com.example.appslifebloodid.page.Component.NavigateScreen.TentangAplikasi
 import com.example.appslifebloodid.ui.page.EventScreen
 import com.example.appslifebloodid.ui.page.RiwayatScreen
-import com.example.appslifebloodid.route.RouteBotNav
 import com.example.appslifebloodid.ui.base.AuthViewModel
+import com.example.appslifebloodid.ui.base.EventRegistrationViewModel
 import com.example.appslifebloodid.ui.intro.FirstScreen
 import com.example.appslifebloodid.ui.intro.onboarding.components.menu_home.LihatSemua
 import com.example.appslifebloodid.ui.intro.onboarding.components.menu_home.PendaftaranEvent
 import com.example.appslifebloodid.ui.page.HomeScreen
 import com.example.appslifebloodid.ui.page.component.menu_home.DetailArtikel
+import com.example.appslifebloodid.ui.page.component.menu_home.DetailEvent
 import com.example.appslifebloodid.ui.page.component.menu_home.ScreenReward
 import com.example.appslifebloodid.ui.page.component.menu_home.ScreenStockDarah
 import com.example.appslifebloodid.ui.page.component.menu_home.chat.ScreenChat
@@ -39,6 +40,7 @@ fun BottomGraph(
     authViewModel: AuthViewModel,
     modifier: Modifier = Modifier,
 ) {
+    lateinit var eventRegistrationViewModel: EventRegistrationViewModel
     NavHost(navController = navController, startDestination = RouteBotNav.Home.route) {
         composable(route = RouteBotNav.Home.route) {
             HomeScreen(navController = navController, authViewModel = authViewModel)
@@ -101,7 +103,7 @@ fun BottomGraph(
 
         // Event
         composable(route = "PendaftaranEvent") {
-            PendaftaranEvent(navController = navController)
+            PendaftaranEvent(navController = navController  )
         }
 
         composable(
@@ -113,14 +115,12 @@ fun BottomGraph(
                 artikelId = navBackStackEntry.arguments?.getInt("artikelId")
             )
         }
-//        composable(
-//            route = "DetailEvent/{eventId}",
-//            arguments = listOf(navArgument("eventId") { type = NavType.IntType })
-//        ) { navBackStackEntry ->
-//            DetailEvent(
-//                navController = navController,
-//                eventId = navBackStackEntry.arguments?.getInt("eventId")
-//            )
-//        }
+        composable(
+            route = "DetailEvent/{locationId}",
+            arguments = listOf(navArgument("locationId") { type = NavType.IntType })
+        ) { backStackEntry ->
+            val locationId = backStackEntry.arguments?.getInt("locationId") ?: 0
+            DetailEvent(navController = navController, locationId = locationId)
+        }
     }
 }

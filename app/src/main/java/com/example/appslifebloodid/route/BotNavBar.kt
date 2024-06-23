@@ -35,15 +35,13 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.app_donor_darah.Route.BottomGraph
 import com.example.appslifebloodid.ui.base.AuthViewModel
 
 @RequiresApi(Build.VERSION_CODES.O)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun BotNavBar(
-    modifier: Modifier = Modifier,
-    authViewModel: AuthViewModel,
+    authViewModel: AuthViewModel
 ) {
     val navController = rememberNavController()
     Scaffold(
