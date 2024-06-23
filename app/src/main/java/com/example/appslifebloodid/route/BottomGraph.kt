@@ -107,13 +107,11 @@ fun BottomGraph(
         }
 
         composable(
-            route = "DetailArtikel/{artikelId}",
-            arguments = listOf(navArgument("artikelId") { type = NavType.IntType })
-        ) { navBackStackEntry ->
-            DetailArtikel(
-                navController = navController,
-                artikelId = navBackStackEntry.arguments?.getInt("artikelId")
-            )
+            route = "DetailArtikel/{artikeleId}",
+            arguments = listOf(navArgument("artikeleId") { type = NavType.IntType })
+        ) { backStackEntry ->
+            val artikelId = backStackEntry.arguments?.getInt("artikelId") ?: 0
+            DetailArtikel(navController = navController, artikelId = artikelId)
         }
         composable(
             route = "DetailEvent/{locationId}",
