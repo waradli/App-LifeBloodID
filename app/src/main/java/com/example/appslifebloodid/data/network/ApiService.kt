@@ -22,6 +22,9 @@ interface ApiService {
     @GET("articles")
     suspend fun getArticles(): Response<List<Article>>
 
+    @GET("articles/{id}")
+    suspend fun getArticleById(@Path("id") id: Int): Response<Article>
+
     @GET("locations")
     suspend fun getLocations(): Response<List<DataEvent>>
 
