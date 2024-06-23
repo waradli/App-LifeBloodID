@@ -107,6 +107,7 @@ fun DetailEvent(
                         modifier = Modifier
                             .width(150.dp)
                             .height(40.dp),
+
                         shape = RoundedCornerShape(10.dp),
                         colors = ButtonDefaults.buttonColors(Color(0xffE35A5A))
                     ) {
