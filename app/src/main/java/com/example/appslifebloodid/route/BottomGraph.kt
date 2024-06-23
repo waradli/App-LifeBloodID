@@ -22,6 +22,7 @@ import com.example.appslifebloodid.ui.base.EventRegistrationViewModel
 import com.example.appslifebloodid.ui.intro.FirstScreen
 import com.example.appslifebloodid.ui.intro.onboarding.components.menu_home.LihatSemua
 import com.example.appslifebloodid.ui.intro.onboarding.components.menu_home.PendaftaranEvent
+import com.example.appslifebloodid.ui.intro.onboarding.components.menu_home.RincianDaftar
 import com.example.appslifebloodid.ui.page.HomeScreen
 import com.example.appslifebloodid.ui.page.component.menu_home.DetailArtikel
 import com.example.appslifebloodid.ui.page.component.menu_home.DetailEvent
@@ -104,6 +105,11 @@ fun BottomGraph(
         // Event
         composable(route = "PendaftaranEvent") {
             PendaftaranEvent(navController = navController  )
+        }
+        
+        //rincian daftar
+        composable(route = "RincianDaftar"){
+            RincianDaftar(navController = navController)
         }
 
         composable(

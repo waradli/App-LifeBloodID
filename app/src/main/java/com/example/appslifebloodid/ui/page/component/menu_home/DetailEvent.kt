@@ -94,12 +94,26 @@ fun DetailEvent(
                     modifier = Modifier.padding(start = 20.dp)
                 )
                 Spacer(modifier = Modifier.height(10.dp))
-                Text(
-                    text = location.address,
-                    fontSize = 16.sp,
-                    color = Color.Gray,
-                    modifier = Modifier.padding(start = 20.dp)
-                )
+                Row (modifier = Modifier.padding(start = 20.dp)){
+                    Row {
+                        Image(painter = painterResource(id = R.drawable.jam), contentDescription = "lokasi", modifier = Modifier.size(20.dp))
+                        Text(
+                            text = "22 Maret 2024",
+                            fontSize = 16.sp,
+                            modifier = Modifier.padding(start = 5.dp)
+                        )
+                    }
+                    Spacer(modifier = Modifier.width(100.dp))
+                    Row {
+                        Image(painter = painterResource(id = R.drawable.lokasi), contentDescription = "lokasi", modifier = Modifier.size(20.dp))
+                        Text(
+                            text = location.address,
+                            fontSize = 16.sp,
+                            modifier = Modifier.padding(start = 5.dp)
+                        ) 
+                    } 
+                }
+                
                 Spacer(modifier = Modifier.height(10.dp))
                 Box(modifier = Modifier.padding(start = 20.dp)) {
                     Button(
@@ -107,6 +121,7 @@ fun DetailEvent(
                         modifier = Modifier
                             .width(150.dp)
                             .height(40.dp),
+
                         shape = RoundedCornerShape(10.dp),
                         colors = ButtonDefaults.buttonColors(Color(0xffE35A5A))
                     ) {

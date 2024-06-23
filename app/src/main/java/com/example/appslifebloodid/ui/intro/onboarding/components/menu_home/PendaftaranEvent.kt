@@ -111,10 +111,10 @@ fun DatePickerField(
 fun PendaftaranEvent(
     navController: NavController
 ) {
-    val repository = EventRepository(RetrofitInstance.api)
-    val eventRegistrationViewModel: EventRegistrationViewModel = viewModel(
-        factory = EventViewModelFactory(repository)
-    )
+//    val repository = EventRepository(RetrofitInstance.api)
+//    val eventRegistrationViewModel: EventRegistrationViewModel = viewModel(
+//        factory = EventViewModelFactory(repository)
+//    )
     Column {
         Box(
             modifier = Modifier
@@ -230,36 +230,39 @@ fun PendaftaranEvent(
             }
 
             Spacer(modifier = Modifier.height(16.dp))
-            Row (modifier = Modifier.padding(start = 240.dp)){
-                Button(
-                    onClick = {
-                        eventRegistrationViewModel.eventRegistration(
-                            fullName,
-                            address,
-                            dateOfBirth,
-                            gender,
-                            bloodType,
-                            phoneNumber,
-                            {
-                                isSuccess = true
-                            },
-                            {
-                                // Handle error message here
-                            }
-                        )
-                    },
-                    modifier = Modifier
-                        .width(100.dp)
-                        .height(40.dp)
-                    ,colors = ButtonDefaults.buttonColors(Color(0xffB20909))
-                ) {
-                    Text("Kirim")
-                }
-
-                if (isSuccess) {
-                    Text("Registration Successful!")
-                }
+            Button(onClick = { navController.navigate("RincianDaftar") }) {
+                Text(text = "Daftar")
             }
+//            Row (modifier = Modifier.padding(start = 240.dp)){
+//                Button(
+//                    onClick = {
+//                        eventRegistrationViewModel.eventRegistration(
+//                            fullName,
+//                            address,
+//                            dateOfBirth,
+//                            gender,
+//                            bloodType,
+//                            phoneNumber,
+//                            {
+//                                isSuccess = true
+//                            },
+//                            {
+//                                // Handle error message here
+//                            }
+//                        )
+//                    },
+//                    modifier = Modifier
+//                        .width(100.dp)
+//                        .height(40.dp)
+//                    ,colors = ButtonDefaults.buttonColors(Color(0xffB20909))
+//                ) {
+//                    Text("Kirim")
+//                }
+//
+//                if (isSuccess) {
+//                    Text("Registration Successful!")
+//                }
+//            }
         }
     }
 }
