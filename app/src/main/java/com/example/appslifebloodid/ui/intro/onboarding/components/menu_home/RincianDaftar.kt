@@ -130,7 +130,6 @@ fun RincianDaftar(
                     )
                     Image(
                         painter = painterResource(id = R.drawable.barcode),
-
                         contentDescription = "barcode",
                         modifier = Modifier
                             .padding(20.dp)

@@ -33,9 +33,10 @@ import com.example.appslifebloodid.R
 import com.example.appslifebloodid.model.dataDokter
 
 @Composable
-fun ItemDokter(modifier: Modifier = Modifier,
-               dtDokter:dataDokter,
-               navController: NavController
+fun ItemDokter(
+    modifier: Modifier = Modifier,
+    dtDokter: dataDokter,
+    navController: NavController
 ) {
     Column(modifier = modifier.padding(top = 15.dp)) {
         Card(
@@ -48,8 +49,8 @@ fun ItemDokter(modifier: Modifier = Modifier,
                 defaultElevation = 6.dp
             )
         ) {
-            Column (modifier = Modifier){
-                Row (modifier = Modifier.padding(top = 10.dp)){
+            Column(modifier = Modifier) {
+                Row(modifier = Modifier.padding(top = 10.dp)) {
                     Column(modifier = Modifier.padding(top = 10.dp, start = 20.dp)) {
                         Card(
                             modifier = Modifier
@@ -64,7 +65,12 @@ fun ItemDokter(modifier: Modifier = Modifier,
                         }
                     }
                     Spacer(modifier = Modifier.width(15.dp))
-                    Text(text = dtDokter.name, fontSize = 20.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 20.dp))
+                    Text(
+                        text = dtDokter.name,
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.padding(top = 20.dp)
+                    )
                 }
                 Spacer(modifier = Modifier.height(10.dp))
                 Divider(
@@ -73,8 +79,10 @@ fun ItemDokter(modifier: Modifier = Modifier,
                     modifier = Modifier.padding(start = 5.dp, end = 5.dp)
                 )
                 Spacer(modifier = Modifier.height(10.dp))
-                Row (modifier=Modifier.padding(start = 20.dp),
-                    verticalAlignment = Alignment.CenterVertically){
+                Row(
+                    modifier = Modifier.padding(start = 20.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
                     Icon(imageVector = Icons.Default.FavoriteBorder, contentDescription = null)
                     Spacer(modifier = Modifier.width(5.dp))
                     Text(text = dtDokter.rating)
@@ -83,14 +91,16 @@ fun ItemDokter(modifier: Modifier = Modifier,
                     Spacer(modifier = Modifier.width(5.dp))
                     Text(text = dtDokter.masakerja)
                     Spacer(modifier = Modifier.width(40.dp))
-                    Button(onClick = { navController.navigate("ScreenChat") }, modifier = Modifier.width(100.dp), shape = RoundedCornerShape(10.dp), colors = ButtonDefaults.buttonColors(Color(0xffE35A5A))) {
+                    Button(
+                        onClick = { navController.navigate("ScreenChat") },
+                        modifier = Modifier.width(100.dp),
+                        shape = RoundedCornerShape(10.dp),
+                        colors = ButtonDefaults.buttonColors(Color(0xffb20909))
+                    ) {
                         Text(text = "Chat", fontSize = 18.sp)
                     }
                 }
             }
-
-
         }
-        
     }
 }

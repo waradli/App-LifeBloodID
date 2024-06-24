@@ -61,6 +61,7 @@ fun BotNavBar(
                 "DetailArtikel/{artikelId}",
                 "DetailEvent/{eventId}",
 
+
                 // Screen Chat
                 "ScreenDaftarDr",
 

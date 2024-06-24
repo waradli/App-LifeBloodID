@@ -37,7 +37,7 @@ fun GridItem(locations: DataEvent, navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 16.dp, end = 16.dp)
+            .padding(horizontal = 10.dp, vertical = 5.dp)
     ) {
         Card(
             shape = RoundedCornerShape(10.dp),
@@ -51,8 +51,9 @@ fun GridItem(locations: DataEvent, navController: NavController) {
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
-                    .size(150.dp, 125.dp)
-                    .clip(shape = RoundedCornerShape(8.dp))
+                    .fillMaxWidth()
+                    .height(120.dp)
+                    .clip(shape = RoundedCornerShape(8.dp,0.dp))
             )
             Column(
                 modifier = Modifier.padding(start = 10.dp, top = 5.dp)

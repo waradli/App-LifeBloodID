@@ -1,4 +1,4 @@
-package com.example.appslifebloodid.ui.page.component.notifikasi.model
+package com.example.appslifebloodid.ui.page.component.menu_home.notifikasi.model
 
 data class notif(
     val id:Int,

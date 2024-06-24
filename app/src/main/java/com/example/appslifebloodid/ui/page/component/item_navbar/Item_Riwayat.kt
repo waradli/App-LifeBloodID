@@ -3,6 +3,7 @@ package com.example.appslifebloodid.page.Component.Item
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -38,7 +39,8 @@ fun Item_Riwayat(
     riwayats : Model_Riwayat
 
 ) {
-    Column {
+    Column (modifier = Modifier
+        .background(color = Color(android.graphics.Color.parseColor("#f1f1f1f1")))){
         Card(
             elevation = CardDefaults.cardElevation(8.dp),
             modifier = Modifier
