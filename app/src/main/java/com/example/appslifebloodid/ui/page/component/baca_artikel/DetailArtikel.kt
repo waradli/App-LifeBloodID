@@ -13,7 +13,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material3.Card
@@ -75,7 +77,7 @@ fun DetailArtikel(
                     .fillMaxWidth()
                     .height(100.dp)
                     .padding(top = 35.dp)
-                    .background(Color(0xffE35A5A))
+                    .background(Color(0xffb20909))
             ) {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -103,8 +105,8 @@ fun DetailArtikel(
                 }
             }
             Column(
-
                 modifier = Modifier.padding(horizontal = 25.dp, vertical = 20.dp)
+                    .verticalScroll(rememberScrollState())
             ) {
                 Text(
                     text = article.title,
@@ -113,16 +115,7 @@ fun DetailArtikel(
                 )
                 Spacer(modifier = Modifier.padding(vertical = 20.dp))
                 Card(elevation = CardDefaults.cardElevation(10.dp)) {
-//                    AsyncImage(
-//                        model = ImageRequest.Builder(LocalContext.current)
-//                            .data(data = detailArt[0].image_url)
-//                            .build(),
-//                        contentScale = ContentScale.Fit,
-//                        modifier = Modifier.fillMaxWidth(),
-//
-//
-//                        contentDescription = "Poster Movie"
-//                    )
+
                     Image(
                         painter = rememberImagePainter(
                             data = imageUrl,
@@ -142,11 +135,20 @@ fun DetailArtikel(
 
                 )
                 Text(
-                    text = "article.created_at}",
+                    text = "12 Maret 2024",
                     style = TextStyle(
                         fontWeight = FontWeight.Medium,
                         fontSize = 14.sp,
-                        color = Color(0xff959595)
+
+                    )
+                )
+                Spacer(modifier = Modifier.height(10.dp))
+                Text(
+                    text = article.content,
+                    style = TextStyle(
+                        fontWeight = FontWeight.Medium,
+                        fontSize = 16.sp,
+
                     )
                 )
             }

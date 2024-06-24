@@ -24,8 +24,8 @@ import com.example.appslifebloodid.ui.page.component.lihat_semua.LihatSemua
 import com.example.appslifebloodid.ui.intro.onboarding.components.menu_home.PendaftaranEvent
 import com.example.appslifebloodid.ui.intro.onboarding.components.menu_home.RincianDaftar
 import com.example.appslifebloodid.ui.page.HomeScreen
-import com.example.appslifebloodid.ui.page.component.baca_artikel.DetailArtikel
 import com.example.appslifebloodid.ui.page.component.event.DetailEvent
+import com.example.appslifebloodid.ui.page.component.menu_home.DetailArtikel
 import com.example.appslifebloodid.ui.page.component.menu_home.reward.ScreenReward
 import com.example.appslifebloodid.ui.page.component.menu_home.stock_darah.ScreenStockDarah
 import com.example.appslifebloodid.ui.page.component.menu_home.chat.ScreenChat
