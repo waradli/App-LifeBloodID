@@ -137,7 +137,6 @@ fun RincianDaftar(
                             .size(150.dp)
                     )
                 }
-
             }
         }
     }
