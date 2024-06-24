@@ -68,7 +68,6 @@ fun DetailArtikel(
     LaunchedEffect(artikelId) {
         viewModel.getLocationDetail(artikelId)
     }
-
     articleDetail?.let { article ->
         val imageUrl = RetrofitInstance.baseUrl + article.image_url
         Column {
