@@ -58,7 +58,7 @@ fun BotNavBar(
                 "ScreenDonor",
 
                 // Artikel Donor Darah
-                "DetailArtikel/{artikelId}",
+                "DetailArtikel/{artikeleId}",
                 "DetailEvent/{eventId}",
 
 
