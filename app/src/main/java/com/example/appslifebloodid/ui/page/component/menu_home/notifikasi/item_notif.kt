@@ -1,4 +1,4 @@
-package com.example.appslifebloodid.ui.page.component.notifikasi
+package com.example.appslifebloodid.ui.page.component.menu_home.notifikasi
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -20,7 +20,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.appslifebloodid.ui.page.component.notifikasi.model.notif
+import com.example.appslifebloodid.ui.page.component.menu_home.notifikasi.model.notif
 import com.example.appslifebloodid.ui.theme.poppinsFontFamily
 
 @Composable

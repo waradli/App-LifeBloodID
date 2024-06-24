@@ -1,4 +1,4 @@
-package com.example.appslifebloodid.ui.page.component.profile
+package com.example.appslifebloodid.ui.page.component.menu_home.profile
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

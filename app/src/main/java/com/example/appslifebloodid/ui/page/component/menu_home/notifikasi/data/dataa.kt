@@ -1,7 +1,7 @@
-package com.example.appslifebloodid.ui.page.component.notifikasi.data
+package com.example.appslifebloodid.ui.page.component.menu_home.notifikasi.data
 
 import com.example.appslifebloodid.R
-import com.example.appslifebloodid.ui.page.component.notifikasi.model.notif
+import com.example.appslifebloodid.ui.page.component.menu_home.notifikasi.model.notif
 
 object dataa {
     val listNotifikasi = listOf(

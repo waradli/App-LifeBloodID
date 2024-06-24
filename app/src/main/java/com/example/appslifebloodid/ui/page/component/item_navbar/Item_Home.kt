@@ -45,7 +45,7 @@ import com.example.appslifebloodid.data.network.RetrofitInstance
 import com.example.appslifebloodid.data.repository.ArticleRepository
 import com.example.appslifebloodid.ui.base.ArticleViewModel
 import com.example.appslifebloodid.ui.base.AuthViewModel
-import com.example.appslifebloodid.ui.intro.onboarding.components.ArtikelItem
+import com.example.appslifebloodid.ui.page.component.baca_artikel.ArtikelItem
 import com.example.appslifebloodid.ui.base.ArticleViewModelFactory
 
 @Composable
@@ -125,7 +125,7 @@ fun Item_Home(navController: NavController, authViewModel: AuthViewModel) {
                         contentDescription = "Notif",
                         tint = Color.White,
                         modifier = Modifier
-                            .padding(vertical = 30.dp, horizontal = 50.dp)
+                            .padding(vertical = 30.dp, horizontal = 60.dp)
                             .size(width = 40.dp, height = 40.dp)
                             .clickable {
                                 navController.navigate("ScreenNotif")
@@ -245,9 +245,9 @@ fun Item_Home(navController: NavController, authViewModel: AuthViewModel) {
                         painter = painterResource(id = R.drawable.reward),
                         contentDescription = null,
                         Modifier
+                            .size(53.dp)
                             .padding(top = 8.dp, bottom = 4.dp)
                             .clickable { navController.navigate("ScreenReward") }
-
                     )
                     Text(
                         text = "Reward",
@@ -263,11 +263,17 @@ fun Item_Home(navController: NavController, authViewModel: AuthViewModel) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 10.dp),
-            horizontalArrangement = Arrangement.Start
+                .padding(horizontal = 30.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(text = "Artikel Donor Darah", fontSize = 18.sp, fontWeight = FontWeight.Bold)
-            Box(modifier = Modifier.padding(start = 135.dp)) {
+            Text(
+                text = "Artikel Donor Darah",
+                fontSize = 15.sp,
+                fontWeight = FontWeight.Bold
+            )
+            Box(
+            ) {
                 Text(
                     text = "lihat semua",
                     modifier = Modifier.clickable { navController.navigate("LihatSemua") },

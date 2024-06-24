@@ -3,9 +3,11 @@ package com.example.appslifebloodid.ui.page.component.menu_home.jadwal
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -23,7 +25,7 @@ import androidx.navigation.NavController
 import com.example.appslifebloodid.ui.page.component.menu_home.jadwal.data.dataJadwal
 import com.example.appslifebloodid.ui.page.component.menu_home.jadwal.model.jadwal
 import com.example.appslifebloodid.ui.theme.poppinsFontFamily
-import kotlinx.coroutines.launch
+import java.time.LocalDate
 
 @OptIn(ExperimentalMaterial3Api::class)
 @RequiresApi(Build.VERSION_CODES.O)
@@ -44,9 +46,15 @@ fun ScreenJadwalDonor(
     var keterangan by remember {
         mutableStateOf("")
     }
-    var tanggal by remember {
-        mutableStateOf("")
+
+    // Tanggal
+    var selectedDate by remember { mutableStateOf("") }
+
+    val onDateSelected = { date: LocalDate ->
+        selectedDate = date.toString()
     }
+    var showDatePicker by remember { mutableStateOf(false) }
+
 
 
     Column {
@@ -136,31 +144,53 @@ fun ScreenJadwalDonor(
                     value = namaAcara,
                     onValueChange = { namaAcara = it },
                     label = { Text("Nama Acara") },
-                    modifier = Modifier.fillMaxWidth()
+                    colors = TextFieldDefaults.textFieldColors(
+                        focusedIndicatorColor = Color.Transparent,
+                        unfocusedIndicatorColor = Color.Transparent,
+                        disabledIndicatorColor = Color.Transparent
+                    ),
+                    modifier = Modifier
+                        .fillMaxWidth()
+
+                        .border(
+                            width = 1.dp,
+                            color = Color.Gray,
+                            shape = RoundedCornerShape(8.dp)
+                        ),
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 TextField(
                     value = keterangan,
                     onValueChange = { keterangan = it },
                     label = { Text("Keterangan") },
-                    modifier = Modifier.fillMaxWidth()
+                    colors = TextFieldDefaults.textFieldColors(
+                        focusedIndicatorColor = Color.Transparent,
+                        unfocusedIndicatorColor = Color.Transparent,
+                        disabledIndicatorColor = Color.Transparent
+                    ),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(150.dp)
+                        .border(
+                            width = 1.dp,
+                            color = Color.Gray,
+                            shape = RoundedCornerShape(8.dp)
+                        ),
                 )
                 Spacer(modifier = Modifier.height(16.dp))
-                TextField(
-                    value = tanggal,
-                    onValueChange = { tanggal = it },
-                    label = { Text("Tanggal") },
-                    modifier = Modifier.fillMaxWidth()
-                )
-                Spacer(modifier = Modifier.height(16.dp))
+
                 Button(
                     onClick = {
-                        // Handle the "Save" action here
+
                         showBottomSheet = false
                     },
-                    modifier = Modifier.align(Alignment.End)
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xffb20909),
+                        contentColor = Color.White
+                    ),
+                    shape = RoundedCornerShape(10.dp)
                 ) {
-                    Text("Save")
+                    Text("Buat")
                 }
             }
         }

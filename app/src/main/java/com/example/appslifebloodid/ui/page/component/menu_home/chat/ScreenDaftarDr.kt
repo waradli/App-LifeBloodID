@@ -38,19 +38,25 @@ import com.example.appslifebloodid.R
 import com.example.appslifebloodid.data.DataColumnDokter
 
 @Composable
-fun ScreenDaftarDr(modifier: Modifier = Modifier,
-                   navController: NavController
+fun ScreenDaftarDr(
+    modifier: Modifier = Modifier,
+    navController: NavController
 ) {
-    Column(modifier = modifier) {
+    Column(
+        modifier = Modifier.padding(
+            vertical = 30.dp
+        )
+    ) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(100.dp)
-                .padding(top = 35.dp)
+                .height(70.dp)
                 .background(Color(0xffb20909))
         ) {
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 20.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 IconButton(
@@ -60,7 +66,7 @@ fun ScreenDaftarDr(modifier: Modifier = Modifier,
                     Icon(
                         imageVector = Icons.Default.KeyboardArrowLeft,
                         tint = Color.White,
-                        modifier = Modifier.size(50.dp),
+                        modifier = Modifier.size(30.dp),
                         contentDescription = "Icon Arrow"
                     )
                 }
@@ -85,9 +91,11 @@ fun ScreenDaftarDr(modifier: Modifier = Modifier,
 
         }
         Spacer(modifier = Modifier.height(20.dp))
-        Column (modifier = Modifier.fillMaxSize(),
+        Column(
+            modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.CenterHorizontally){
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
             OutlinedTextField(
                 value = "",
                 onValueChange = { /* Change listener for search query */ },
@@ -105,9 +113,9 @@ fun ScreenDaftarDr(modifier: Modifier = Modifier,
             LazyColumn(
                 modifier = Modifier,
 
-            ) {
+                ) {
                 items(items = dtDokters) { dtDokter ->
-                    ItemDokter(dtDokter = dtDokter,navController=navController)
+                    ItemDokter(dtDokter = dtDokter, navController = navController)
                 }
             }
         }
