@@ -69,7 +69,7 @@ fun Item_Home(navController: NavController, authViewModel: AuthViewModel) {
             val (topImg, profile, item) = createRefs()
             Image(painterResource(id = R.drawable.bg_homee), null,
                 Modifier
-                    .padding(top = 35.dp)
+                    .padding(top = 40.dp)
                     .fillMaxWidth()
                     .constrainAs(topImg) {
                         top.linkTo(parent.top)

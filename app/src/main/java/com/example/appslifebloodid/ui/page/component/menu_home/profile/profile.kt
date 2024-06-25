@@ -49,7 +49,7 @@ fun ProfileScreen(
     ) {
         Box(
             modifier = Modifier
-                .padding(vertical = 45.dp)
+                .padding(vertical = 40.dp)
                 .fillMaxWidth()
                 .height(250.dp)
                 .background(Color(0xffb20909)),
@@ -63,8 +63,8 @@ fun ProfileScreen(
                         contentDescription = "Icon Back",
                         tint = Color.White,
                         modifier = Modifier
-                            .padding(horizontal = 10.dp)
-                            .size(width = 50.dp, height = 50.dp)
+                            .padding(horizontal = 10.dp, vertical = 10.dp)
+                            .size(width = 30.dp, height = 30.dp)
                             .clickable {
                                 navController.popBackStack()
                             }
@@ -75,7 +75,7 @@ fun ProfileScreen(
                         Text(
                             text = "PROFILE",
                             style = TextStyle(
-                                fontSize = 25.sp,
+                                fontSize = 22.sp,
                                 fontFamily = poppinsFontFamily,
                                 fontWeight = FontWeight.SemiBold,
                                 color = Color.White

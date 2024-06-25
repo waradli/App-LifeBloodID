@@ -38,14 +38,14 @@ fun ScreenNotifikasi(
     notifikasi: List<notif> = dataa.listNotifikasi,
 ) {
     Column(
-        modifier = Modifier.padding(vertical = 45.dp)
+        modifier = Modifier.padding(vertical = 40.dp)
     ) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(70.dp)
                 .background(Color(0xffb20909))
-                .padding(vertical = 15.dp, horizontal = 20.dp),
+                .padding(vertical = 20.dp, horizontal = 20.dp),
 
             ) {
             Row(
@@ -56,7 +56,7 @@ fun ScreenNotifikasi(
                     imageVector = Icons.Filled.KeyboardArrowLeft,
                     contentDescription = "icon back",
                     modifier = Modifier
-                        .size(45.dp, 45.dp)
+                        .size(30.dp, 30.dp)
                         .clickable {
                             navController.popBackStack()
                         }, tint = Color.White

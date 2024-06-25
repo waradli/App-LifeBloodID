@@ -41,7 +41,7 @@ fun KetentuanPengguna(
     modifier: Modifier = Modifier
 ) {
     Column(
-        modifier = Modifier.padding(vertical = 50.dp)
+        modifier = Modifier.padding(vertical = 40.dp)
     ) {
         Box(
             modifier = Modifier

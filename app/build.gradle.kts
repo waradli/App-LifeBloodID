@@ -88,6 +88,10 @@ dependencies {
     // Image Async
     implementation(libs.coil.compose)
 
+    implementation ("com.google.accompanist:accompanist-insets:0.23.1")
+
+
+
     //Retrofit
     implementation (libs.androidx.ui.v105)
     implementation (libs.androidx.material.v105)

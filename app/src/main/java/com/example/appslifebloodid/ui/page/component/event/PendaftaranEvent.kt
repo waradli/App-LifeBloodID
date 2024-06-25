@@ -1,10 +1,11 @@
-package com.example.appslifebloodid.ui.intro.onboarding.components.menu_home
+package com.example.appslifebloodid.ui.page.component.event
 
 import android.app.DatePickerDialog
 import android.widget.DatePicker
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
@@ -15,17 +16,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
-import com.example.appslifebloodid.data.network.RetrofitInstance
-import com.example.appslifebloodid.data.repository.EventRepository
-import com.example.appslifebloodid.ui.base.EventRegistrationViewModel
-import com.example.appslifebloodid.ui.base.EventViewModel
-import com.example.appslifebloodid.ui.base.EventViewModelFactory
 import java.util.*
 
 @Composable
@@ -119,9 +112,9 @@ fun PendaftaranEvent(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(100.dp)
-                .padding(top = 35.dp)
-                .background(Color(0xffE35A5A))
+                .height(150.dp)
+                .padding(vertical = 40.dp)
+                .background(Color(0xffb20909))
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -207,7 +200,7 @@ fun PendaftaranEvent(
                 }
             }
 
-                Text(text = "No. Telepon", fontWeight = FontWeight.Bold)
+            Text(text = "No. Telepon", fontWeight = FontWeight.Bold)
             OutlinedTextField(
                 value = phoneNumber,
                 onValueChange = { phoneNumber = it },
@@ -217,21 +210,31 @@ fun PendaftaranEvent(
                 singleLine = true
             )
             Spacer(modifier = Modifier.height(2.dp))
-            Row (
+            Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .padding(start = 2.dp)
-            ){
-                var Checked by remember{
+            ) {
+                var Checked by remember {
                     mutableStateOf(false)
                 }
-                Checkbox(checked = Checked, onCheckedChange = {Checked = it})
-                Text(text = "Saya Bersedia mendonorkan darah saya apabila sewaktu-waktu ada yang membutuhkan. ", fontSize = 14.sp)
+                Checkbox(checked = Checked, onCheckedChange = { Checked = it })
+                Text(
+                    text = "Saya Bersedia mendonorkan darah saya apabila sewaktu-waktu ada yang membutuhkan. ",
+                    fontSize = 14.sp
+                )
             }
 
             Spacer(modifier = Modifier.height(16.dp))
-            Button(onClick = { navController.navigate("RincianDaftar") }) {
-                Text(text = "Daftar")
+            Button(
+                colors = ButtonDefaults.buttonColors(Color(0xffb20909)),
+                shape = RoundedCornerShape(10.dp),
+                onClick = {
+                    navController.navigate("RincianDaftar")
+                }) {
+                Text(
+                    text = "Daftar"
+                )
             }
 //            Row (modifier = Modifier.padding(start = 240.dp)){
 //                Button(

@@ -30,6 +30,7 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import com.example.appslifebloodid.R
 import com.example.appslifebloodid.ui.theme.poppinsFontFamily
+import com.google.accompanist.insets.navigationBarsWithImePadding
 
 data class ChatMessage(val text: String, val isSentByCurrentUser: Boolean, val timestamp: String)
 
@@ -59,13 +60,14 @@ fun ScreenChat(
             messageText = messageText,
             onMessageTextChanged = { messageText = it },
             onSendClicked = {
+
                 if (messageText.isNotBlank()) {
                     messages.add(ChatMessage(messageText, true, "10:20"))
                     messageText = ""
                 }
             },
             modifier = Modifier
-
+                .navigationBarsWithImePadding()
                 .padding(8.dp) // Add some padding to avoid touching edges
         )
     }
@@ -76,7 +78,7 @@ fun Header(navController: NavController, username: String) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 30.dp)
+            .padding(vertical = 40.dp)
             .background(Color(0xffb20909)),
     ) {
         Row(
@@ -215,7 +217,8 @@ fun ChatInput(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .padding(bottom = 50.dp)
+            .navigationBarsWithImePadding()
+            .padding(bottom =40.dp)
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,

@@ -21,8 +21,8 @@ import com.example.appslifebloodid.ui.base.AuthViewModel
 import com.example.appslifebloodid.ui.base.EventRegistrationViewModel
 import com.example.appslifebloodid.ui.intro.FirstScreen
 import com.example.appslifebloodid.ui.page.component.lihat_semua.LihatSemua
-import com.example.appslifebloodid.ui.intro.onboarding.components.menu_home.PendaftaranEvent
-import com.example.appslifebloodid.ui.intro.onboarding.components.menu_home.RincianDaftar
+import com.example.appslifebloodid.ui.page.component.event.PendaftaranEvent
+import com.example.appslifebloodid.ui.page.component.event.RincianDaftar
 import com.example.appslifebloodid.ui.page.HomeScreen
 import com.example.appslifebloodid.ui.page.component.event.DetailEvent
 import com.example.appslifebloodid.ui.page.component.menu_home.DetailArtikel

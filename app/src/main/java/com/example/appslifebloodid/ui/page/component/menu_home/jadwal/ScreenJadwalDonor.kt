@@ -54,15 +54,12 @@ fun ScreenJadwalDonor(
         selectedDate = date.toString()
     }
     var showDatePicker by remember { mutableStateOf(false) }
-
-
-
     Column {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(130.dp)
-                .padding(vertical = 30.dp)
+                .height(150.dp)
+                .padding(vertical = 40.dp)
                 .background(Color(0xffb20909))
         ) {
             Row(

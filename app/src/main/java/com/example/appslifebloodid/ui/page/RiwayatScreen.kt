@@ -42,7 +42,7 @@ fun RiwayatScreen(
     riwayatt: List<Model_Riwayat> = DataRiwayat.KumpulanRiwayat
 ) {
     Column(
-        modifier = Modifier.padding(vertical = 50.dp)
+        modifier = Modifier.padding(vertical = 40.dp)
     ) {
         Box(
             modifier = Modifier

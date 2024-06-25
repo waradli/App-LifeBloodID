@@ -39,7 +39,7 @@ fun ScreenStockDarah(
     navController: NavController
 ) {
     Column(
-        modifier = Modifier.padding(vertical = 30.dp)
+        modifier = Modifier.padding(vertical = 40.dp)
     ) {
         Box(
             modifier = Modifier

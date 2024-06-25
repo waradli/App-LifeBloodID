@@ -87,7 +87,7 @@ fun ItemReward(
                 ) {
                     Text(
                         text = "Tukar",
-                        fontSize = 12.sp,
+                        fontSize = 14.sp,
                         fontWeight = FontWeight.Bold,
                         fontFamily = poppinsFontFamily
                     )

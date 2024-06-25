@@ -1,4 +1,4 @@
-package com.example.appslifebloodid.ui.intro.onboarding.components.menu_home
+package com.example.appslifebloodid.ui.page.component.event
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box

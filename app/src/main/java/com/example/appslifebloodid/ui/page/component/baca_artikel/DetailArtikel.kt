@@ -74,8 +74,8 @@ fun DetailArtikel(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(100.dp)
-                    .padding(top = 35.dp)
+                    .height(110.dp)
+                    .padding(top = 40.dp)
                     .background(Color(0xffb20909))
             ) {
                 Row(
@@ -89,14 +89,14 @@ fun DetailArtikel(
                         Icon(
                             imageVector = Icons.Default.KeyboardArrowLeft,
                             tint = Color.White,
-                            modifier = Modifier.size(50.dp),
+                            modifier = Modifier.size(30.dp),
                             contentDescription = "Icon Arrow"
                         )
                     }
                     Spacer(modifier = Modifier.width(100.dp))
                     Text(
                         text = "Detail Artikel",
-                        fontSize = 24.sp,
+                        fontSize = 22.sp,
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier.padding(top = 10.dp),
                         color = Color.White

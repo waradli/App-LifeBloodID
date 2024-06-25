@@ -26,7 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import com.example.appslifebloodid.ui.intro.onboarding.components.GridItem
+import com.example.appslifebloodid.ui.page.component.event.GridItem
 import com.example.appslifebloodid.ui.intro.onboarding.components.ImageSliderEvent
 import com.example.appslifebloodid.data.network.RetrofitInstance
 import com.example.appslifebloodid.data.repository.EventRepository
@@ -44,7 +44,7 @@ fun Item_Event(navController: NavController) {
 
     Column (modifier = Modifier
         .fillMaxSize()
-        .padding(top = 40.dp),
+        .padding(vertical = 40.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         ImageSliderEvent()

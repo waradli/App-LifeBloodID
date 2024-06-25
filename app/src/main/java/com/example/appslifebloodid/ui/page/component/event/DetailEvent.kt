@@ -119,7 +119,7 @@ fun DetailEvent(
                             .height(40.dp),
 
                         shape = RoundedCornerShape(10.dp),
-                        colors = ButtonDefaults.buttonColors(Color(0xffE35A5A))
+                        colors = ButtonDefaults.buttonColors(Color(0xffb20909))
                     ) {
                         Text(text = "Pendaftaran", fontSize = 20.sp)
                     }

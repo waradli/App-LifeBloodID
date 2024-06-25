@@ -44,7 +44,7 @@ fun ScreenDaftarDr(
 ) {
     Column(
         modifier = Modifier.padding(
-            vertical = 30.dp
+            vertical = 40.dp
         )
     ) {
         Box(
